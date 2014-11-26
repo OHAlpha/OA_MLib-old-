@@ -1,0 +1,13 @@
+/*
+ * mask.h
+ *
+ *  Created on: Nov 6, 2014
+ *      Author: alpha
+ */
+
+#ifndef MASK_N_
+#define MASK_N_
+
+extern int rightMask[], leftMask[];
+
+#endif /* MASK_N_ */

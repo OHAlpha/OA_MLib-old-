@@ -1,0 +1,10 @@
+opened build/param/primelist_param
+l: 4294967296
+n: 65536
+4294967296, 65536
+(lim,i,n,l) = (4294967296,65536,65536,821641)
+65536: 821641
+created
+opened
+written
+closed

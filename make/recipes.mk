@@ -7,8 +7,14 @@ mlibtest.a(%test.o): %test.o
 mlibtest.a(%.o): %.o
 	ar -cr $(ArchiveDir)/mlibtest.a $(ObjectDir)/$*.o
 
-$(BuildObjects): %gen.o: %gen.c
-	$(COMPILE.c) $(INCLUDE) $(BuildSourceDir)/$*gen.c -o $(BuildObjectDir)/$*gen.o
+$(BuildTranslations): %gen.i: %gen.c
+	$(CC) -E $(INCLUDE) $(BuildSourceDir)/$*gen.c -o $(BuildTranslationDir)/$*gen.i
+
+$(BuildAssembly): %gen.s: %gen.i
+	$(CC) -S $(INCLUDE) $(BuildTranslationDir)/$*gen.i -o $(BuildAssemblyDir)/$*gen.s
+
+$(BuildObjects): %gen.o: %gen.s
+	$(CC) -c $(BuildAssemblyDir)/$*gen.s -o $(BuildObjectDir)/$*gen.o
 
 $(BuildExecutables): %gen: %gen.o
 	$(LINK.o) $(BuildObjectDir)/$*gen.o $(ArchiveDir)/mlib.a $(LOADLIBES) $(LDLIBS) -o $(BuildExecutableDir)/$*gen
@@ -16,14 +22,22 @@ $(BuildExecutables): %gen: %gen.o
 $(BuildOutputs): %.c: %gen %_param
 	$(BuildExecutableDir)/$*gen $(BuildParameterDir)/$*_param $(SourceDir)/$*.c > $(BuildResultDir)/$*_gen
 
-$(TestObjects): %test.o: %test.c %test.h %.c %.h
+$(TestTranslations): %test.i: %test.c %test.h %.c %.h
 	$(CC) -E $(INCLUDE) $(TestSourceDir)/$*test.c -o $(TestTranslationDir)/$*test.i
-	$(CC) -S $(INCLUDE) $(TestSourceDir)/$*test.c -o $(TestAssemblyDir)/$*test.s
+
+$(TestAssembly): %test.s: %test.i
+	$(CC) -S $(INCLUDE) $(TestTranslationDir)/$*test.i -o $(TestAssemblyDir)/$*test.s
+
+$(TestObjects): %test.o: %test.s
 	$(CC) -c $(TestAssemblyDir)/$*test.s -o $(TestObjectDir)/$*test.o
 
-$(TestDriverObjects): %driver.o: %driver.c
+$(TestDriverTranslations): %driver.i: %driver.c
 	$(CC) -E $(INCLUDE) $(TestSourceDir)/$*driver.c -o $(TestTranslationDir)/$*driver.i
-	$(CC) -S $(INCLUDE) $(TestSourceDir)/$*driver.c -o $(TestAssemblyDir)/$*driver.s
+
+$(TestDriverAssembly): %driver.s: %driver.i
+	$(CC) -S $(INCLUDE) $(TestTranslationDir)/$*driver.i -o $(TestAssemblyDir)/$*driver.s
+
+$(TestDriverObjects): %driver.o: %driver.s
 	$(CC) -c $(TestAssemblyDir)/$*driver.s -o $(TestObjectDir)/$*driver.o
 
 $(TestExecutables): %test: %test.o %driver.o mlib.a
@@ -32,15 +46,14 @@ $(TestExecutables): %test: %test.o %driver.o mlib.a
 $(TestResults): %_t.h: %test
 	$(TestExecutableDir)/$*test > $(TestResultDir)/$*_t.h
 
-$(HObjects): %.o: %.c %.h
+$(HTranslations): %.i: %.c %.h
 	$(CC) -E $(INCLUDE) $(SourceDir)/$*.c -o $(TranslationDir)/$*.i
-	$(CC) -S $(INCLUDE) $(SourceDir)/$*.c -o $(AssemblyDir)/$*.s
-	$(CC) -c $(AssemblyDir)/$*.s -o $(ObjectDir)/$*.o
 
-$(NObjects): %.o: %.c %.n
+$(NTranslations): %.i: %.c %.n
 	$(CC) -E $(INCLUDE) $(SourceDir)/$*.c -o $(TranslationDir)/$*.i
-	$(CC) -S $(INCLUDE) $(SourceDir)/$*.c -o $(AssemblyDir)/$*.s
-	$(CC) -c $(AssemblyDir)/$*.s -o $(ObjectDir)/$*.o
 
-%.o: %.s
+$(Assembly): %.s: %.i
+	$(CC) -S $(INCLUDE) $(TranslationDir)/$*.i -o $(AssemblyDir)/$*.s
+
+$(Objects): %.o: %.s
 	$(CC) -c $(AssemblyDir)/$*.s -o $(ObjectDir)/$*.o

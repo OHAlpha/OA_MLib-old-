@@ -2,7 +2,7 @@ CC := gcc
 
 HeaderDir := include
 SourceDir := source
-TranslationDir := ../OA_MLib_out/processed
+TranslationDir := processed
 AssemblyDir := assembly
 ObjectDir := objects
 ExecutableDir := bin
@@ -15,7 +15,7 @@ BuildDir := build
 TestDir := test
 
 BuildSourceDir := $(BuildDir)/$(SourceDir)
-BuildTranslationDir := $(TranslationDir)/$(BuildDir)
+BuildTranslationDir := $(BuildDir)/$(TranslationDir)
 BuildAssemblyDir := $(BuildDir)/$(AssemblyDir)
 BuildObjectDir := $(BuildDir)/$(ObjectDir)
 BuildExecutableDir := $(BuildDir)/$(ExecutableDir)
@@ -24,7 +24,7 @@ BuildResultDir := $(BuildDir)/$(ResultDir)
 
 TestHeaderDir := $(TestDir)/$(HeaderDir)
 TestSourceDir := $(TestDir)/$(SourceDir)
-TestTranslationDir := $(TranslationDir)/$(TestDir)
+TestTranslationDir := $(TestDir)/$(TranslationDir)
 TestAssemblyDir := $(TestDir)/$(AssemblyDir)
 TestObjectDir := $(TestDir)/$(ObjectDir)
 TestExecutableDir := $(TestDir)/$(ExecutableDir)

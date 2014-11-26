@@ -1,0 +1,15 @@
+/*
+ * primelist.h
+ *
+ *  Created on: Nov 7, 2014
+ *      Author: alpha
+ */
+
+#ifndef PRIMELIST_N_
+#define PRIMELIST_N_
+
+extern UI_TYPE numPrimes;
+
+extern ULL_TYPE primelist[];
+
+#endif /* PRIMELIST_N_ */

@@ -1,0 +1,13 @@
+/*
+ * const_hexi.h
+ *
+ *  Created on: Nov 6, 2014
+ *      Author: alpha
+ */
+
+#ifndef CONST_HEXI_N_
+#define CONST_HEXI_N_
+
+extern char hexi[], Hexi[];
+
+#endif /* CONST_HEXI_N_ */

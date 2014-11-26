@@ -1,7 +1,7 @@
 HHeader := gcd.h lcm.h extgcd.h ipower.h
-HHeader := $(Header) factorial.h permutation.h combination.h invfactorial.h
-HHeader := $(Header) prime.h sumInteger.h
-HHeader := $(Header) differenceInteger.h
+HHeader := $(HHeader) factorial.h permutation.h combination.h invfactorial.h
+HHeader := $(HHeader) prime.h sumInteger.h
+HHeader := $(HHeader) differenceInteger.h
 
 NHeader := mask.n hexi.n primelist.n
 
@@ -9,24 +9,30 @@ Header := macro.h $(HHeader) $(NHeader) prime.d integer.d
 
 Source := $(patsubst %.h,%.c,$(HHeader) ) $(patsubst %.n,%.c,$(NHeader) )
 
-Translations := $(patsubst %.c,%.i,$(Source) )
+HTranslations := $(patsubst %.h,%.i,$(HHeader) )
+
+NTranslations := $(patsubst %.n,%.i,$(NHeader) )
+
+Translations := $(HTranslations) $(NTranslations)
 
 Assembly := $(patsubst %.c,%.s,$(Source) )
 
-HObjects := $(patsubst %.h,%.o,$(HHeader) )
+Objects := $(patsubst %.c,%.o,$(Source) )
 
-NObjects := $(patsubst %.n,%.o,$(NHeader) )
+BuildSource := primelistgen.c
 
-Objects := $(HObjects) $(NObjects)
+BuildTranslations := $(patsubst %.c,%.i,$(BuildSource) )
 
-BuildObjects := primelistgen.o
+BuildAssembly := $(patsubst %.c,%.s,$(BuildSource) )
 
-BuildExecutables := $(patsubst %.o,%,$(BuildObjects) )
+BuildObjects := $(patsubst %.c,%.o,$(BuildSource) )
 
-BuildOutputs := $(patsubst %gen.o,%.c,$(BuildObjects) )
+BuildExecutables := $(patsubst %.c,%,$(BuildSource) )
+
+BuildOutputs := $(patsubst %gen.c,%.c,$(BuildSource) )
 
 TestHeader := gcdtest.h lcmtest.h ipowertest.h factorialtest.h
-TestHeader := sumIntegertest.h differenceIntegertest.h
+TestHeader := $(TestHeader) sumIntegertest.h differenceIntegertest.h
 
 TestSource := $(patsubst %.h,%.c,$(TestHeader) )
 
@@ -34,7 +40,11 @@ TestDrivers := $(patsubst %test.h,%driver.c,$(TestHeader) )
 
 TestTranslations := $(patsubst %.h,%.i,$(TestHeader) )
 
+TestDriverTranslations := $(patsubst %test.h,%driver.i,$(TestHeader) )
+
 TestAssembly := $(patsubst %.h,%.s,$(TestHeader) )
+
+TestDriverAssembly := $(patsubst %test.h,%driver.s,$(TestHeader) )
 
 TestObjects := $(patsubst %.h,%.o,$(TestHeader) )
 
