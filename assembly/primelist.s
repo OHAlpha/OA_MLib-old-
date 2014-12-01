@@ -7,7 +7,7 @@
 numPrimes:
 	.long	65536
 	.globl	primelist
-	.align 32
+	.align 64
 	.type	primelist, @object
 	.size	primelist, 524288
 primelist:
@@ -65547,5 +65547,5 @@ primelist:
 	.quad	821573
 	.quad	821603
 	.quad	821641
-	.ident	"GCC: (Ubuntu 4.8.2-19ubuntu1) 4.8.2"
+	.ident	"GCC: (Ubuntu 4.9.1-16ubuntu6) 4.9.1"
 	.section	.note.GNU-stack,"",@progbits

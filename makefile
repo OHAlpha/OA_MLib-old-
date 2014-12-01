@@ -8,7 +8,19 @@ MessagePrototype := proto.txt
 MessageFile := message.txt
 ChangeLog := changelog.txt
 
-all: build buildtest test var.mk
+all: buildall push
+
+push:
+	git push https://github.com/OHAlpha/OA_MLib.git master
+	git push https://OAlpha@bitbucket.org/OAlpha/oa_mlib.git master
+
+pullGitHub:
+	git push pull://github.com/OHAlpha/OA_MLib.git
+
+pullBitBucket:
+	git push pull://OAlpha@bitbucket.org/OAlpha/oa_mlib.git
+
+buildall: build buildtest test var.mk
 	cp $(MessagePrototype) $(MessageFile)
 	date >> $(MessageFile)
 	cat $(ChangeLog) >> $(MessageFile)
@@ -16,9 +28,7 @@ all: build buildtest test var.mk
 	echo ChangeLog > $(ChangeLog)
 	git add -A
 	git commit -F $(MessageFile)
-	git push https://github.com/OHAlpha/OA_MLib.git master
-	git push https://OAlpha@bitbucket.org/OAlpha/oa_mlib.git master
-
+	
 build: mlib.a mlib.i
 
 mlib.a: $(Objects) $(MLibArchive)

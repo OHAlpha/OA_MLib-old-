@@ -109,10 +109,8 @@ permuteUS:
 	movw	%dx, -20(%rbp)
 	movw	%ax, -24(%rbp)
 	movw	$1, -4(%rbp)
-	movzwl	-24(%rbp), %eax
-	movzwl	-20(%rbp), %edx
-	subl	%eax, %edx
-	movl	%edx, %eax
+	movzwl	-20(%rbp), %eax
+	subw	-24(%rbp), %ax
 	addl	$1, %eax
 	movw	%ax, -2(%rbp)
 	jmp	.L12
@@ -152,10 +150,8 @@ permuteI:
 	movl	$0, %eax
 	jmp	.L17
 .L16:
-	movl	-24(%rbp), %eax
-	movl	-20(%rbp), %edx
-	subl	%eax, %edx
-	movl	%edx, %eax
+	movl	-20(%rbp), %eax
+	subl	-24(%rbp), %eax
 	addl	$1, %eax
 	movl	%eax, -4(%rbp)
 	jmp	.L18
@@ -189,10 +185,8 @@ permuteUI:
 	movl	%edi, -20(%rbp)
 	movl	%esi, -24(%rbp)
 	movl	$1, -8(%rbp)
-	movl	-24(%rbp), %eax
-	movl	-20(%rbp), %edx
-	subl	%eax, %edx
-	movl	%edx, %eax
+	movl	-20(%rbp), %eax
+	subl	-24(%rbp), %eax
 	addl	$1, %eax
 	movl	%eax, -4(%rbp)
 	jmp	.L21
@@ -230,10 +224,8 @@ permuteL:
 	movl	$0, %eax
 	jmp	.L26
 .L25:
-	movq	-32(%rbp), %rax
-	movq	-24(%rbp), %rdx
-	subq	%rax, %rdx
-	movq	%rdx, %rax
+	movq	-24(%rbp), %rax
+	subq	-32(%rbp), %rax
 	addq	$1, %rax
 	movq	%rax, -8(%rbp)
 	jmp	.L27
@@ -267,10 +259,8 @@ permuteUL:
 	movq	%rdi, -24(%rbp)
 	movq	%rsi, -32(%rbp)
 	movq	$1, -16(%rbp)
-	movq	-32(%rbp), %rax
-	movq	-24(%rbp), %rdx
-	subq	%rax, %rdx
-	movq	%rdx, %rax
+	movq	-24(%rbp), %rax
+	subq	-32(%rbp), %rax
 	addq	$1, %rax
 	movq	%rax, -8(%rbp)
 	jmp	.L30
@@ -308,10 +298,8 @@ permuteLL:
 	movl	$0, %eax
 	jmp	.L35
 .L34:
-	movq	-32(%rbp), %rax
-	movq	-24(%rbp), %rdx
-	subq	%rax, %rdx
-	movq	%rdx, %rax
+	movq	-24(%rbp), %rax
+	subq	-32(%rbp), %rax
 	addq	$1, %rax
 	movq	%rax, -8(%rbp)
 	jmp	.L36
@@ -345,10 +333,8 @@ permuteULL:
 	movq	%rdi, -24(%rbp)
 	movq	%rsi, -32(%rbp)
 	movq	$1, -16(%rbp)
-	movq	-32(%rbp), %rax
-	movq	-24(%rbp), %rdx
-	subq	%rax, %rdx
-	movq	%rdx, %rax
+	movq	-24(%rbp), %rax
+	subq	-32(%rbp), %rax
 	addq	$1, %rax
 	movq	%rax, -8(%rbp)
 	jmp	.L39
@@ -387,18 +373,18 @@ permuteF:
 	movl	.LC1(%rip), %eax
 	jmp	.L44
 .L43:
-	movl	-24(%rbp), %eax
-	movl	-20(%rbp), %edx
-	subl	%eax, %edx
-	movl	%edx, %eax
+	movl	-20(%rbp), %eax
+	subl	-24(%rbp), %eax
 	addl	$1, %eax
 	movl	%eax, -4(%rbp)
 	jmp	.L45
 .L46:
+	pxor	%xmm0, %xmm0
 	cvtsi2ss	-4(%rbp), %xmm0
 	movss	-8(%rbp), %xmm1
-	mulss	%xmm1, %xmm0
-	movss	%xmm0, -8(%rbp)
+	mulss	%xmm0, %xmm1
+	movd	%xmm1, %eax
+	movl	%eax, -8(%rbp)
 	addl	$1, -4(%rbp)
 .L45:
 	movl	-4(%rbp), %eax
@@ -433,18 +419,18 @@ permuteD:
 	movl	$0, %eax
 	jmp	.L49
 .L48:
-	movq	-32(%rbp), %rax
-	movq	-24(%rbp), %rdx
-	subq	%rax, %rdx
-	movq	%rdx, %rax
+	movq	-24(%rbp), %rax
+	subq	-32(%rbp), %rax
 	addq	$1, %rax
 	movq	%rax, -8(%rbp)
 	jmp	.L50
 .L51:
+	pxor	%xmm0, %xmm0
 	cvtsi2sdq	-8(%rbp), %xmm0
 	movsd	-16(%rbp), %xmm1
-	mulsd	%xmm1, %xmm0
-	movsd	%xmm0, -16(%rbp)
+	mulsd	%xmm0, %xmm1
+	movq	%xmm1, %rax
+	movq	%rax, -16(%rbp)
 	addq	$1, -8(%rbp)
 .L50:
 	movq	-8(%rbp), %rax
@@ -482,10 +468,8 @@ permuteLD:
 	movl	$0, %edx
 	jmp	.L54
 .L53:
-	movq	-48(%rbp), %rax
-	movq	-40(%rbp), %rdx
-	subq	%rax, %rdx
-	movq	%rdx, %rax
+	movq	-40(%rbp), %rax
+	subq	-48(%rbp), %rax
 	addq	$1, %rax
 	movq	%rax, -24(%rbp)
 	jmp	.L55
@@ -518,5 +502,5 @@ permuteLD:
 	.align 4
 .LC1:
 	.long	0
-	.ident	"GCC: (Ubuntu 4.8.2-19ubuntu1) 4.8.2"
+	.ident	"GCC: (Ubuntu 4.9.1-16ubuntu6) 4.9.1"
 	.section	.note.GNU-stack,"",@progbits

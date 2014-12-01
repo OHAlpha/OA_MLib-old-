@@ -83,9 +83,9 @@ writeInteger:
 	movl	-24(%rbp), %eax
 	movslq	%eax, %rdx
 	movq	-8(%rbp), %rax
-	addq	%rax, %rdx
-	movl	-28(%rbp), %eax
-	movb	%al, (%rdx)
+	addq	%rdx, %rax
+	movl	-28(%rbp), %edx
+	movb	%dl, (%rax)
 	sarl	$8, -28(%rbp)
 	addl	$1, -24(%rbp)
 .L5:
@@ -183,10 +183,10 @@ writeInteger:
 	movl	%edx, -20(%rbp)
 	movslq	%eax, %rdx
 	movq	-16(%rbp), %rax
-	addq	%rax, %rdx
-	movl	-32(%rbp), %eax
-	addl	$48, %eax
-	movb	%al, (%rdx)
+	addq	%rdx, %rax
+	movl	-32(%rbp), %edx
+	addl	$48, %edx
+	movb	%dl, (%rax)
 	cmpl	$0, -28(%rbp)
 	je	.L11
 	cmpl	$0, -20(%rbp)
@@ -206,10 +206,8 @@ writeInteger:
 	movl	%eax, -24(%rbp)
 	jmp	.L14
 .L15:
-	movl	-20(%rbp), %eax
-	movl	-24(%rbp), %edx
-	subl	%eax, %edx
-	movl	%edx, %eax
+	movl	-24(%rbp), %eax
+	subl	-20(%rbp), %eax
 	movslq	%eax, %rdx
 	movq	-56(%rbp), %rax
 	addq	%rax, %rdx
@@ -321,9 +319,9 @@ strInteger:
 	movl	-24(%rbp), %eax
 	movslq	%eax, %rdx
 	movq	-8(%rbp), %rax
-	addq	%rax, %rdx
-	movl	-28(%rbp), %eax
-	movb	%al, (%rdx)
+	addq	%rdx, %rax
+	movl	-28(%rbp), %edx
+	movb	%dl, (%rax)
 	sarl	$8, -28(%rbp)
 	addl	$1, -24(%rbp)
 .L20:
@@ -421,10 +419,10 @@ strInteger:
 	movl	%edx, -20(%rbp)
 	movslq	%eax, %rdx
 	movq	-16(%rbp), %rax
-	addq	%rax, %rdx
-	movl	-32(%rbp), %eax
-	addl	$48, %eax
-	movb	%al, (%rdx)
+	addq	%rdx, %rax
+	movl	-32(%rbp), %edx
+	addl	$48, %edx
+	movb	%dl, (%rax)
 	cmpl	$0, -28(%rbp)
 	je	.L26
 	cmpl	$0, -20(%rbp)
@@ -536,9 +534,9 @@ printInteger:
 	movl	-24(%rbp), %eax
 	movslq	%eax, %rdx
 	movq	-8(%rbp), %rax
-	addq	%rax, %rdx
-	movl	-28(%rbp), %eax
-	movb	%al, (%rdx)
+	addq	%rdx, %rax
+	movl	-28(%rbp), %edx
+	movb	%dl, (%rax)
 	sarl	$8, -28(%rbp)
 	addl	$1, -24(%rbp)
 .L34:
@@ -636,10 +634,10 @@ printInteger:
 	movl	%edx, -20(%rbp)
 	movslq	%eax, %rdx
 	movq	-16(%rbp), %rax
-	addq	%rax, %rdx
-	movl	-32(%rbp), %eax
-	addl	$48, %eax
-	movb	%al, (%rdx)
+	addq	%rdx, %rax
+	movl	-32(%rbp), %edx
+	addl	$48, %edx
+	movb	%dl, (%rax)
 	cmpl	$0, -28(%rbp)
 	je	.L40
 	cmpl	$0, -20(%rbp)
@@ -669,5 +667,5 @@ printInteger:
 	.cfi_endproc
 .LFE4:
 	.size	printInteger, .-printInteger
-	.ident	"GCC: (Ubuntu 4.8.2-19ubuntu1) 4.8.2"
+	.ident	"GCC: (Ubuntu 4.9.1-16ubuntu6) 4.9.1"
 	.section	.note.GNU-stack,"",@progbits

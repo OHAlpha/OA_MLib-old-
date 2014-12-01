@@ -21,11 +21,12 @@ ifactF:
 	movl	$1, -4(%rbp)
 	jmp	.L4
 .L5:
+	pxor	%xmm0, %xmm0
 	cvtsi2ss	-4(%rbp), %xmm0
 	movss	-8(%rbp), %xmm1
 	divss	%xmm0, %xmm1
-	movaps	%xmm1, %xmm0
-	movss	%xmm0, -8(%rbp)
+	movd	%xmm1, %eax
+	movl	%eax, -8(%rbp)
 	addl	$1, -4(%rbp)
 .L4:
 	movl	-4(%rbp), %eax
@@ -62,11 +63,12 @@ ifactD:
 	movq	$1, -8(%rbp)
 	jmp	.L9
 .L10:
+	pxor	%xmm0, %xmm0
 	cvtsi2sdq	-8(%rbp), %xmm0
 	movsd	-16(%rbp), %xmm1
 	divsd	%xmm0, %xmm1
-	movapd	%xmm1, %xmm0
-	movsd	%xmm0, -16(%rbp)
+	movq	%xmm1, %rax
+	movq	%rax, -16(%rbp)
 	addq	$1, -8(%rbp)
 .L9:
 	movq	-8(%rbp), %rax
@@ -134,5 +136,5 @@ ifactLD:
 	.align 4
 .LC1:
 	.long	0
-	.ident	"GCC: (Ubuntu 4.8.2-19ubuntu1) 4.8.2"
+	.ident	"GCC: (Ubuntu 4.9.1-16ubuntu6) 4.9.1"
 	.section	.note.GNU-stack,"",@progbits

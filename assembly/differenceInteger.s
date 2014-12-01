@@ -111,9 +111,9 @@ differenceInteger:
 	movq	8(%rax), %rdx
 	movl	-8(%rbp), %eax
 	cltq
-	addq	%rax, %rdx
-	movl	-4(%rbp), %eax
-	movb	%al, (%rdx)
+	addq	%rdx, %rax
+	movl	-4(%rbp), %edx
+	movb	%dl, (%rax)
 	movl	-4(%rbp), %eax
 	sarl	$8, %eax
 	andl	$255, %eax
@@ -302,9 +302,9 @@ differenceEqualsInteger:
 	movq	8(%rax), %rdx
 	movl	-8(%rbp), %eax
 	cltq
-	addq	%rax, %rdx
-	movl	-4(%rbp), %eax
-	movb	%al, (%rdx)
+	addq	%rdx, %rax
+	movl	-4(%rbp), %edx
+	movb	%dl, (%rax)
 	movl	-4(%rbp), %eax
 	sarl	$8, %eax
 	andl	$255, %eax
@@ -397,5 +397,5 @@ differenceEqualsInteger:
 	.cfi_endproc
 .LFE3:
 	.size	differenceEqualsInteger, .-differenceEqualsInteger
-	.ident	"GCC: (Ubuntu 4.8.2-19ubuntu1) 4.8.2"
+	.ident	"GCC: (Ubuntu 4.9.1-16ubuntu6) 4.9.1"
 	.section	.note.GNU-stack,"",@progbits

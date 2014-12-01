@@ -654,20 +654,19 @@ testIPowF:
 	movl	.LC16(%rip), %eax
 	movl	%eax, -16(%rbp)
 	movl	$30, -12(%rbp)
-	movss	-16(%rbp), %xmm0
-	cvtps2pd	%xmm0, %xmm0
+	cvtss2sd	-16(%rbp), %xmm0
 	movl	-12(%rbp), %eax
 	movl	%eax, %edi
 	movl	$1, %eax
 	call	ipowF
-	cvtsi2ss	%eax, %xmm0
-	movss	%xmm0, -8(%rbp)
+	pxor	%xmm2, %xmm2
+	cvtsi2ss	%eax, %xmm2
+	movd	%xmm2, %eax
+	movl	%eax, -8(%rbp)
 	movl	.LC17(%rip), %eax
 	movl	%eax, -4(%rbp)
-	movss	-8(%rbp), %xmm1
-	cvtps2pd	%xmm1, %xmm1
-	movss	-16(%rbp), %xmm0
-	cvtps2pd	%xmm0, %xmm0
+	cvtss2sd	-8(%rbp), %xmm1
+	cvtss2sd	-16(%rbp), %xmm0
 	movl	-12(%rbp), %edx
 	movq	-40(%rbp), %rax
 	movl	$.LC18, %esi
@@ -681,10 +680,8 @@ testIPowF:
 	ucomiss	-4(%rbp), %xmm0
 	je	.L26
 .L31:
-	movss	-8(%rbp), %xmm1
-	cvtps2pd	%xmm1, %xmm1
-	movss	-4(%rbp), %xmm0
-	cvtps2pd	%xmm0, %xmm0
+	cvtss2sd	-8(%rbp), %xmm1
+	cvtss2sd	-4(%rbp), %xmm0
 	movq	-40(%rbp), %rax
 	movl	$.LC19, %esi
 	movq	%rax, %rdi
@@ -695,20 +692,19 @@ testIPowF:
 	movl	.LC20(%rip), %eax
 	movl	%eax, -16(%rbp)
 	movl	$5, -12(%rbp)
-	movss	-16(%rbp), %xmm0
-	cvtps2pd	%xmm0, %xmm0
+	cvtss2sd	-16(%rbp), %xmm0
 	movl	-12(%rbp), %eax
 	movl	%eax, %edi
 	movl	$1, %eax
 	call	ipowF
-	cvtsi2ss	%eax, %xmm0
-	movss	%xmm0, -8(%rbp)
+	pxor	%xmm3, %xmm3
+	cvtsi2ss	%eax, %xmm3
+	movd	%xmm3, %eax
+	movl	%eax, -8(%rbp)
 	movl	.LC21(%rip), %eax
 	movl	%eax, -4(%rbp)
-	movss	-8(%rbp), %xmm1
-	cvtps2pd	%xmm1, %xmm1
-	movss	-16(%rbp), %xmm0
-	cvtps2pd	%xmm0, %xmm0
+	cvtss2sd	-8(%rbp), %xmm1
+	cvtss2sd	-16(%rbp), %xmm0
 	movl	-12(%rbp), %edx
 	movq	-40(%rbp), %rax
 	movl	$.LC18, %esi
@@ -722,10 +718,8 @@ testIPowF:
 	ucomiss	-4(%rbp), %xmm0
 	je	.L28
 .L32:
-	movss	-8(%rbp), %xmm1
-	cvtps2pd	%xmm1, %xmm1
-	movss	-4(%rbp), %xmm0
-	cvtps2pd	%xmm0, %xmm0
+	cvtss2sd	-8(%rbp), %xmm1
+	cvtss2sd	-4(%rbp), %xmm0
 	movq	-40(%rbp), %rax
 	movl	$.LC19, %esi
 	movq	%rax, %rdi
@@ -778,21 +772,22 @@ testIPowD:
 	movsd	-64(%rbp), %xmm0
 	movl	$1, %eax
 	call	ipowD
-	cvtsi2sd	%eax, %xmm0
-	movsd	%xmm0, -16(%rbp)
+	pxor	%xmm2, %xmm2
+	cvtsi2sd	%eax, %xmm2
+	movq	%xmm2, %rax
+	movq	%rax, -16(%rbp)
 	movabsq	$4742290407621132288, %rax
 	movq	%rax, -8(%rbp)
-	movq	-16(%rbp), %rdx
-	movq	-24(%rbp), %rsi
-	movq	-32(%rbp), %rax
-	movq	-56(%rbp), %rcx
-	movq	%rdx, -64(%rbp)
+	movq	-16(%rbp), %rsi
+	movq	-24(%rbp), %rdx
+	movq	-32(%rbp), %rcx
+	movq	-56(%rbp), %rax
+	movq	%rsi, -64(%rbp)
 	movsd	-64(%rbp), %xmm1
-	movq	%rsi, %rdx
-	movq	%rax, -64(%rbp)
+	movq	%rcx, -64(%rbp)
 	movsd	-64(%rbp), %xmm0
 	movl	$.LC25, %esi
-	movq	%rcx, %rdi
+	movq	%rax, %rdi
 	movl	$2, %eax
 	call	fprintf
 	movsd	-16(%rbp), %xmm0
@@ -802,15 +797,15 @@ testIPowD:
 	ucomisd	-8(%rbp), %xmm0
 	je	.L34
 .L39:
-	movq	-16(%rbp), %rdx
-	movq	-8(%rbp), %rax
-	movq	-56(%rbp), %rcx
-	movq	%rdx, -64(%rbp)
+	movq	-16(%rbp), %rcx
+	movq	-8(%rbp), %rdx
+	movq	-56(%rbp), %rax
+	movq	%rcx, -64(%rbp)
 	movsd	-64(%rbp), %xmm1
-	movq	%rax, -64(%rbp)
+	movq	%rdx, -64(%rbp)
 	movsd	-64(%rbp), %xmm0
 	movl	$.LC26, %esi
-	movq	%rcx, %rdi
+	movq	%rax, %rdi
 	movl	$2, %eax
 	call	fprintf
 	orl	$1, -36(%rbp)
@@ -825,21 +820,22 @@ testIPowD:
 	movsd	-64(%rbp), %xmm0
 	movl	$1, %eax
 	call	ipowD
-	cvtsi2sd	%eax, %xmm0
-	movsd	%xmm0, -16(%rbp)
+	pxor	%xmm3, %xmm3
+	cvtsi2sd	%eax, %xmm3
+	movq	%xmm3, %rax
+	movq	%rax, -16(%rbp)
 	movabsq	$4642753818981826560, %rax
 	movq	%rax, -8(%rbp)
-	movq	-16(%rbp), %rdx
-	movq	-24(%rbp), %rsi
-	movq	-32(%rbp), %rax
-	movq	-56(%rbp), %rcx
-	movq	%rdx, -64(%rbp)
+	movq	-16(%rbp), %rsi
+	movq	-24(%rbp), %rdx
+	movq	-32(%rbp), %rcx
+	movq	-56(%rbp), %rax
+	movq	%rsi, -64(%rbp)
 	movsd	-64(%rbp), %xmm1
-	movq	%rsi, %rdx
-	movq	%rax, -64(%rbp)
+	movq	%rcx, -64(%rbp)
 	movsd	-64(%rbp), %xmm0
 	movl	$.LC25, %esi
-	movq	%rcx, %rdi
+	movq	%rax, %rdi
 	movl	$2, %eax
 	call	fprintf
 	movsd	-16(%rbp), %xmm0
@@ -849,15 +845,15 @@ testIPowD:
 	ucomisd	-8(%rbp), %xmm0
 	je	.L36
 .L40:
-	movq	-16(%rbp), %rdx
-	movq	-8(%rbp), %rax
-	movq	-56(%rbp), %rcx
-	movq	%rdx, -64(%rbp)
+	movq	-16(%rbp), %rcx
+	movq	-8(%rbp), %rdx
+	movq	-56(%rbp), %rax
+	movq	%rcx, -64(%rbp)
 	movsd	-64(%rbp), %xmm1
-	movq	%rax, -64(%rbp)
+	movq	%rdx, -64(%rbp)
 	movsd	-64(%rbp), %xmm0
 	movl	$.LC26, %esi
-	movq	%rcx, %rdi
+	movq	%rax, %rdi
 	movl	$2, %eax
 	call	fprintf
 	orl	$1, -36(%rbp)
@@ -889,7 +885,7 @@ testIPowLD:
 	.cfi_offset 6, -16
 	movq	%rsp, %rbp
 	.cfi_def_cfa_register 6
-	subq	$112, %rsp
+	subq	$80, %rsp
 	movq	%rdi, -72(%rbp)
 	movl	$0, -60(%rbp)
 	movq	-72(%rbp), %rax
@@ -903,14 +899,13 @@ testIPowLD:
 	movq	%rax, -48(%rbp)
 	movl	%edx, -40(%rbp)
 	movq	$30, -56(%rbp)
-	movq	-56(%rbp), %rcx
-	movq	-48(%rbp), %rax
-	movl	-40(%rbp), %edx
-	movq	%rax, (%rsp)
-	movl	%edx, 8(%rsp)
-	movq	%rcx, %rdi
+	movq	-56(%rbp), %rax
+	pushq	-40(%rbp)
+	pushq	-48(%rbp)
+	movq	%rax, %rdi
 	movl	$0, %eax
 	call	ipowLD
+	addq	$16, %rsp
 	movl	%eax, -76(%rbp)
 	fildl	-76(%rbp)
 	fstpt	-32(%rbp)
@@ -918,21 +913,17 @@ testIPowLD:
 	movl	$16413, %edx
 	movq	%rax, -16(%rbp)
 	movl	%edx, -8(%rbp)
-	movq	-56(%rbp), %rsi
-	movq	-72(%rbp), %rcx
-	movq	-32(%rbp), %rax
-	movl	-24(%rbp), %edx
-	movq	%rax, 16(%rsp)
-	movl	%edx, 24(%rsp)
-	movq	-48(%rbp), %rax
-	movl	-40(%rbp), %edx
-	movq	%rax, (%rsp)
-	movl	%edx, 8(%rsp)
-	movq	%rsi, %rdx
+	movq	-56(%rbp), %rdx
+	movq	-72(%rbp), %rax
+	pushq	-24(%rbp)
+	pushq	-32(%rbp)
+	pushq	-40(%rbp)
+	pushq	-48(%rbp)
 	movl	$.LC32, %esi
-	movq	%rcx, %rdi
+	movq	%rax, %rdi
 	movl	$0, %eax
 	call	fprintf
+	addq	$32, %rsp
 	fldt	-32(%rbp)
 	fldt	-16(%rbp)
 	fucomip	%st(1), %st
@@ -944,19 +935,16 @@ testIPowLD:
 	fstp	%st(0)
 	je	.L42
 .L47:
-	movq	-72(%rbp), %rcx
-	movq	-32(%rbp), %rax
-	movl	-24(%rbp), %edx
-	movq	%rax, 16(%rsp)
-	movl	%edx, 24(%rsp)
-	movq	-16(%rbp), %rax
-	movl	-8(%rbp), %edx
-	movq	%rax, (%rsp)
-	movl	%edx, 8(%rsp)
+	movq	-72(%rbp), %rax
+	pushq	-24(%rbp)
+	pushq	-32(%rbp)
+	pushq	-8(%rbp)
+	pushq	-16(%rbp)
 	movl	$.LC33, %esi
-	movq	%rcx, %rdi
+	movq	%rax, %rdi
 	movl	$0, %eax
 	call	fprintf
+	addq	$32, %rsp
 	orl	$1, -60(%rbp)
 .L42:
 	movabsq	$-4611686018427387904, %rax
@@ -964,14 +952,13 @@ testIPowLD:
 	movq	%rax, -48(%rbp)
 	movl	%edx, -40(%rbp)
 	movq	$5, -56(%rbp)
-	movq	-56(%rbp), %rcx
-	movq	-48(%rbp), %rax
-	movl	-40(%rbp), %edx
-	movq	%rax, (%rsp)
-	movl	%edx, 8(%rsp)
-	movq	%rcx, %rdi
+	movq	-56(%rbp), %rax
+	pushq	-40(%rbp)
+	pushq	-48(%rbp)
+	movq	%rax, %rdi
 	movl	$0, %eax
 	call	ipowLD
+	addq	$16, %rsp
 	movl	%eax, -76(%rbp)
 	fildl	-76(%rbp)
 	fstpt	-32(%rbp)
@@ -979,21 +966,17 @@ testIPowLD:
 	movl	$16390, %edx
 	movq	%rax, -16(%rbp)
 	movl	%edx, -8(%rbp)
-	movq	-56(%rbp), %rsi
-	movq	-72(%rbp), %rcx
-	movq	-32(%rbp), %rax
-	movl	-24(%rbp), %edx
-	movq	%rax, 16(%rsp)
-	movl	%edx, 24(%rsp)
-	movq	-48(%rbp), %rax
-	movl	-40(%rbp), %edx
-	movq	%rax, (%rsp)
-	movl	%edx, 8(%rsp)
-	movq	%rsi, %rdx
+	movq	-56(%rbp), %rdx
+	movq	-72(%rbp), %rax
+	pushq	-24(%rbp)
+	pushq	-32(%rbp)
+	pushq	-40(%rbp)
+	pushq	-48(%rbp)
 	movl	$.LC32, %esi
-	movq	%rcx, %rdi
+	movq	%rax, %rdi
 	movl	$0, %eax
 	call	fprintf
+	addq	$32, %rsp
 	fldt	-32(%rbp)
 	fldt	-16(%rbp)
 	fucomip	%st(1), %st
@@ -1005,19 +988,16 @@ testIPowLD:
 	fstp	%st(0)
 	je	.L44
 .L48:
-	movq	-72(%rbp), %rcx
-	movq	-32(%rbp), %rax
-	movl	-24(%rbp), %edx
-	movq	%rax, 16(%rsp)
-	movl	%edx, 24(%rsp)
-	movq	-16(%rbp), %rax
-	movl	-8(%rbp), %edx
-	movq	%rax, (%rsp)
-	movl	%edx, 8(%rsp)
+	movq	-72(%rbp), %rax
+	pushq	-24(%rbp)
+	pushq	-32(%rbp)
+	pushq	-8(%rbp)
+	pushq	-16(%rbp)
 	movl	$.LC33, %esi
-	movq	%rcx, %rdi
+	movq	%rax, %rdi
 	movl	$0, %eax
 	call	fprintf
+	addq	$32, %rsp
 	orl	$1, -60(%rbp)
 .L44:
 	movl	-60(%rbp), %eax
@@ -1040,5 +1020,5 @@ testIPowLD:
 	.align 4
 .LC21:
 	.long	1131610112
-	.ident	"GCC: (Ubuntu 4.8.2-19ubuntu1) 4.8.2"
+	.ident	"GCC: (Ubuntu 4.9.1-16ubuntu6) 4.9.1"
 	.section	.note.GNU-stack,"",@progbits

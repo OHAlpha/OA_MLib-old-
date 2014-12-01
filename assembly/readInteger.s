@@ -101,10 +101,8 @@ readInteger:
 	cltq
 	andl	$1073741823, %eax
 	movq	%rax, -32(%rbp)
-	movl	-44(%rbp), %eax
-	movl	-48(%rbp), %edx
-	subl	%eax, %edx
-	movl	%edx, %eax
+	movl	-48(%rbp), %eax
+	subl	-44(%rbp), %eax
 	cltq
 	leaq	-1(%rax), %rdx
 	movq	-56(%rbp), %rax
@@ -167,8 +165,8 @@ readInteger:
 	cltq
 	salq	$2, %rax
 	addq	%rcx, %rax
-	movl	(%rax), %ecx
-	movq	-32(%rbp), %rax
+	movl	(%rax), %eax
+	movq	-32(%rbp), %rcx
 	orl	%ecx, %eax
 	movl	%eax, (%rdx)
 	addl	$1, -44(%rbp)
@@ -273,9 +271,9 @@ readInteger:
 	leal	1(%rax), %edx
 	movl	%edx, -40(%rbp)
 	cltq
-	leaq	(%rcx,%rax), %rdx
-	movq	-32(%rbp), %rax
-	movb	%al, (%rdx)
+	addq	%rcx, %rax
+	movq	-32(%rbp), %rdx
+	movb	%dl, (%rax)
 	cmpl	$0, -36(%rbp)
 	jg	.L13
 	jmp	.L14
@@ -323,9 +321,9 @@ readInteger:
 	movq	8(%rax), %rdx
 	movl	-44(%rbp), %eax
 	cltq
-	addq	%rax, %rdx
-	movq	-32(%rbp), %rax
-	movb	%al, (%rdx)
+	addq	%rdx, %rax
+	movq	-32(%rbp), %rdx
+	movb	%dl, (%rax)
 	sarq	$8, -32(%rbp)
 	addl	$1, -44(%rbp)
 .L17:
@@ -344,5 +342,5 @@ readInteger:
 	.cfi_endproc
 .LFE2:
 	.size	readInteger, .-readInteger
-	.ident	"GCC: (Ubuntu 4.8.2-19ubuntu1) 4.8.2"
+	.ident	"GCC: (Ubuntu 4.9.1-16ubuntu6) 4.9.1"
 	.section	.note.GNU-stack,"",@progbits

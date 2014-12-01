@@ -10,38 +10,35 @@ lcmC:
 	.cfi_offset 6, -16
 	movq	%rsp, %rbp
 	.cfi_def_cfa_register 6
-	pushq	%rbx
-	.cfi_offset 3, -24
 	movl	%edi, %edx
 	movl	%esi, %eax
-	movb	%dl, -28(%rbp)
-	movb	%al, -32(%rbp)
-	movsbl	-28(%rbp), %edx
-	movsbl	-32(%rbp), %eax
+	movb	%dl, -20(%rbp)
+	movb	%al, -24(%rbp)
+	movsbl	-20(%rbp), %edx
+	movsbl	-24(%rbp), %eax
 	imull	%edx, %eax
-	movl	%eax, -12(%rbp)
+	movl	%eax, -4(%rbp)
 .L4:
-	movsbl	-28(%rbp), %eax
-	movsbl	-32(%rbp), %ecx
+	movsbl	-20(%rbp), %eax
+	movsbl	-24(%rbp), %ecx
 	cltd
 	idivl	%ecx
 	movl	%edx, %eax
-	movb	%al, -13(%rbp)
-	cmpb	$0, -13(%rbp)
+	movb	%al, -5(%rbp)
+	cmpb	$0, -5(%rbp)
 	jne	.L2
 	jmp	.L6
 .L2:
-	movzbl	-32(%rbp), %eax
-	movb	%al, -28(%rbp)
-	movzbl	-13(%rbp), %eax
-	movb	%al, -32(%rbp)
+	movzbl	-24(%rbp), %eax
+	movb	%al, -20(%rbp)
+	movzbl	-5(%rbp), %eax
+	movb	%al, -24(%rbp)
 	jmp	.L4
 .L6:
-	movsbl	-32(%rbp), %ebx
-	movl	-12(%rbp), %eax
+	movsbl	-24(%rbp), %esi
+	movl	-4(%rbp), %eax
 	cltd
-	idivl	%ebx
-	popq	%rbx
+	idivl	%esi
 	popq	%rbp
 	.cfi_def_cfa 7, 8
 	ret
@@ -58,38 +55,35 @@ lcmS:
 	.cfi_offset 6, -16
 	movq	%rsp, %rbp
 	.cfi_def_cfa_register 6
-	pushq	%rbx
-	.cfi_offset 3, -24
 	movl	%edi, %edx
 	movl	%esi, %eax
-	movw	%dx, -28(%rbp)
-	movw	%ax, -32(%rbp)
-	movswl	-28(%rbp), %edx
-	movswl	-32(%rbp), %eax
+	movw	%dx, -20(%rbp)
+	movw	%ax, -24(%rbp)
+	movswl	-20(%rbp), %edx
+	movswl	-24(%rbp), %eax
 	imull	%edx, %eax
-	movl	%eax, -12(%rbp)
+	movl	%eax, -4(%rbp)
 .L10:
-	movswl	-28(%rbp), %eax
-	movswl	-32(%rbp), %ecx
+	movswl	-20(%rbp), %eax
+	movswl	-24(%rbp), %ecx
 	cltd
 	idivl	%ecx
 	movl	%edx, %eax
-	movw	%ax, -14(%rbp)
-	cmpw	$0, -14(%rbp)
+	movw	%ax, -6(%rbp)
+	cmpw	$0, -6(%rbp)
 	jne	.L8
 	jmp	.L12
 .L8:
-	movzwl	-32(%rbp), %eax
-	movw	%ax, -28(%rbp)
-	movzwl	-14(%rbp), %eax
-	movw	%ax, -32(%rbp)
+	movzwl	-24(%rbp), %eax
+	movw	%ax, -20(%rbp)
+	movzwl	-6(%rbp), %eax
+	movw	%ax, -24(%rbp)
 	jmp	.L10
 .L12:
-	movswl	-32(%rbp), %ebx
-	movl	-12(%rbp), %eax
+	movswl	-24(%rbp), %esi
+	movl	-4(%rbp), %eax
 	cltd
-	idivl	%ebx
-	popq	%rbx
+	idivl	%esi
 	popq	%rbp
 	.cfi_def_cfa 7, 8
 	ret
@@ -385,5 +379,5 @@ lcmULL:
 	.cfi_endproc
 .LFE8:
 	.size	lcmULL, .-lcmULL
-	.ident	"GCC: (Ubuntu 4.8.2-19ubuntu1) 4.8.2"
+	.ident	"GCC: (Ubuntu 4.9.1-16ubuntu6) 4.9.1"
 	.section	.note.GNU-stack,"",@progbits

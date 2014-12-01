@@ -407,10 +407,8 @@ writeDecimal:
 	movl	%eax, -20(%rbp)
 	jmp	.L13
 .L14:
-	movl	-16(%rbp), %eax
-	movl	-20(%rbp), %edx
-	subl	%eax, %edx
-	movl	%edx, %eax
+	movl	-20(%rbp), %eax
+	subl	-16(%rbp), %eax
 	movslq	%eax, %rdx
 	movq	-40(%rbp), %rax
 	addq	%rax, %rdx
@@ -1267,5 +1265,5 @@ printDecimal:
 	.cfi_endproc
 .LFE4:
 	.size	printDecimal, .-printDecimal
-	.ident	"GCC: (Ubuntu 4.8.2-19ubuntu1) 4.8.2"
+	.ident	"GCC: (Ubuntu 4.9.1-16ubuntu6) 4.9.1"
 	.section	.note.GNU-stack,"",@progbits

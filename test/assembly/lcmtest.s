@@ -808,5 +808,5 @@ testLcmLL:
 	.cfi_endproc
 .LFE5:
 	.size	testLcmLL, .-testLcmLL
-	.ident	"GCC: (Ubuntu 4.8.2-19ubuntu1) 4.8.2"
+	.ident	"GCC: (Ubuntu 4.9.1-16ubuntu6) 4.9.1"
 	.section	.note.GNU-stack,"",@progbits

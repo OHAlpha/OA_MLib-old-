@@ -155,10 +155,8 @@ chooseUS:
 	movw	%dx, -20(%rbp)
 	movw	%ax, -24(%rbp)
 	movw	$1, -8(%rbp)
-	movzwl	-24(%rbp), %eax
-	movzwl	-20(%rbp), %edx
-	subl	%eax, %edx
-	movl	%edx, %eax
+	movzwl	-20(%rbp), %eax
+	subw	-24(%rbp), %ax
 	addl	$1, %eax
 	movw	%ax, -2(%rbp)
 	jmp	.L18
@@ -214,10 +212,8 @@ chooseI:
 	movl	$0, %eax
 	jmp	.L25
 .L24:
-	movl	-24(%rbp), %eax
-	movl	-20(%rbp), %edx
-	subl	%eax, %edx
-	movl	%edx, %eax
+	movl	-20(%rbp), %eax
+	subl	-24(%rbp), %eax
 	addl	$1, %eax
 	movl	%eax, -4(%rbp)
 	jmp	.L26
@@ -270,10 +266,8 @@ chooseUI:
 	movl	%edi, -20(%rbp)
 	movl	%esi, -24(%rbp)
 	movl	$1, -16(%rbp)
-	movl	-24(%rbp), %eax
-	movl	-20(%rbp), %edx
-	subl	%eax, %edx
-	movl	%edx, %eax
+	movl	-20(%rbp), %eax
+	subl	-24(%rbp), %eax
 	addl	$1, %eax
 	movl	%eax, -4(%rbp)
 	jmp	.L32
@@ -325,10 +319,8 @@ chooseL:
 	movl	$0, %eax
 	jmp	.L39
 .L38:
-	movq	-48(%rbp), %rax
-	movq	-40(%rbp), %rdx
-	subq	%rax, %rdx
-	movq	%rdx, %rax
+	movq	-40(%rbp), %rax
+	subq	-48(%rbp), %rax
 	addq	$1, %rax
 	movq	%rax, -8(%rbp)
 	jmp	.L40
@@ -381,10 +373,8 @@ chooseUL:
 	movq	%rdi, -40(%rbp)
 	movq	%rsi, -48(%rbp)
 	movq	$1, -32(%rbp)
-	movq	-48(%rbp), %rax
-	movq	-40(%rbp), %rdx
-	subq	%rax, %rdx
-	movq	%rdx, %rax
+	movq	-40(%rbp), %rax
+	subq	-48(%rbp), %rax
 	addq	$1, %rax
 	movq	%rax, -8(%rbp)
 	jmp	.L46
@@ -436,10 +426,8 @@ chooseLL:
 	movl	$0, %eax
 	jmp	.L53
 .L52:
-	movq	-48(%rbp), %rax
-	movq	-40(%rbp), %rdx
-	subq	%rax, %rdx
-	movq	%rdx, %rax
+	movq	-40(%rbp), %rax
+	subq	-48(%rbp), %rax
 	addq	$1, %rax
 	movq	%rax, -8(%rbp)
 	jmp	.L54
@@ -492,10 +480,8 @@ chooseULL:
 	movq	%rdi, -40(%rbp)
 	movq	%rsi, -48(%rbp)
 	movq	$1, -32(%rbp)
-	movq	-48(%rbp), %rax
-	movq	-40(%rbp), %rdx
-	subq	%rax, %rdx
-	movq	%rdx, %rax
+	movq	-40(%rbp), %rax
+	subq	-48(%rbp), %rax
 	addq	$1, %rax
 	movq	%rax, -8(%rbp)
 	jmp	.L60
@@ -548,18 +534,18 @@ chooseF:
 	movl	.LC1(%rip), %eax
 	jmp	.L67
 .L66:
-	movl	-24(%rbp), %eax
-	movl	-20(%rbp), %edx
-	subl	%eax, %edx
-	movl	%edx, %eax
+	movl	-20(%rbp), %eax
+	subl	-24(%rbp), %eax
 	addl	$1, %eax
 	movl	%eax, -4(%rbp)
 	jmp	.L68
 .L69:
+	pxor	%xmm0, %xmm0
 	cvtsi2ss	-4(%rbp), %xmm0
 	movss	-16(%rbp), %xmm1
-	mulss	%xmm1, %xmm0
-	movss	%xmm0, -16(%rbp)
+	mulss	%xmm0, %xmm1
+	movd	%xmm1, %eax
+	movl	%eax, -16(%rbp)
 	addl	$1, -4(%rbp)
 .L68:
 	movl	-4(%rbp), %eax
@@ -575,10 +561,12 @@ chooseF:
 	movl	$1, -12(%rbp)
 	jmp	.L71
 .L72:
+	pxor	%xmm0, %xmm0
 	cvtsi2ss	-12(%rbp), %xmm0
 	movss	-8(%rbp), %xmm1
-	mulss	%xmm1, %xmm0
-	movss	%xmm0, -8(%rbp)
+	mulss	%xmm0, %xmm1
+	movd	%xmm1, %eax
+	movl	%eax, -8(%rbp)
 	addl	$1, -12(%rbp)
 .L71:
 	movl	-12(%rbp), %eax
@@ -586,8 +574,7 @@ chooseF:
 	jle	.L72
 	movss	-16(%rbp), %xmm0
 	divss	-8(%rbp), %xmm0
-	movss	%xmm0, -28(%rbp)
-	movl	-28(%rbp), %eax
+	movd	%xmm0, %eax
 .L67:
 	movl	%eax, -28(%rbp)
 	movss	-28(%rbp), %xmm0
@@ -616,18 +603,18 @@ chooseD:
 	movl	$0, %eax
 	jmp	.L75
 .L74:
-	movq	-48(%rbp), %rax
-	movq	-40(%rbp), %rdx
-	subq	%rax, %rdx
-	movq	%rdx, %rax
+	movq	-40(%rbp), %rax
+	subq	-48(%rbp), %rax
 	addq	$1, %rax
 	movq	%rax, -8(%rbp)
 	jmp	.L76
 .L77:
+	pxor	%xmm0, %xmm0
 	cvtsi2sdq	-8(%rbp), %xmm0
 	movsd	-32(%rbp), %xmm1
-	mulsd	%xmm1, %xmm0
-	movsd	%xmm0, -32(%rbp)
+	mulsd	%xmm0, %xmm1
+	movq	%xmm1, %rax
+	movq	%rax, -32(%rbp)
 	addq	$1, -8(%rbp)
 .L76:
 	movq	-8(%rbp), %rax
@@ -643,10 +630,12 @@ chooseD:
 	movq	$1, -24(%rbp)
 	jmp	.L79
 .L80:
+	pxor	%xmm0, %xmm0
 	cvtsi2sdq	-24(%rbp), %xmm0
 	movsd	-16(%rbp), %xmm1
-	mulsd	%xmm1, %xmm0
-	movsd	%xmm0, -16(%rbp)
+	mulsd	%xmm0, %xmm1
+	movq	%xmm1, %rax
+	movq	%rax, -16(%rbp)
 	addq	$1, -24(%rbp)
 .L79:
 	movq	-24(%rbp), %rax
@@ -654,8 +643,7 @@ chooseD:
 	jle	.L80
 	movsd	-32(%rbp), %xmm0
 	divsd	-16(%rbp), %xmm0
-	movsd	%xmm0, -56(%rbp)
-	movq	-56(%rbp), %rax
+	movq	%xmm0, %rax
 .L75:
 	movq	%rax, -56(%rbp)
 	movsd	-56(%rbp), %xmm0
@@ -687,10 +675,8 @@ chooseLD:
 	movl	$0, %edx
 	jmp	.L83
 .L82:
-	movq	-64(%rbp), %rax
-	movq	-56(%rbp), %rdx
-	subq	%rax, %rdx
-	movq	%rdx, %rax
+	movq	-56(%rbp), %rax
+	subq	-64(%rbp), %rax
 	addq	$1, %rax
 	movq	%rax, -40(%rbp)
 	jmp	.L84
@@ -749,5 +735,5 @@ chooseLD:
 	.align 4
 .LC1:
 	.long	0
-	.ident	"GCC: (Ubuntu 4.8.2-19ubuntu1) 4.8.2"
+	.ident	"GCC: (Ubuntu 4.9.1-16ubuntu6) 4.9.1"
 	.section	.note.GNU-stack,"",@progbits

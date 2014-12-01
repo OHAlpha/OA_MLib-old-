@@ -332,10 +332,12 @@ factF:
 	movl	$1, -4(%rbp)
 	jmp	.L45
 .L46:
+	pxor	%xmm0, %xmm0
 	cvtsi2ss	-4(%rbp), %xmm0
 	movss	-8(%rbp), %xmm1
-	mulss	%xmm1, %xmm0
-	movss	%xmm0, -8(%rbp)
+	mulss	%xmm0, %xmm1
+	movd	%xmm1, %eax
+	movl	%eax, -8(%rbp)
 	addl	$1, -4(%rbp)
 .L45:
 	movl	-4(%rbp), %eax
@@ -372,10 +374,12 @@ factD:
 	movq	$1, -8(%rbp)
 	jmp	.L50
 .L51:
+	pxor	%xmm0, %xmm0
 	cvtsi2sdq	-8(%rbp), %xmm0
 	movsd	-16(%rbp), %xmm1
-	mulsd	%xmm1, %xmm0
-	movsd	%xmm0, -16(%rbp)
+	mulsd	%xmm0, %xmm1
+	movq	%xmm1, %rax
+	movq	%rax, -16(%rbp)
 	addq	$1, -8(%rbp)
 .L50:
 	movq	-8(%rbp), %rax
@@ -443,5 +447,5 @@ factLD:
 	.align 4
 .LC1:
 	.long	0
-	.ident	"GCC: (Ubuntu 4.8.2-19ubuntu1) 4.8.2"
+	.ident	"GCC: (Ubuntu 4.9.1-16ubuntu6) 4.9.1"
 	.section	.note.GNU-stack,"",@progbits

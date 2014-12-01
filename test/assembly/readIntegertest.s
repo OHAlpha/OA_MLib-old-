@@ -342,5 +342,5 @@ testReadInteger:
 	.cfi_endproc
 .LFE2:
 	.size	testReadInteger, .-testReadInteger
-	.ident	"GCC: (Ubuntu 4.8.2-19ubuntu1) 4.8.2"
+	.ident	"GCC: (Ubuntu 4.9.1-16ubuntu6) 4.9.1"
 	.section	.note.GNU-stack,"",@progbits

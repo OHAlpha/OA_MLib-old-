@@ -436,6 +436,7 @@ ipowF:
 	movq	$1, -8(%rbp)
 	jmp	.L56
 .L59:
+	pxor	%xmm0, %xmm0
 	cvtsi2ssq	-8(%rbp), %xmm0
 	movl	-24(%rbp), %eax
 	andl	$1, %eax
@@ -453,7 +454,8 @@ ipowF:
 	movq	%rax, -8(%rbp)
 	movss	-20(%rbp), %xmm0
 	mulss	-20(%rbp), %xmm0
-	movss	%xmm0, -20(%rbp)
+	movd	%xmm0, %eax
+	movl	%eax, -20(%rbp)
 	movl	-24(%rbp), %eax
 	movl	%eax, %edx
 	shrl	$31, %edx
@@ -463,14 +465,12 @@ ipowF:
 .L56:
 	cmpl	$1, -24(%rbp)
 	jg	.L59
-	movss	-20(%rbp), %xmm0
-	cvttss2siq	%xmm0, %rax
-	imulq	-8(%rbp), %rax
-	cvtsi2ssq	%rax, %xmm0
-	movss	%xmm0, -28(%rbp)
-	movl	-28(%rbp), %eax
+	movl	-20(%rbp), %eax
 	movl	%eax, -28(%rbp)
-	movss	-28(%rbp), %xmm0
+	cvttss2siq	-28(%rbp), %rax
+	imulq	-8(%rbp), %rax
+	pxor	%xmm0, %xmm0
+	cvtsi2ssq	%rax, %xmm0
 	popq	%rbp
 	.cfi_def_cfa 7, 8
 	ret
@@ -505,11 +505,13 @@ ipowD:
 	movsd	-8(%rbp), %xmm0
 	movq	%rax, -40(%rbp)
 	movsd	-40(%rbp), %xmm1
-	mulsd	%xmm1, %xmm0
-	movsd	%xmm0, -8(%rbp)
+	mulsd	%xmm0, %xmm1
+	movq	%xmm1, %rax
+	movq	%rax, -8(%rbp)
 	movsd	-24(%rbp), %xmm0
 	mulsd	-24(%rbp), %xmm0
-	movsd	%xmm0, -24(%rbp)
+	movq	%xmm0, %rax
+	movq	%rax, -24(%rbp)
 	movq	-32(%rbp), %rax
 	movq	%rax, %rdx
 	shrq	$63, %rdx
@@ -521,10 +523,6 @@ ipowD:
 	jg	.L65
 	movsd	-24(%rbp), %xmm0
 	mulsd	-8(%rbp), %xmm0
-	movsd	%xmm0, -40(%rbp)
-	movq	-40(%rbp), %rax
-	movq	%rax, -40(%rbp)
-	movsd	-40(%rbp), %xmm0
 	popq	%rbp
 	.cfi_def_cfa 7, 8
 	ret
@@ -586,5 +584,5 @@ ipowLD:
 	.align 4
 .LC0:
 	.long	1065353216
-	.ident	"GCC: (Ubuntu 4.8.2-19ubuntu1) 4.8.2"
+	.ident	"GCC: (Ubuntu 4.9.1-16ubuntu6) 4.9.1"
 	.section	.note.GNU-stack,"",@progbits

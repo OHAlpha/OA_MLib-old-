@@ -10,85 +10,82 @@ eulerC:
 	.cfi_offset 6, -16
 	movq	%rsp, %rbp
 	.cfi_def_cfa_register 6
-	pushq	%rbx
-	.cfi_offset 3, -24
 	movl	%edi, %edx
 	movl	%esi, %eax
-	movb	%dl, -60(%rbp)
-	movb	%al, -64(%rbp)
-	movb	$1, -39(%rbp)
-	movzbl	-39(%rbp), %eax
-	movb	%al, -45(%rbp)
-	movb	$0, -44(%rbp)
-	movzbl	-44(%rbp), %eax
-	movb	%al, -40(%rbp)
-	movzbl	-60(%rbp), %eax
-	movb	%al, -46(%rbp)
-	movzbl	-64(%rbp), %eax
+	movb	%dl, -52(%rbp)
+	movb	%al, -56(%rbp)
+	movb	$1, -31(%rbp)
+	movzbl	-31(%rbp), %eax
+	movb	%al, -37(%rbp)
+	movb	$0, -36(%rbp)
+	movzbl	-36(%rbp), %eax
+	movb	%al, -32(%rbp)
+	movzbl	-52(%rbp), %eax
 	movb	%al, -38(%rbp)
+	movzbl	-56(%rbp), %eax
+	movb	%al, -30(%rbp)
 .L4:
-	movsbl	-46(%rbp), %eax
-	movzbl	-38(%rbp), %edx
-	movsbl	%dl, %ebx
+	movsbl	-38(%rbp), %eax
+	movzbl	-30(%rbp), %edx
+	movsbl	%dl, %esi
 	cltd
-	idivl	%ebx
-	movb	%al, -43(%rbp)
-	movsbl	-46(%rbp), %eax
-	movzbl	-38(%rbp), %edx
+	idivl	%esi
+	movb	%al, -35(%rbp)
+	movsbl	-38(%rbp), %eax
+	movzbl	-30(%rbp), %edx
 	movsbl	%dl, %ecx
 	cltd
 	idivl	%ecx
 	movl	%edx, %eax
-	movb	%al, -42(%rbp)
-	cmpb	$0, -42(%rbp)
+	movb	%al, -34(%rbp)
+	cmpb	$0, -34(%rbp)
 	jne	.L2
 	jmp	.L6
 .L2:
-	movzbl	-38(%rbp), %eax
-	movb	%al, -46(%rbp)
-	movzbl	-42(%rbp), %eax
+	movzbl	-30(%rbp), %eax
 	movb	%al, -38(%rbp)
-	movzbl	-45(%rbp), %eax
-	movb	%al, -41(%rbp)
-	movzbl	-40(%rbp), %eax
-	movb	%al, -45(%rbp)
-	movzbl	-41(%rbp), %edx
-	movzbl	-40(%rbp), %eax
-	movzbl	-43(%rbp), %ecx
+	movzbl	-34(%rbp), %eax
+	movb	%al, -30(%rbp)
+	movzbl	-37(%rbp), %eax
+	movb	%al, -33(%rbp)
+	movzbl	-32(%rbp), %eax
+	movb	%al, -37(%rbp)
+	movzbl	-33(%rbp), %edx
+	movzbl	-32(%rbp), %eax
+	movzbl	-35(%rbp), %ecx
 	imull	%ecx, %eax
 	subl	%eax, %edx
 	movl	%edx, %eax
-	movb	%al, -40(%rbp)
-	movzbl	-44(%rbp), %eax
-	movb	%al, -41(%rbp)
-	movzbl	-39(%rbp), %eax
-	movb	%al, -44(%rbp)
-	movzbl	-41(%rbp), %edx
-	movzbl	-39(%rbp), %eax
-	movzbl	-43(%rbp), %ecx
+	movb	%al, -32(%rbp)
+	movzbl	-36(%rbp), %eax
+	movb	%al, -33(%rbp)
+	movzbl	-31(%rbp), %eax
+	movb	%al, -36(%rbp)
+	movzbl	-33(%rbp), %edx
+	movzbl	-31(%rbp), %eax
+	movzbl	-35(%rbp), %ecx
 	imull	%ecx, %eax
 	subl	%eax, %edx
 	movl	%edx, %eax
-	movb	%al, -39(%rbp)
+	movb	%al, -31(%rbp)
 	jmp	.L4
 .L6:
-	movzwl	-40(%rbp), %eax
-	movw	%ax, -24(%rbp)
-	movzbl	-38(%rbp), %eax
-	movb	%al, -22(%rbp)
+	movzwl	-32(%rbp), %eax
+	movw	%ax, -16(%rbp)
+	movzbl	-30(%rbp), %eax
+	movb	%al, -14(%rbp)
 	movl	$0, %eax
-	movzbl	-24(%rbp), %edx
+	movzbl	-16(%rbp), %edx
 	movzbl	%dl, %edx
 	movb	$0, %al
 	orq	%rdx, %rax
-	movzbl	-23(%rbp), %edx
+	movzbl	-15(%rbp), %edx
 	movb	%dl, %ah
-	movzbl	-22(%rbp), %edx
+	movzbl	-14(%rbp), %edx
 	movzbl	%dl, %edx
 	salq	$16, %rdx
 	andq	$-16711681, %rax
 	orq	%rdx, %rax
-	popq	%rbx
 	popq	%rbp
 	.cfi_def_cfa 7, 8
 	ret
@@ -105,94 +102,91 @@ eulerS:
 	.cfi_offset 6, -16
 	movq	%rsp, %rbp
 	.cfi_def_cfa_register 6
-	pushq	%rbx
-	.cfi_offset 3, -24
 	movl	%edi, %edx
 	movl	%esi, %eax
-	movw	%dx, -60(%rbp)
-	movw	%ax, -64(%rbp)
-	movw	$1, -38(%rbp)
-	movzwl	-38(%rbp), %eax
-	movw	%ax, -50(%rbp)
-	movw	$0, -48(%rbp)
-	movzwl	-48(%rbp), %eax
-	movw	%ax, -40(%rbp)
-	movzwl	-60(%rbp), %eax
-	movw	%ax, -52(%rbp)
-	movzwl	-64(%rbp), %eax
-	movw	%ax, -36(%rbp)
+	movw	%dx, -52(%rbp)
+	movw	%ax, -56(%rbp)
+	movw	$1, -30(%rbp)
+	movzwl	-30(%rbp), %eax
+	movw	%ax, -42(%rbp)
+	movw	$0, -40(%rbp)
+	movzwl	-40(%rbp), %eax
+	movw	%ax, -32(%rbp)
+	movzwl	-52(%rbp), %eax
+	movw	%ax, -44(%rbp)
+	movzwl	-56(%rbp), %eax
+	movw	%ax, -28(%rbp)
 .L10:
-	movswl	-52(%rbp), %eax
-	movzwl	-36(%rbp), %edx
-	movswl	%dx, %ebx
+	movswl	-44(%rbp), %eax
+	movzwl	-28(%rbp), %edx
+	movswl	%dx, %esi
 	cltd
-	idivl	%ebx
-	movw	%ax, -46(%rbp)
-	movswl	-52(%rbp), %eax
-	movzwl	-36(%rbp), %edx
+	idivl	%esi
+	movw	%ax, -38(%rbp)
+	movswl	-44(%rbp), %eax
+	movzwl	-28(%rbp), %edx
 	movswl	%dx, %ecx
 	cltd
 	idivl	%ecx
 	movl	%edx, %eax
-	movw	%ax, -44(%rbp)
-	cmpw	$0, -44(%rbp)
+	movw	%ax, -36(%rbp)
+	cmpw	$0, -36(%rbp)
 	jne	.L8
 	jmp	.L12
 .L8:
+	movzwl	-28(%rbp), %eax
+	movw	%ax, -44(%rbp)
 	movzwl	-36(%rbp), %eax
-	movw	%ax, -52(%rbp)
-	movzwl	-44(%rbp), %eax
-	movw	%ax, -36(%rbp)
-	movzwl	-50(%rbp), %eax
+	movw	%ax, -28(%rbp)
+	movzwl	-42(%rbp), %eax
+	movw	%ax, -34(%rbp)
+	movzwl	-32(%rbp), %eax
 	movw	%ax, -42(%rbp)
-	movzwl	-40(%rbp), %eax
-	movw	%ax, -50(%rbp)
-	movzwl	-42(%rbp), %edx
-	movzwl	-40(%rbp), %eax
+	movzwl	-34(%rbp), %edx
+	movzwl	-32(%rbp), %eax
 	movl	%eax, %ecx
-	movzwl	-46(%rbp), %eax
+	movzwl	-38(%rbp), %eax
 	imull	%ecx, %eax
 	subl	%eax, %edx
 	movl	%edx, %eax
+	movw	%ax, -32(%rbp)
+	movzwl	-40(%rbp), %eax
+	movw	%ax, -34(%rbp)
+	movzwl	-30(%rbp), %eax
 	movw	%ax, -40(%rbp)
-	movzwl	-48(%rbp), %eax
-	movw	%ax, -42(%rbp)
-	movzwl	-38(%rbp), %eax
-	movw	%ax, -48(%rbp)
-	movzwl	-42(%rbp), %edx
-	movzwl	-38(%rbp), %eax
+	movzwl	-34(%rbp), %edx
+	movzwl	-30(%rbp), %eax
 	movl	%eax, %ecx
-	movzwl	-46(%rbp), %eax
+	movzwl	-38(%rbp), %eax
 	imull	%ecx, %eax
 	subl	%eax, %edx
 	movl	%edx, %eax
-	movw	%ax, -38(%rbp)
+	movw	%ax, -30(%rbp)
 	jmp	.L10
 .L12:
-	movl	-40(%rbp), %eax
-	movl	%eax, -24(%rbp)
-	movzwl	-36(%rbp), %eax
-	movw	%ax, -20(%rbp)
+	movl	-32(%rbp), %eax
+	movl	%eax, -16(%rbp)
+	movzwl	-28(%rbp), %eax
+	movw	%ax, -12(%rbp)
 	movl	$0, %eax
-	movzwl	-24(%rbp), %edx
+	movzwl	-16(%rbp), %edx
 	movzwl	%dx, %edx
 	movw	$0, %ax
 	orq	%rdx, %rax
-	movzwl	-22(%rbp), %edx
+	movzwl	-14(%rbp), %edx
 	movzwl	%dx, %edx
 	movq	%rdx, %rcx
 	salq	$16, %rcx
 	movabsq	$-4294901761, %rdx
 	andq	%rdx, %rax
 	orq	%rcx, %rax
-	movzwl	-20(%rbp), %edx
+	movzwl	-12(%rbp), %edx
 	movzwl	%dx, %edx
 	movq	%rdx, %rcx
 	salq	$32, %rcx
 	movabsq	$-281470681743361, %rdx
 	andq	%rdx, %rax
 	orq	%rcx, %rax
-	popq	%rbx
 	popq	%rbp
 	.cfi_def_cfa 7, 8
 	ret
@@ -209,87 +203,84 @@ eulerUS:
 	.cfi_offset 6, -16
 	movq	%rsp, %rbp
 	.cfi_def_cfa_register 6
-	pushq	%rbx
-	.cfi_offset 3, -24
 	movl	%edi, %edx
 	movl	%esi, %eax
-	movw	%dx, -60(%rbp)
-	movw	%ax, -64(%rbp)
-	movw	$1, -38(%rbp)
-	movzwl	-38(%rbp), %eax
-	movw	%ax, -50(%rbp)
-	movw	$0, -48(%rbp)
-	movzwl	-48(%rbp), %eax
-	movw	%ax, -40(%rbp)
-	movzwl	-60(%rbp), %eax
-	movw	%ax, -52(%rbp)
-	movzwl	-64(%rbp), %eax
-	movw	%ax, -36(%rbp)
+	movw	%dx, -52(%rbp)
+	movw	%ax, -56(%rbp)
+	movw	$1, -30(%rbp)
+	movzwl	-30(%rbp), %eax
+	movw	%ax, -42(%rbp)
+	movw	$0, -40(%rbp)
+	movzwl	-40(%rbp), %eax
+	movw	%ax, -32(%rbp)
+	movzwl	-52(%rbp), %eax
+	movw	%ax, -44(%rbp)
+	movzwl	-56(%rbp), %eax
+	movw	%ax, -28(%rbp)
 .L16:
-	movzwl	-36(%rbp), %ebx
-	movzwl	-52(%rbp), %eax
+	movzwl	-28(%rbp), %esi
+	movzwl	-44(%rbp), %eax
 	movl	$0, %edx
-	divw	%bx
-	movw	%ax, -46(%rbp)
-	movzwl	-36(%rbp), %ecx
-	movzwl	-52(%rbp), %eax
+	divw	%si
+	movw	%ax, -38(%rbp)
+	movzwl	-28(%rbp), %ecx
+	movzwl	-44(%rbp), %eax
 	movl	$0, %edx
 	divw	%cx
-	movw	%dx, -44(%rbp)
-	cmpw	$0, -44(%rbp)
+	movw	%dx, -36(%rbp)
+	cmpw	$0, -36(%rbp)
 	jne	.L14
 	jmp	.L18
 .L14:
+	movzwl	-28(%rbp), %eax
+	movw	%ax, -44(%rbp)
 	movzwl	-36(%rbp), %eax
-	movw	%ax, -52(%rbp)
-	movzwl	-44(%rbp), %eax
-	movw	%ax, -36(%rbp)
-	movzwl	-50(%rbp), %eax
+	movw	%ax, -28(%rbp)
+	movzwl	-42(%rbp), %eax
+	movw	%ax, -34(%rbp)
+	movzwl	-32(%rbp), %eax
 	movw	%ax, -42(%rbp)
-	movzwl	-40(%rbp), %eax
-	movw	%ax, -50(%rbp)
-	movzwl	-40(%rbp), %eax
-	imulw	-46(%rbp), %ax
-	movzwl	-42(%rbp), %edx
+	movzwl	-32(%rbp), %eax
+	imulw	-38(%rbp), %ax
+	movzwl	-34(%rbp), %edx
 	subl	%eax, %edx
 	movl	%edx, %eax
+	movw	%ax, -32(%rbp)
+	movzwl	-40(%rbp), %eax
+	movw	%ax, -34(%rbp)
+	movzwl	-30(%rbp), %eax
 	movw	%ax, -40(%rbp)
-	movzwl	-48(%rbp), %eax
-	movw	%ax, -42(%rbp)
-	movzwl	-38(%rbp), %eax
-	movw	%ax, -48(%rbp)
-	movzwl	-38(%rbp), %eax
-	imulw	-46(%rbp), %ax
-	movzwl	-42(%rbp), %edx
+	movzwl	-30(%rbp), %eax
+	imulw	-38(%rbp), %ax
+	movzwl	-34(%rbp), %edx
 	subl	%eax, %edx
 	movl	%edx, %eax
-	movw	%ax, -38(%rbp)
+	movw	%ax, -30(%rbp)
 	jmp	.L16
 .L18:
-	movl	-40(%rbp), %eax
-	movl	%eax, -24(%rbp)
-	movzwl	-36(%rbp), %eax
-	movw	%ax, -20(%rbp)
+	movl	-32(%rbp), %eax
+	movl	%eax, -16(%rbp)
+	movzwl	-28(%rbp), %eax
+	movw	%ax, -12(%rbp)
 	movl	$0, %eax
-	movzwl	-24(%rbp), %edx
+	movzwl	-16(%rbp), %edx
 	movzwl	%dx, %edx
 	movw	$0, %ax
 	orq	%rdx, %rax
-	movzwl	-22(%rbp), %edx
+	movzwl	-14(%rbp), %edx
 	movzwl	%dx, %edx
 	movq	%rdx, %rcx
 	salq	$16, %rcx
 	movabsq	$-4294901761, %rdx
 	andq	%rdx, %rax
 	orq	%rcx, %rax
-	movzwl	-20(%rbp), %edx
+	movzwl	-12(%rbp), %edx
 	movzwl	%dx, %edx
 	movq	%rdx, %rcx
 	salq	$32, %rcx
 	movabsq	$-281470681743361, %rdx
 	andq	%rdx, %rax
 	orq	%rcx, %rax
-	popq	%rbx
 	popq	%rbp
 	.cfi_def_cfa 7, 8
 	ret
@@ -306,68 +297,68 @@ eulerI:
 	.cfi_offset 6, -16
 	movq	%rsp, %rbp
 	.cfi_def_cfa_register 6
-	pushq	%rbx
-	.cfi_offset 3, -24
-	movl	%edi, -84(%rbp)
-	movl	%esi, -88(%rbp)
-	movl	$1, -44(%rbp)
-	movl	-44(%rbp), %eax
-	movl	%eax, -68(%rbp)
-	movl	$0, -64(%rbp)
-	movl	-64(%rbp), %eax
-	movl	%eax, -48(%rbp)
-	movl	-84(%rbp), %eax
-	movl	%eax, -72(%rbp)
-	movl	-88(%rbp), %eax
-	movl	%eax, -40(%rbp)
+	movl	%edi, -68(%rbp)
+	movl	%esi, -72(%rbp)
+	movl	$1, -28(%rbp)
+	movl	-28(%rbp), %eax
+	movl	%eax, -52(%rbp)
+	movl	$0, -48(%rbp)
+	movl	-48(%rbp), %eax
+	movl	%eax, -32(%rbp)
+	movl	-68(%rbp), %eax
+	movl	%eax, -56(%rbp)
+	movl	-72(%rbp), %eax
+	movl	%eax, -24(%rbp)
 .L22:
-	movl	-40(%rbp), %ebx
-	movl	-72(%rbp), %eax
+	movl	-24(%rbp), %esi
+	movl	-56(%rbp), %eax
 	cltd
-	idivl	%ebx
-	movl	%eax, -60(%rbp)
-	movl	-40(%rbp), %ecx
-	movl	-72(%rbp), %eax
+	idivl	%esi
+	movl	%eax, -44(%rbp)
+	movl	-24(%rbp), %ecx
+	movl	-56(%rbp), %eax
 	cltd
 	idivl	%ecx
-	movl	%edx, -56(%rbp)
-	cmpl	$0, -56(%rbp)
+	movl	%edx, -40(%rbp)
+	cmpl	$0, -40(%rbp)
 	jne	.L20
 	jmp	.L24
 .L20:
-	movl	-40(%rbp), %eax
-	movl	%eax, -72(%rbp)
-	movl	-56(%rbp), %eax
-	movl	%eax, -40(%rbp)
-	movl	-68(%rbp), %eax
-	movl	%eax, -52(%rbp)
-	movl	-48(%rbp), %eax
-	movl	%eax, -68(%rbp)
-	movl	-48(%rbp), %eax
-	imull	-60(%rbp), %eax
-	movl	-52(%rbp), %edx
-	subl	%eax, %edx
-	movl	%edx, %eax
-	movl	%eax, -48(%rbp)
-	movl	-64(%rbp), %eax
-	movl	%eax, -52(%rbp)
-	movl	-44(%rbp), %eax
-	movl	%eax, -64(%rbp)
-	movl	-44(%rbp), %eax
-	imull	-60(%rbp), %eax
-	movl	-52(%rbp), %edx
-	subl	%eax, %edx
-	movl	%edx, %eax
-	movl	%eax, -44(%rbp)
-	jmp	.L22
-.L24:
-	movq	-48(%rbp), %rax
-	movq	%rax, -32(%rbp)
+	movl	-24(%rbp), %eax
+	movl	%eax, -56(%rbp)
 	movl	-40(%rbp), %eax
 	movl	%eax, -24(%rbp)
+	movl	-52(%rbp), %eax
+	movl	%eax, -36(%rbp)
+	movl	-32(%rbp), %eax
+	movl	%eax, -52(%rbp)
+	movl	-32(%rbp), %eax
+	imull	-44(%rbp), %eax
+	movl	-36(%rbp), %edx
+	subl	%eax, %edx
+	movl	%edx, %eax
+	movl	%eax, -32(%rbp)
+	movl	-48(%rbp), %eax
+	movl	%eax, -36(%rbp)
+	movl	-28(%rbp), %eax
+	movl	%eax, -48(%rbp)
+	movl	-28(%rbp), %eax
+	imull	-44(%rbp), %eax
+	movl	-36(%rbp), %edx
+	subl	%eax, %edx
+	movl	%edx, %eax
+	movl	%eax, -28(%rbp)
+	jmp	.L22
+.L24:
 	movq	-32(%rbp), %rax
-	movl	-24(%rbp), %edx
-	popq	%rbx
+	movq	%rax, -16(%rbp)
+	movl	-24(%rbp), %eax
+	movl	%eax, -8(%rbp)
+	movq	-16(%rbp), %rdx
+	movl	-8(%rbp), %eax
+	movq	%rdx, %rcx
+	movl	%eax, %edx
+	movq	%rcx, %rax
 	popq	%rbp
 	.cfi_def_cfa 7, 8
 	ret
@@ -384,68 +375,68 @@ eulerUI:
 	.cfi_offset 6, -16
 	movq	%rsp, %rbp
 	.cfi_def_cfa_register 6
-	pushq	%rbx
-	.cfi_offset 3, -24
-	movl	%edi, -84(%rbp)
-	movl	%esi, -88(%rbp)
-	movl	$1, -44(%rbp)
-	movl	-44(%rbp), %eax
-	movl	%eax, -68(%rbp)
-	movl	$0, -64(%rbp)
-	movl	-64(%rbp), %eax
-	movl	%eax, -48(%rbp)
-	movl	-84(%rbp), %eax
-	movl	%eax, -72(%rbp)
-	movl	-88(%rbp), %eax
-	movl	%eax, -40(%rbp)
+	movl	%edi, -68(%rbp)
+	movl	%esi, -72(%rbp)
+	movl	$1, -28(%rbp)
+	movl	-28(%rbp), %eax
+	movl	%eax, -52(%rbp)
+	movl	$0, -48(%rbp)
+	movl	-48(%rbp), %eax
+	movl	%eax, -32(%rbp)
+	movl	-68(%rbp), %eax
+	movl	%eax, -56(%rbp)
+	movl	-72(%rbp), %eax
+	movl	%eax, -24(%rbp)
 .L28:
-	movl	-40(%rbp), %ebx
-	movl	-72(%rbp), %eax
+	movl	-24(%rbp), %esi
+	movl	-56(%rbp), %eax
 	movl	$0, %edx
-	divl	%ebx
-	movl	%eax, -60(%rbp)
-	movl	-40(%rbp), %ecx
-	movl	-72(%rbp), %eax
+	divl	%esi
+	movl	%eax, -44(%rbp)
+	movl	-24(%rbp), %ecx
+	movl	-56(%rbp), %eax
 	movl	$0, %edx
 	divl	%ecx
-	movl	%edx, -56(%rbp)
-	cmpl	$0, -56(%rbp)
+	movl	%edx, -40(%rbp)
+	cmpl	$0, -40(%rbp)
 	jne	.L26
 	jmp	.L30
 .L26:
-	movl	-40(%rbp), %eax
-	movl	%eax, -72(%rbp)
-	movl	-56(%rbp), %eax
-	movl	%eax, -40(%rbp)
-	movl	-68(%rbp), %eax
-	movl	%eax, -52(%rbp)
-	movl	-48(%rbp), %eax
-	movl	%eax, -68(%rbp)
-	movl	-48(%rbp), %eax
-	imull	-60(%rbp), %eax
-	movl	-52(%rbp), %edx
-	subl	%eax, %edx
-	movl	%edx, %eax
-	movl	%eax, -48(%rbp)
-	movl	-64(%rbp), %eax
-	movl	%eax, -52(%rbp)
-	movl	-44(%rbp), %eax
-	movl	%eax, -64(%rbp)
-	movl	-44(%rbp), %eax
-	imull	-60(%rbp), %eax
-	movl	-52(%rbp), %edx
-	subl	%eax, %edx
-	movl	%edx, %eax
-	movl	%eax, -44(%rbp)
-	jmp	.L28
-.L30:
-	movq	-48(%rbp), %rax
-	movq	%rax, -32(%rbp)
+	movl	-24(%rbp), %eax
+	movl	%eax, -56(%rbp)
 	movl	-40(%rbp), %eax
 	movl	%eax, -24(%rbp)
+	movl	-52(%rbp), %eax
+	movl	%eax, -36(%rbp)
+	movl	-32(%rbp), %eax
+	movl	%eax, -52(%rbp)
+	movl	-32(%rbp), %eax
+	imull	-44(%rbp), %eax
+	movl	-36(%rbp), %edx
+	subl	%eax, %edx
+	movl	%edx, %eax
+	movl	%eax, -32(%rbp)
+	movl	-48(%rbp), %eax
+	movl	%eax, -36(%rbp)
+	movl	-28(%rbp), %eax
+	movl	%eax, -48(%rbp)
+	movl	-28(%rbp), %eax
+	imull	-44(%rbp), %eax
+	movl	-36(%rbp), %edx
+	subl	%eax, %edx
+	movl	%edx, %eax
+	movl	%eax, -28(%rbp)
+	jmp	.L28
+.L30:
 	movq	-32(%rbp), %rax
-	movl	-24(%rbp), %edx
-	popq	%rbx
+	movq	%rax, -16(%rbp)
+	movl	-24(%rbp), %eax
+	movl	%eax, -8(%rbp)
+	movq	-16(%rbp), %rdx
+	movl	-8(%rbp), %eax
+	movq	%rdx, %rcx
+	movl	%eax, %edx
+	movq	%rcx, %rax
 	popq	%rbp
 	.cfi_def_cfa 7, 8
 	ret
@@ -462,71 +453,68 @@ eulerL:
 	.cfi_offset 6, -16
 	movq	%rsp, %rbp
 	.cfi_def_cfa_register 6
-	pushq	%rbx
-	.cfi_offset 3, -24
-	movq	%rdi, -96(%rbp)
-	movq	%rsi, -104(%rbp)
-	movq	%rdx, -112(%rbp)
-	movq	$1, -32(%rbp)
-	movq	-32(%rbp), %rax
+	movq	%rdi, -88(%rbp)
+	movq	%rsi, -96(%rbp)
+	movq	%rdx, -104(%rbp)
+	movq	$1, -24(%rbp)
+	movq	-24(%rbp), %rax
+	movq	%rax, -72(%rbp)
+	movq	$0, -64(%rbp)
+	movq	-64(%rbp), %rax
+	movq	%rax, -32(%rbp)
+	movq	-96(%rbp), %rax
 	movq	%rax, -80(%rbp)
-	movq	$0, -72(%rbp)
-	movq	-72(%rbp), %rax
-	movq	%rax, -40(%rbp)
 	movq	-104(%rbp), %rax
-	movq	%rax, -88(%rbp)
-	movq	-112(%rbp), %rax
-	movq	%rax, -24(%rbp)
+	movq	%rax, -16(%rbp)
 .L34:
-	movq	-24(%rbp), %rbx
-	movq	-88(%rbp), %rax
+	movq	-16(%rbp), %rsi
+	movq	-80(%rbp), %rax
 	cqto
-	idivq	%rbx
-	movq	%rax, -64(%rbp)
-	movq	-24(%rbp), %rcx
-	movq	-88(%rbp), %rax
+	idivq	%rsi
+	movq	%rax, -56(%rbp)
+	movq	-16(%rbp), %rcx
+	movq	-80(%rbp), %rax
 	cqto
 	idivq	%rcx
-	movq	%rdx, -56(%rbp)
-	cmpq	$0, -56(%rbp)
+	movq	%rdx, -48(%rbp)
+	cmpq	$0, -48(%rbp)
 	jne	.L32
 	jmp	.L36
 .L32:
-	movq	-24(%rbp), %rax
-	movq	%rax, -88(%rbp)
-	movq	-56(%rbp), %rax
-	movq	%rax, -24(%rbp)
-	movq	-80(%rbp), %rax
-	movq	%rax, -48(%rbp)
-	movq	-40(%rbp), %rax
+	movq	-16(%rbp), %rax
 	movq	%rax, -80(%rbp)
-	movq	-40(%rbp), %rax
-	imulq	-64(%rbp), %rax
-	movq	-48(%rbp), %rdx
-	subq	%rax, %rdx
-	movq	%rdx, %rax
-	movq	%rax, -40(%rbp)
+	movq	-48(%rbp), %rax
+	movq	%rax, -16(%rbp)
 	movq	-72(%rbp), %rax
-	movq	%rax, -48(%rbp)
+	movq	%rax, -40(%rbp)
 	movq	-32(%rbp), %rax
 	movq	%rax, -72(%rbp)
 	movq	-32(%rbp), %rax
-	imulq	-64(%rbp), %rax
-	movq	-48(%rbp), %rdx
+	imulq	-56(%rbp), %rax
+	movq	-40(%rbp), %rdx
 	subq	%rax, %rdx
 	movq	%rdx, %rax
 	movq	%rax, -32(%rbp)
+	movq	-64(%rbp), %rax
+	movq	%rax, -40(%rbp)
+	movq	-24(%rbp), %rax
+	movq	%rax, -64(%rbp)
+	movq	-24(%rbp), %rax
+	imulq	-56(%rbp), %rax
+	movq	-40(%rbp), %rdx
+	subq	%rax, %rdx
+	movq	%rdx, %rax
+	movq	%rax, -24(%rbp)
 	jmp	.L34
 .L36:
-	movq	-96(%rbp), %rax
-	movq	-40(%rbp), %rdx
-	movq	%rdx, (%rax)
+	movq	-88(%rbp), %rax
 	movq	-32(%rbp), %rdx
-	movq	%rdx, 8(%rax)
+	movq	%rdx, (%rax)
 	movq	-24(%rbp), %rdx
+	movq	%rdx, 8(%rax)
+	movq	-16(%rbp), %rdx
 	movq	%rdx, 16(%rax)
-	movq	-96(%rbp), %rax
-	popq	%rbx
+	movq	-88(%rbp), %rax
 	popq	%rbp
 	.cfi_def_cfa 7, 8
 	ret
@@ -543,71 +531,68 @@ eulerUL:
 	.cfi_offset 6, -16
 	movq	%rsp, %rbp
 	.cfi_def_cfa_register 6
-	pushq	%rbx
-	.cfi_offset 3, -24
-	movq	%rdi, -96(%rbp)
-	movq	%rsi, -104(%rbp)
-	movq	%rdx, -112(%rbp)
-	movq	$1, -32(%rbp)
-	movq	-32(%rbp), %rax
+	movq	%rdi, -88(%rbp)
+	movq	%rsi, -96(%rbp)
+	movq	%rdx, -104(%rbp)
+	movq	$1, -24(%rbp)
+	movq	-24(%rbp), %rax
+	movq	%rax, -72(%rbp)
+	movq	$0, -64(%rbp)
+	movq	-64(%rbp), %rax
+	movq	%rax, -32(%rbp)
+	movq	-96(%rbp), %rax
 	movq	%rax, -80(%rbp)
-	movq	$0, -72(%rbp)
-	movq	-72(%rbp), %rax
-	movq	%rax, -40(%rbp)
 	movq	-104(%rbp), %rax
-	movq	%rax, -88(%rbp)
-	movq	-112(%rbp), %rax
-	movq	%rax, -24(%rbp)
+	movq	%rax, -16(%rbp)
 .L40:
-	movq	-24(%rbp), %rbx
-	movq	-88(%rbp), %rax
+	movq	-16(%rbp), %rsi
+	movq	-80(%rbp), %rax
 	movl	$0, %edx
-	divq	%rbx
-	movq	%rax, -64(%rbp)
-	movq	-24(%rbp), %rcx
-	movq	-88(%rbp), %rax
+	divq	%rsi
+	movq	%rax, -56(%rbp)
+	movq	-16(%rbp), %rcx
+	movq	-80(%rbp), %rax
 	movl	$0, %edx
 	divq	%rcx
-	movq	%rdx, -56(%rbp)
-	cmpq	$0, -56(%rbp)
+	movq	%rdx, -48(%rbp)
+	cmpq	$0, -48(%rbp)
 	jne	.L38
 	jmp	.L42
 .L38:
-	movq	-24(%rbp), %rax
-	movq	%rax, -88(%rbp)
-	movq	-56(%rbp), %rax
-	movq	%rax, -24(%rbp)
-	movq	-80(%rbp), %rax
-	movq	%rax, -48(%rbp)
-	movq	-40(%rbp), %rax
+	movq	-16(%rbp), %rax
 	movq	%rax, -80(%rbp)
-	movq	-40(%rbp), %rax
-	imulq	-64(%rbp), %rax
-	movq	-48(%rbp), %rdx
-	subq	%rax, %rdx
-	movq	%rdx, %rax
-	movq	%rax, -40(%rbp)
+	movq	-48(%rbp), %rax
+	movq	%rax, -16(%rbp)
 	movq	-72(%rbp), %rax
-	movq	%rax, -48(%rbp)
+	movq	%rax, -40(%rbp)
 	movq	-32(%rbp), %rax
 	movq	%rax, -72(%rbp)
 	movq	-32(%rbp), %rax
-	imulq	-64(%rbp), %rax
-	movq	-48(%rbp), %rdx
+	imulq	-56(%rbp), %rax
+	movq	-40(%rbp), %rdx
 	subq	%rax, %rdx
 	movq	%rdx, %rax
 	movq	%rax, -32(%rbp)
+	movq	-64(%rbp), %rax
+	movq	%rax, -40(%rbp)
+	movq	-24(%rbp), %rax
+	movq	%rax, -64(%rbp)
+	movq	-24(%rbp), %rax
+	imulq	-56(%rbp), %rax
+	movq	-40(%rbp), %rdx
+	subq	%rax, %rdx
+	movq	%rdx, %rax
+	movq	%rax, -24(%rbp)
 	jmp	.L40
 .L42:
-	movq	-96(%rbp), %rax
-	movq	-40(%rbp), %rdx
-	movq	%rdx, (%rax)
+	movq	-88(%rbp), %rax
 	movq	-32(%rbp), %rdx
-	movq	%rdx, 8(%rax)
+	movq	%rdx, (%rax)
 	movq	-24(%rbp), %rdx
+	movq	%rdx, 8(%rax)
+	movq	-16(%rbp), %rdx
 	movq	%rdx, 16(%rax)
-	movq	-96(%rbp), %rax
-	popq	%rbx
+	movq	-88(%rbp), %rax
 	popq	%rbp
 	.cfi_def_cfa 7, 8
 	ret
@@ -624,71 +609,68 @@ eulerLL:
 	.cfi_offset 6, -16
 	movq	%rsp, %rbp
 	.cfi_def_cfa_register 6
-	pushq	%rbx
-	.cfi_offset 3, -24
-	movq	%rdi, -96(%rbp)
-	movq	%rsi, -104(%rbp)
-	movq	%rdx, -112(%rbp)
-	movq	$1, -32(%rbp)
-	movq	-32(%rbp), %rax
+	movq	%rdi, -88(%rbp)
+	movq	%rsi, -96(%rbp)
+	movq	%rdx, -104(%rbp)
+	movq	$1, -24(%rbp)
+	movq	-24(%rbp), %rax
+	movq	%rax, -72(%rbp)
+	movq	$0, -64(%rbp)
+	movq	-64(%rbp), %rax
+	movq	%rax, -32(%rbp)
+	movq	-96(%rbp), %rax
 	movq	%rax, -80(%rbp)
-	movq	$0, -72(%rbp)
-	movq	-72(%rbp), %rax
-	movq	%rax, -40(%rbp)
 	movq	-104(%rbp), %rax
-	movq	%rax, -88(%rbp)
-	movq	-112(%rbp), %rax
-	movq	%rax, -24(%rbp)
+	movq	%rax, -16(%rbp)
 .L46:
-	movq	-24(%rbp), %rbx
-	movq	-88(%rbp), %rax
+	movq	-16(%rbp), %rsi
+	movq	-80(%rbp), %rax
 	cqto
-	idivq	%rbx
-	movq	%rax, -64(%rbp)
-	movq	-24(%rbp), %rcx
-	movq	-88(%rbp), %rax
+	idivq	%rsi
+	movq	%rax, -56(%rbp)
+	movq	-16(%rbp), %rcx
+	movq	-80(%rbp), %rax
 	cqto
 	idivq	%rcx
-	movq	%rdx, -56(%rbp)
-	cmpq	$0, -56(%rbp)
+	movq	%rdx, -48(%rbp)
+	cmpq	$0, -48(%rbp)
 	jne	.L44
 	jmp	.L48
 .L44:
-	movq	-24(%rbp), %rax
-	movq	%rax, -88(%rbp)
-	movq	-56(%rbp), %rax
-	movq	%rax, -24(%rbp)
-	movq	-80(%rbp), %rax
-	movq	%rax, -48(%rbp)
-	movq	-40(%rbp), %rax
+	movq	-16(%rbp), %rax
 	movq	%rax, -80(%rbp)
-	movq	-40(%rbp), %rax
-	imulq	-64(%rbp), %rax
-	movq	-48(%rbp), %rdx
-	subq	%rax, %rdx
-	movq	%rdx, %rax
-	movq	%rax, -40(%rbp)
+	movq	-48(%rbp), %rax
+	movq	%rax, -16(%rbp)
 	movq	-72(%rbp), %rax
-	movq	%rax, -48(%rbp)
+	movq	%rax, -40(%rbp)
 	movq	-32(%rbp), %rax
 	movq	%rax, -72(%rbp)
 	movq	-32(%rbp), %rax
-	imulq	-64(%rbp), %rax
-	movq	-48(%rbp), %rdx
+	imulq	-56(%rbp), %rax
+	movq	-40(%rbp), %rdx
 	subq	%rax, %rdx
 	movq	%rdx, %rax
 	movq	%rax, -32(%rbp)
+	movq	-64(%rbp), %rax
+	movq	%rax, -40(%rbp)
+	movq	-24(%rbp), %rax
+	movq	%rax, -64(%rbp)
+	movq	-24(%rbp), %rax
+	imulq	-56(%rbp), %rax
+	movq	-40(%rbp), %rdx
+	subq	%rax, %rdx
+	movq	%rdx, %rax
+	movq	%rax, -24(%rbp)
 	jmp	.L46
 .L48:
-	movq	-96(%rbp), %rax
-	movq	-40(%rbp), %rdx
-	movq	%rdx, (%rax)
+	movq	-88(%rbp), %rax
 	movq	-32(%rbp), %rdx
-	movq	%rdx, 8(%rax)
+	movq	%rdx, (%rax)
 	movq	-24(%rbp), %rdx
+	movq	%rdx, 8(%rax)
+	movq	-16(%rbp), %rdx
 	movq	%rdx, 16(%rax)
-	movq	-96(%rbp), %rax
-	popq	%rbx
+	movq	-88(%rbp), %rax
 	popq	%rbp
 	.cfi_def_cfa 7, 8
 	ret
@@ -705,76 +687,73 @@ eulerULL:
 	.cfi_offset 6, -16
 	movq	%rsp, %rbp
 	.cfi_def_cfa_register 6
-	pushq	%rbx
-	.cfi_offset 3, -24
-	movq	%rdi, -96(%rbp)
-	movq	%rsi, -104(%rbp)
-	movq	%rdx, -112(%rbp)
-	movq	$1, -32(%rbp)
-	movq	-32(%rbp), %rax
+	movq	%rdi, -88(%rbp)
+	movq	%rsi, -96(%rbp)
+	movq	%rdx, -104(%rbp)
+	movq	$1, -24(%rbp)
+	movq	-24(%rbp), %rax
+	movq	%rax, -72(%rbp)
+	movq	$0, -64(%rbp)
+	movq	-64(%rbp), %rax
+	movq	%rax, -32(%rbp)
+	movq	-96(%rbp), %rax
 	movq	%rax, -80(%rbp)
-	movq	$0, -72(%rbp)
-	movq	-72(%rbp), %rax
-	movq	%rax, -40(%rbp)
 	movq	-104(%rbp), %rax
-	movq	%rax, -88(%rbp)
-	movq	-112(%rbp), %rax
-	movq	%rax, -24(%rbp)
+	movq	%rax, -16(%rbp)
 .L52:
-	movq	-24(%rbp), %rbx
-	movq	-88(%rbp), %rax
+	movq	-16(%rbp), %rsi
+	movq	-80(%rbp), %rax
 	movl	$0, %edx
-	divq	%rbx
-	movq	%rax, -64(%rbp)
-	movq	-24(%rbp), %rcx
-	movq	-88(%rbp), %rax
+	divq	%rsi
+	movq	%rax, -56(%rbp)
+	movq	-16(%rbp), %rcx
+	movq	-80(%rbp), %rax
 	movl	$0, %edx
 	divq	%rcx
-	movq	%rdx, -56(%rbp)
-	cmpq	$0, -56(%rbp)
+	movq	%rdx, -48(%rbp)
+	cmpq	$0, -48(%rbp)
 	jne	.L50
 	jmp	.L54
 .L50:
-	movq	-24(%rbp), %rax
-	movq	%rax, -88(%rbp)
-	movq	-56(%rbp), %rax
-	movq	%rax, -24(%rbp)
-	movq	-80(%rbp), %rax
-	movq	%rax, -48(%rbp)
-	movq	-40(%rbp), %rax
+	movq	-16(%rbp), %rax
 	movq	%rax, -80(%rbp)
-	movq	-40(%rbp), %rax
-	imulq	-64(%rbp), %rax
-	movq	-48(%rbp), %rdx
-	subq	%rax, %rdx
-	movq	%rdx, %rax
-	movq	%rax, -40(%rbp)
+	movq	-48(%rbp), %rax
+	movq	%rax, -16(%rbp)
 	movq	-72(%rbp), %rax
-	movq	%rax, -48(%rbp)
+	movq	%rax, -40(%rbp)
 	movq	-32(%rbp), %rax
 	movq	%rax, -72(%rbp)
 	movq	-32(%rbp), %rax
-	imulq	-64(%rbp), %rax
-	movq	-48(%rbp), %rdx
+	imulq	-56(%rbp), %rax
+	movq	-40(%rbp), %rdx
 	subq	%rax, %rdx
 	movq	%rdx, %rax
 	movq	%rax, -32(%rbp)
+	movq	-64(%rbp), %rax
+	movq	%rax, -40(%rbp)
+	movq	-24(%rbp), %rax
+	movq	%rax, -64(%rbp)
+	movq	-24(%rbp), %rax
+	imulq	-56(%rbp), %rax
+	movq	-40(%rbp), %rdx
+	subq	%rax, %rdx
+	movq	%rdx, %rax
+	movq	%rax, -24(%rbp)
 	jmp	.L52
 .L54:
-	movq	-96(%rbp), %rax
-	movq	-40(%rbp), %rdx
-	movq	%rdx, (%rax)
+	movq	-88(%rbp), %rax
 	movq	-32(%rbp), %rdx
-	movq	%rdx, 8(%rax)
+	movq	%rdx, (%rax)
 	movq	-24(%rbp), %rdx
+	movq	%rdx, 8(%rax)
+	movq	-16(%rbp), %rdx
 	movq	%rdx, 16(%rax)
-	movq	-96(%rbp), %rax
-	popq	%rbx
+	movq	-88(%rbp), %rax
 	popq	%rbp
 	.cfi_def_cfa 7, 8
 	ret
 	.cfi_endproc
 .LFE8:
 	.size	eulerULL, .-eulerULL
-	.ident	"GCC: (Ubuntu 4.8.2-19ubuntu1) 4.8.2"
+	.ident	"GCC: (Ubuntu 4.9.1-16ubuntu6) 4.9.1"
 	.section	.note.GNU-stack,"",@progbits

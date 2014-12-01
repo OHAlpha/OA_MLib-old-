@@ -123,10 +123,8 @@ readDecimal:
 	movl	(%rax), %eax
 	andl	$1073741823, %eax
 	movl	%eax, -12(%rbp)
-	movl	-16(%rbp), %eax
-	movl	-20(%rbp), %edx
-	subl	%eax, %edx
-	movl	%edx, %eax
+	movl	-20(%rbp), %eax
+	subl	-16(%rbp), %eax
 	cltq
 	leaq	-1(%rax), %rdx
 	movq	-40(%rbp), %rax
@@ -207,5 +205,5 @@ readDecimal:
 	.cfi_endproc
 .LFE2:
 	.size	readDecimal, .-readDecimal
-	.ident	"GCC: (Ubuntu 4.8.2-19ubuntu1) 4.8.2"
+	.ident	"GCC: (Ubuntu 4.9.1-16ubuntu6) 4.9.1"
 	.section	.note.GNU-stack,"",@progbits

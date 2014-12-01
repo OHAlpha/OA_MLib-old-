@@ -1,6 +1,8 @@
 make run
-Mon Dec  1 16:48:42 UTC 2014
+Mon Dec  1 18:33:44 EST 2014
 ChangeLog
 
 makefile
-    updated all to include changelog in message
+	all was split into buildall which builds and commits and push which pushes
+	to github and bitbucket. Also, pull was added to pull from either
+	repository.
