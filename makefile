@@ -6,18 +6,18 @@ include make/recipes.mk
 
 MessagePrototype := proto.txt
 MessageFile := message.txt
-GitHubConfig := github_config.txt
-BitBucketConfig := bitbucket_config.txt
+ChangeLog := changelog.txt
 
 all: build buildtest test var.mk
 	cp $(MessagePrototype) $(MessageFile)
 	date >> $(MessageFile)
-#	message=$$(cat $(MessageFile))
-#	echo $$message
+	cat $(ChangeLog) >> $(MessageFile)
+	rm $(ChangeLog)
+	echo ChangeLog > $(ChangeLog)
 	git add -A
 	git commit -F $(MessageFile)
-	git push https://github.com/OHAlpha/OA_MLib.git master < $(GitHubConfig)
-	git push https://OAlpha@bitbucket.org/OAlpha/oa_mlib.git master < $(BitBucketConfig)
+	git push https://github.com/OHAlpha/OA_MLib.git master
+	git push https://OAlpha@bitbucket.org/OAlpha/oa_mlib.git master
 
 build: mlib.a mlib.i
 

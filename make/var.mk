@@ -8,7 +8,7 @@
 # make[1]: Entering directory `/home/ubuntu/workspace'
 make[1]: `objects/lcm.o' is up to date.
 
-# Make data base, printed on Mon Dec  1 16:39:18 2014
+# Make data base, printed on Mon Dec  1 16:48:42 2014
 
 # Variables
 
@@ -142,6 +142,8 @@ ArchiveDir := archives
 BuildAssembly := primelistgen.s
 # environment
 C9_FULLNAME = Lloyd Nugent Gibson
+# makefile (from `makefile', line 9)
+ChangeLog := changelog.txt
 # default
 LD = ld
 # makefile (from `make/files.mk', line 5)
@@ -362,8 +364,6 @@ COMPILE.def = $(M2C) $(M2FLAGS) $(DEFFLAGS) $(TARGET_ARCH)
 PYTHONPATH = :/home/ubuntu/lib/python/site-packages
 # default
 LEX = lex
-# makefile (from `makefile', line 9)
-GitHubConfig := github_config.txt
 # makefile
 MAKEFLAGS = wp
 # environment
@@ -482,10 +482,8 @@ TestAssembly := gcdtest.s lcmtest.s ipowertest.s factorialtest.s sumIntegertest.
 MY_RUBY_HOME = /usr/local/rvm/rubies/ruby-2.1.4
 # makefile (from `make/configuration.mk', line 32)
 TestHeaderDir := test/include
-# makefile (from `makefile', line 10)
-BitBucketConfig := bitbucket_config.txt
 # variable set hash-table stats:
-# Load=229/1024=22%, Rehash=0, Collisions=59/431=14%
+# Load=228/1024=22%, Rehash=0, Collisions=60/430=14%
 
 # Pattern-specific Variable Values
 
@@ -525,7 +523,7 @@ BitBucketConfig := bitbucket_config.txt
 # build/bin (device 9437247, inode 127): 3 files, no impossibilities.
 # make/make/RCS: could not be stat'd.
 # assembly (device 9437247, inode 106): 22 files, no impossibilities.
-# . (device 9437247, inode 88): 20 files, 23 impossibilities.
+# . (device 9437247, inode 88): 19 files, 23 impossibilities.
 # test/results (device 9437247, inode 93): 65 files, no impossibilities.
 # test/source/make/RCS: could not be stat'd.
 # test/bin/make: could not be stat'd.
@@ -653,7 +651,7 @@ BitBucketConfig := bitbucket_config.txt
 # test/include (device 9437247, inode 94): 14 files, no impossibilities.
 # util/source/SCCS: could not be stat'd.
 
-# 370 files, 108 impossibilities in 159 directories.
+# 369 files, 108 impossibilities in 159 directories.
 
 # Implicit Rules
 
@@ -1276,13 +1274,16 @@ all: build buildtest test var.mk
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  commands to execute (from `makefile', line 13):
+#  commands to execute (from `makefile', line 12):
 	cp $(MessagePrototype) $(MessageFile)
 	date >> $(MessageFile)
+	cat $(ChangeLog) >> $(MessageFile)
+	rm $(ChangeLog)
+	echo ChangeLog > $(ChangeLog)
 	git add -A
 	git commit -F $(MessageFile)
-	git push https://github.com/OHAlpha/OA_MLib.git master < $(GitHubConfig)
-	git push https://OAlpha@bitbucket.org/OAlpha/oa_mlib.git master < $(BitBucketConfig)
+	git push https://github.com/OHAlpha/OA_MLib.git master
+	git push https://OAlpha@bitbucket.org/OAlpha/oa_mlib.git master
 	
 
 # Not a target:
@@ -2105,7 +2106,7 @@ mlib.a(sumInteger.o):
 # Not a target:
 makefile:
 #  Implicit rule search has been done.
-#  Last modified 2014-12-01 16:39:16.589201138
+#  Last modified 2014-12-01 16:48:35.537198378
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -4185,6 +4186,6 @@ extgcd.s: extgcd.i
 # strcache size: total = 4096 / max = 4096 / min = 4096 / avg = 4096
 # strcache free: total = 4000 / max = 4000 / min = 4000 / avg = 4000
 
-# Finished Make data base on Mon Dec  1 16:39:18 2014
+# Finished Make data base on Mon Dec  1 16:48:42 2014
 
 # make[1]: Leaving directory `/home/ubuntu/workspace'
