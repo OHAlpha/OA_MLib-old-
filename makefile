@@ -4,7 +4,18 @@ include make/dependencies.mk
 include make/clean.mk
 include make/recipes.mk
 
-all: build buildtest test var.mk
+MessagePrototype := proto.txt
+MessageFile := message.txt
+
+all: $(MessageFile) build buildtest test var.mk
+	date >> $(MessageFile)
+	git add -A
+	git commit -m $(MessageFile)
+	git push https://github.com/OHAlpha/OA_MLib.git master
+	git push https://OAlpha@bitbucket.org/OAlpha/oa_mlib.git master
+
+$(MessageFile): $(MessagePrototype)
+	cp $(MessagePrototype) $(MessageFile)
 
 build: mlib.a mlib.i
 

@@ -8,7 +8,7 @@
 # make[1]: Entering directory `/home/ubuntu/workspace'
 make[1]: `objects/lcm.o' is up to date.
 
-# Make data base, printed on Mon Dec  1 14:39:30 2014
+# Make data base, printed on Mon Dec  1 16:25:39 2014
 
 # Variables
 
@@ -238,6 +238,8 @@ GEM_HOME = /usr/local/rvm/gems/ruby-2.1.4@rails4
 APACHE_RUN_GROUP = ubuntu
 # default
 PREPROCESS.r = $(FC) $(FFLAGS) $(RFLAGS) $(TARGET_ARCH) -F
+# makefile (from `makefile', line 8)
+MessageFile := message.txt
 # environment
 APACHE_LOG_DIR = /home/ubuntu/lib/apache2/log
 # default
@@ -368,6 +370,8 @@ MFLAGS = -wp
 *D = $(patsubst %/,%,$(dir $*))
 # environment
 NVM_DIR = /home/ubuntu/.nvm
+# makefile (from `makefile', line 7)
+MessagePrototype := proto.txt
 # default
 LEX.l = $(LEX) $(LFLAGS) -t
 # automatic
@@ -477,7 +481,7 @@ MY_RUBY_HOME = /usr/local/rvm/rubies/ruby-2.1.4
 # makefile (from `make/configuration.mk', line 32)
 TestHeaderDir := test/include
 # variable set hash-table stats:
-# Load=225/1024=22%, Rehash=0, Collisions=57/427=13%
+# Load=227/1024=22%, Rehash=0, Collisions=61/432=14%
 
 # Pattern-specific Variable Values
 
@@ -517,7 +521,7 @@ TestHeaderDir := test/include
 # build/bin (device 9437247, inode 127): 3 files, no impossibilities.
 # make/make/RCS: could not be stat'd.
 # assembly (device 9437247, inode 106): 22 files, no impossibilities.
-# . (device 9437247, inode 88): 16 files, 23 impossibilities.
+# . (device 9437247, inode 88): 18 files, 23 impossibilities.
 # test/results (device 9437247, inode 93): 65 files, no impossibilities.
 # test/source/make/RCS: could not be stat'd.
 # test/bin/make: could not be stat'd.
@@ -645,7 +649,7 @@ TestHeaderDir := test/include
 # test/include (device 9437247, inode 94): 14 files, no impossibilities.
 # util/source/SCCS: could not be stat'd.
 
-# 366 files, 108 impossibilities in 159 directories.
+# 368 files, 108 impossibilities in 159 directories.
 
 # Implicit Rules
 
@@ -1264,10 +1268,17 @@ mlib.a(writeInteger.o):
 #  Modification time never checked.
 #  File has not been updated.
 
-all: build buildtest test var.mk
+all: message.txt build buildtest test var.mk
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
+#  commands to execute (from `makefile', line 11):
+	date >> $(MessageFile)
+	git add -A
+	git commit -m $(MessageFile)
+	git push https://github.com/OHAlpha/OA_MLib.git master
+	git push https://OAlpha@bitbucket.org/OAlpha/oa_mlib.git master
+	
 
 # Not a target:
 negateInteger.h:
@@ -1474,6 +1485,14 @@ ipowertest.h:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
+
+message.txt: proto.txt
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  commands to execute (from `makefile', line 18):
+	cp $(MessagePrototype) $(MessageFile)
+	
 
 # Not a target:
 mlibtest.a(writeDecimaltest.o):
@@ -1853,7 +1872,7 @@ mlibtest: mlibtest.o mlibtest.a
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  commands to execute (from `makefile', line 37):
+#  commands to execute (from `makefile', line 48):
 	$(LINK.o) $(TestObjectDir)/mlibtest.o $(ArchiveDir)/mlib.a $(ArchiveDir)/mlibtest.a $(LOADLIBES) $(LDLIBS) -o $(TestExecutableDir)/mlibtest
 	
 
@@ -2089,7 +2108,7 @@ mlib.a(sumInteger.o):
 # Not a target:
 makefile:
 #  Implicit rule search has been done.
-#  Last modified 2014-12-01 14:38:43.621211179
+#  Last modified 2014-12-01 16:25:35.849205692
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -2393,7 +2412,7 @@ mlibtest.o: mlibtest.c mlibtest.h
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  commands to execute (from `makefile', line 32):
+#  commands to execute (from `makefile', line 43):
 	$(CC) -E $(INCLUDE) $(TestSourceDir)/mlibtest.c -o $(TestTranslationDir)/mlibtest.i
 	$(CC) -S $(INCLUDE) $(TestTranslationDir)/mlibtest.i -o $(TestAssemblyDir)/mlibtest.s
 	$(CC) -c $(TestAssemblyDir)/mlibtest.s -o $(TestObjectDir)/mlibtest.o
@@ -2629,7 +2648,7 @@ mlib_t.h: mlibtest
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  commands to execute (from `makefile', line 40):
+#  commands to execute (from `makefile', line 51):
 	$(TestExecutableDir)/mlibtest > $(TestResultDir)/mlib_t.h
 	
 
@@ -3249,7 +3268,7 @@ var.mk: makefile make/configuration.mk make/files.mk make/dependencies.mk make/c
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  commands to execute (from `makefile', line 45):
+#  commands to execute (from `makefile', line 56):
 	$(MAKE) -p > $(MakefileDir)/$@
 	
 
@@ -3522,7 +3541,7 @@ mlib.i: mlib.h util/bin/process macro.h str.h include/gcd.h include/lcm.h extgcd
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  commands to execute (from `makefile', line 14):
+#  commands to execute (from `makefile', line 25):
 	$(CC) -E $(INCLUDE) $(HeaderDir)/mlib.h -o $(TranslationDir)/mlibtmp.i
 	$(UtilExecutableDir)/process $(TranslationDir)/mlib
 	rm $(TranslationDir)/mlibtmp.i
@@ -3692,7 +3711,7 @@ primelistprep: primelist.n
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  commands to execute (from `makefile', line 19):
+#  commands to execute (from `makefile', line 30):
 	$(CC) -c $(INCLUDE) $(SourceDir)/prime.c -o $(ObjectDir)/prime.o
 	ar -cr $(ArchiveDir)/mlib.a $(ObjectDir)/prime.o
 	$(CC) -c $(INCLUDE) $(SourceDir)/primelist.c -o $(ObjectDir)/primelist.o
@@ -3761,6 +3780,12 @@ mlibtest.a(writeDecimal.o):
 
 # Not a target:
 mlibtest.a(lcm.o):
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+proto.txt:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
@@ -4156,7 +4181,7 @@ extgcd.s: extgcd.i
 	
 
 # files hash-table stats:
-# Load=392/1024=38%, Rehash=0, Collisions=16303/27120=60%
+# Load=394/1024=38%, Rehash=0, Collisions=16445/27124=61%
 # VPATH Search Paths
 
 # No `vpath' search paths.
@@ -4169,6 +4194,6 @@ extgcd.s: extgcd.i
 # strcache size: total = 4096 / max = 4096 / min = 4096 / avg = 4096
 # strcache free: total = 4000 / max = 4000 / min = 4000 / avg = 4000
 
-# Finished Make data base on Mon Dec  1 14:39:30 2014
+# Finished Make data base on Mon Dec  1 16:25:39 2014
 
 # make[1]: Leaving directory `/home/ubuntu/workspace'
