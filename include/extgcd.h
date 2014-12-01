@@ -40,41 +40,7 @@
 #define EULER_EXTENDED_METHOD_INLINE( triple, c, ap, bp, q, r, t ) \
 		EULER_EXTENDED_METHOD_PROC( triple, c, ap, bp, q, r, t )
 
-struct CTriple {
-		C_TYPE a, b, gcd;
-};
-
-struct STriple {
-		S_TYPE a, b, gcd;
-};
-
-struct USTriple {
-		US_TYPE a, b, gcd;
-};
-
-struct ITriple {
-		I_TYPE a, b, gcd;
-};
-
-struct UITriple {
-		UI_TYPE a, b, gcd;
-};
-
-struct LTriple {
-		L_TYPE a, b, gcd;
-};
-
-struct ULTriple {
-		UL_TYPE a, b, gcd;
-};
-
-struct LLTriple {
-		LL_TYPE a, b, gcd;
-};
-
-struct ULLTriple {
-		ULL_TYPE a, b, gcd;
-};
+#include "triple.d"
 
 struct CTriple eulerC( C_TYPE m, C_TYPE n );
 

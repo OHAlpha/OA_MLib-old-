@@ -58,28 +58,72 @@
 .LC27:
 	.string	"zExtendInteger"
 .LC28:
-	.string	"wBinCArray"
+	.string	"writeInteger"
 .LC29:
-	.string	"wOctCArray"
+	.string	"readInteger"
 .LC30:
-	.string	"wHexCArray"
+	.string	"copyDecimal"
 .LC31:
-	.string	"sRCArray"
+	.string	"moveDecimal"
 .LC32:
-	.string	"sLCArray"
+	.string	"sumDecimal"
 .LC33:
-	.string	"rRCArray"
+	.string	"differenceDecimal"
 .LC34:
-	.string	"rLCArray"
+	.string	"preIncrementDecimal"
 .LC35:
-	.string	"sRBCArray"
+	.string	"postIncrementDecimal"
 .LC36:
-	.string	"sLBCArray"
+	.string	"preDecrementDecimal"
 .LC37:
-	.string	"rRBCArray"
+	.string	"postDecrementDecimal"
 .LC38:
-	.string	"rLBCArray"
+	.string	"productDecimal"
 .LC39:
+	.string	"negateDecimal"
+.LC40:
+	.string	"quotientDecimal"
+.LC41:
+	.string	"modDecimal"
+.LC42:
+	.string	"sizeDecimal"
+.LC43:
+	.string	"cmpDecimal"
+.LC44:
+	.string	"cmpLDecimal"
+.LC45:
+	.string	"cmpZDecimal"
+.LC46:
+	.string	"sExtendDecimal"
+.LC47:
+	.string	"zExtendDecimal"
+.LC48:
+	.string	"writeDecimal"
+.LC49:
+	.string	"readDecimal"
+.LC50:
+	.string	"wBinCArray"
+.LC51:
+	.string	"wOctCArray"
+.LC52:
+	.string	"wHexCArray"
+.LC53:
+	.string	"sRCArray"
+.LC54:
+	.string	"sLCArray"
+.LC55:
+	.string	"rRCArray"
+.LC56:
+	.string	"rLCArray"
+.LC57:
+	.string	"sRBCArray"
+.LC58:
+	.string	"sLBCArray"
+.LC59:
+	.string	"rRBCArray"
+.LC60:
+	.string	"rLBCArray"
+.LC61:
 	.string	"copyCArray"
 	.text
 	.globl	init
@@ -93,7 +137,7 @@ init:
 	movq	%rsp, %rbp
 	.cfi_def_cfa_register 6
 	subq	$16, %rsp
-	movl	$640, %edi
+	movl	$992, %edi
 	call	malloc
 	movq	%rax, -8(%rbp)
 	movq	-8(%rbp), %rax
@@ -171,7 +215,7 @@ init:
 	movq	-8(%rbp), %rax
 	movq	$.LC18, 288(%rax)
 	movq	-8(%rbp), %rax
-	movq	$0, 296(%rax)
+	movq	$testProductInteger, 296(%rax)
 	movq	-8(%rbp), %rax
 	movq	$.LC19, 304(%rax)
 	movq	-8(%rbp), %rax
@@ -211,11 +255,11 @@ init:
 	movq	-8(%rbp), %rax
 	movq	$.LC28, 448(%rax)
 	movq	-8(%rbp), %rax
-	movq	$0, 456(%rax)
+	movq	$testStrInteger, 456(%rax)
 	movq	-8(%rbp), %rax
 	movq	$.LC29, 464(%rax)
 	movq	-8(%rbp), %rax
-	movq	$0, 472(%rax)
+	movq	$testReadInteger, 472(%rax)
 	movq	-8(%rbp), %rax
 	movq	$.LC30, 480(%rax)
 	movq	-8(%rbp), %rax
@@ -241,13 +285,13 @@ init:
 	movq	-8(%rbp), %rax
 	movq	$0, 568(%rax)
 	movq	-8(%rbp), %rax
-	movq	$.LC36, 576(%rax)
-	movq	-8(%rbp), %rax
-	movq	$0, 584(%rax)
-	movq	-8(%rbp), %rax
-	movq	$.LC37, 592(%rax)
+	movq	$.LC36, 592(%rax)
 	movq	-8(%rbp), %rax
 	movq	$0, 600(%rax)
+	movq	-8(%rbp), %rax
+	movq	$.LC37, 576(%rax)
+	movq	-8(%rbp), %rax
+	movq	$0, 584(%rax)
 	movq	-8(%rbp), %rax
 	movq	$.LC38, 608(%rax)
 	movq	-8(%rbp), %rax
@@ -256,6 +300,94 @@ init:
 	movq	$.LC39, 624(%rax)
 	movq	-8(%rbp), %rax
 	movq	$0, 632(%rax)
+	movq	-8(%rbp), %rax
+	movq	$.LC40, 640(%rax)
+	movq	-8(%rbp), %rax
+	movq	$0, 648(%rax)
+	movq	-8(%rbp), %rax
+	movq	$.LC41, 656(%rax)
+	movq	-8(%rbp), %rax
+	movq	$0, 664(%rax)
+	movq	-8(%rbp), %rax
+	movq	$.LC42, 672(%rax)
+	movq	-8(%rbp), %rax
+	movq	$0, 680(%rax)
+	movq	-8(%rbp), %rax
+	movq	$.LC43, 688(%rax)
+	movq	-8(%rbp), %rax
+	movq	$0, 696(%rax)
+	movq	-8(%rbp), %rax
+	movq	$.LC44, 704(%rax)
+	movq	-8(%rbp), %rax
+	movq	$0, 712(%rax)
+	movq	-8(%rbp), %rax
+	movq	$.LC45, 720(%rax)
+	movq	-8(%rbp), %rax
+	movq	$0, 728(%rax)
+	movq	-8(%rbp), %rax
+	movq	$.LC46, 736(%rax)
+	movq	-8(%rbp), %rax
+	movq	$0, 744(%rax)
+	movq	-8(%rbp), %rax
+	movq	$.LC47, 752(%rax)
+	movq	-8(%rbp), %rax
+	movq	$0, 760(%rax)
+	movq	-8(%rbp), %rax
+	movq	$.LC48, 768(%rax)
+	movq	-8(%rbp), %rax
+	movq	$testStrDecimal, 776(%rax)
+	movq	-8(%rbp), %rax
+	movq	$.LC49, 784(%rax)
+	movq	-8(%rbp), %rax
+	movq	$testReadDecimal, 792(%rax)
+	movq	-8(%rbp), %rax
+	movq	$.LC50, 800(%rax)
+	movq	-8(%rbp), %rax
+	movq	$0, 808(%rax)
+	movq	-8(%rbp), %rax
+	movq	$.LC51, 816(%rax)
+	movq	-8(%rbp), %rax
+	movq	$0, 824(%rax)
+	movq	-8(%rbp), %rax
+	movq	$.LC52, 832(%rax)
+	movq	-8(%rbp), %rax
+	movq	$0, 840(%rax)
+	movq	-8(%rbp), %rax
+	movq	$.LC53, 848(%rax)
+	movq	-8(%rbp), %rax
+	movq	$0, 856(%rax)
+	movq	-8(%rbp), %rax
+	movq	$.LC54, 864(%rax)
+	movq	-8(%rbp), %rax
+	movq	$0, 872(%rax)
+	movq	-8(%rbp), %rax
+	movq	$.LC55, 880(%rax)
+	movq	-8(%rbp), %rax
+	movq	$0, 888(%rax)
+	movq	-8(%rbp), %rax
+	movq	$.LC56, 896(%rax)
+	movq	-8(%rbp), %rax
+	movq	$0, 904(%rax)
+	movq	-8(%rbp), %rax
+	movq	$.LC57, 912(%rax)
+	movq	-8(%rbp), %rax
+	movq	$0, 920(%rax)
+	movq	-8(%rbp), %rax
+	movq	$.LC58, 928(%rax)
+	movq	-8(%rbp), %rax
+	movq	$0, 936(%rax)
+	movq	-8(%rbp), %rax
+	movq	$.LC59, 944(%rax)
+	movq	-8(%rbp), %rax
+	movq	$0, 952(%rax)
+	movq	-8(%rbp), %rax
+	movq	$.LC60, 960(%rax)
+	movq	-8(%rbp), %rax
+	movq	$0, 968(%rax)
+	movq	-8(%rbp), %rax
+	movq	$.LC61, 976(%rax)
+	movq	-8(%rbp), %rax
+	movq	$0, 984(%rax)
 	movq	-8(%rbp), %rax
 	movq	%rax, tests(%rip)
 	leave
@@ -266,24 +398,24 @@ init:
 	.size	init, .-init
 	.globl	a
 	.section	.rodata
-.LC40:
+.LC62:
 	.string	"test/results/"
 	.data
 	.align 8
 	.type	a, @object
 	.size	a, 8
 a:
-	.quad	.LC40
+	.quad	.LC62
 	.globl	c
 	.section	.rodata
-.LC41:
+.LC63:
 	.string	"_t.h"
 	.data
 	.align 8
 	.type	c, @object
 	.size	c, 8
 c:
-	.quad	.LC41
+	.quad	.LC63
 	.globl	s
 	.align 4
 	.type	s, @object
@@ -297,9 +429,9 @@ s:
 u:
 	.long	4
 	.section	.rodata
-.LC42:
+.LC64:
 	.string	" * FIXME: INVALID TEST NAME"
-.LC43:
+.LC65:
 	.string	"test"
 	.text
 	.globl	concat
@@ -316,10 +448,10 @@ concat:
 	movq	%rdi, -24(%rbp)
 	cmpq	$0, -24(%rbp)
 	jne	.L3
-	movl	$.LC42, %edi
+	movl	$.LC64, %edi
 	movl	$0, %eax
 	call	printf
-	movq	$.LC43, -24(%rbp)
+	movq	$.LC65, -24(%rbp)
 .L3:
 	movl	$0, -16(%rbp)
 	jmp	.L4
@@ -422,20 +554,20 @@ concat:
 .LFE3:
 	.size	concat, .-concat
 	.section	.rodata
-.LC44:
+.LC66:
 	.string	"/**\n * MLib\n"
-.LC45:
+.LC67:
 	.string	" * \t%s\n"
-.LC46:
+.LC68:
 	.string	"w"
 	.align 8
-.LC47:
+.LC69:
 	.string	" * \tTODO: implement tests for %s\n\n"
-.LC48:
+.LC70:
 	.string	" * \tFIXME: %s failed\n\n"
-.LC49:
+.LC71:
 	.string	" * \t%s succeeded\n\n"
-.LC50:
+.LC72:
 	.string	" */"
 	.text
 	.globl	testMLib
@@ -449,7 +581,7 @@ testMLib:
 	movq	%rsp, %rbp
 	.cfi_def_cfa_register 6
 	subq	$32, %rsp
-	movl	$.LC44, %edi
+	movl	$.LC66, %edi
 	call	puts
 	movl	$0, -20(%rbp)
 	jmp	.L14
@@ -461,7 +593,7 @@ testMLib:
 	addq	%rdx, %rax
 	movq	(%rax), %rax
 	movq	%rax, %rsi
-	movl	$.LC45, %edi
+	movl	$.LC67, %edi
 	movl	$0, %eax
 	call	printf
 	movq	tests(%rip), %rax
@@ -474,7 +606,7 @@ testMLib:
 	call	concat
 	movq	%rax, -16(%rbp)
 	movq	-16(%rbp), %rax
-	movl	$.LC46, %esi
+	movl	$.LC68, %esi
 	movq	%rax, %rdi
 	call	fopen
 	movq	%rax, -8(%rbp)
@@ -493,7 +625,7 @@ testMLib:
 	addq	%rdx, %rax
 	movq	(%rax), %rax
 	movq	%rax, %rsi
-	movl	$.LC47, %edi
+	movl	$.LC69, %edi
 	movl	$0, %eax
 	call	printf
 	jmp	.L16
@@ -516,7 +648,7 @@ testMLib:
 	addq	%rdx, %rax
 	movq	(%rax), %rax
 	movq	%rax, %rsi
-	movl	$.LC48, %edi
+	movl	$.LC70, %edi
 	movl	$0, %eax
 	call	printf
 	jmp	.L16
@@ -528,7 +660,7 @@ testMLib:
 	addq	%rdx, %rax
 	movq	(%rax), %rax
 	movq	%rax, %rsi
-	movl	$.LC49, %edi
+	movl	$.LC71, %edi
 	movl	$0, %eax
 	call	printf
 .L16:
@@ -540,9 +672,9 @@ testMLib:
 	call	free
 	addl	$1, -20(%rbp)
 .L14:
-	cmpl	$39, -20(%rbp)
+	cmpl	$61, -20(%rbp)
 	jle	.L18
-	movl	$.LC50, %edi
+	movl	$.LC72, %edi
 	movl	$0, %eax
 	call	printf
 	movl	$0, %eax

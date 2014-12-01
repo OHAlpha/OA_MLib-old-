@@ -5,7 +5,6 @@
  *      Author: alpha
  */
 
-#include "integer.d"
 #include "differenceInteger.h"
 #include <stdlib.h>
 
@@ -15,58 +14,17 @@
 #include <stdio.h>
 #endif
 
-#define get( a, i ) ( ( i < a.length ? a.integer[i] : \
-		( a.length == 0 ? 0 : \
-				( a.integer[a.length - 1] >= 0 ? 0 : -1 ) ) ) & 0x00ff )
+void differenceInteger( SI_TYPE a, SI_TYPE b, SI_TYPE *c ) {
 
-#define getC( a, i ) ( ( i < a.length ? ~a.integer[i] : \
-		( a.length == 0 ? -1 : \
-				( a.integer[a.length - 1] >= 0 ? -1 : 0 ) ) ) & 0x00ff )
+	DIFFERENCE_METHOD_DECLARATION( i, t )
+	DIFFERENCE_METHOD_PREPARATION( c->integer, a.length, b.length, c->length )
+	DIFFERENCE_METHOD_PROC( a.integer, b.integer, c->integer, a.length, b.length, c->length, c->size, i, t )
 
-SI_TYPE differenceInteger( SI_TYPE a, SI_TYPE b ) {
+}
 
-	SI_TYPE c;
-	int i, t;
+void differenceEqualsInteger( SI_TYPE *a, SI_TYPE b ) {
 
-	c.length = MAX( a.length, b.length ) + 1;
-	c.integer = ( char * ) malloc( c.length * sizeof(char) );
-
-	for( i = 0; i < c.length; i++ ) {
-		c.integer[i] = get( a, i );
-#ifdef VERBOSE
-		printf( "c[%d] = %d\n", i, get( a, i ) );
-#endif
-	}
-
-	t = 1;
-	for( i = 0; i < c.length; i++ ) {
-#ifdef VERBOSE
-		printf( "t = %d + %d + %d = %d\n", t, get( a, i ), get( b, i ),
-		        t + get( a, i ) + getC( b, i ) );
-#endif
-		t = t + get( a, i ) + getC( b, i );
-		c.integer[i] = t & 0x00ff;
-#ifdef VERBOSE
-		printf( "c[%d] = %d & 0x00ff = %d\n", i, t, t & 0x00ff );
-		printf( "t = ( %d >> 8 ) & 0x00ff = %d\n", t, ( t >> 8 ) & 0x00ff );
-#endif
-		t = ( t >> 8 ) & 0x00ff;
-	}
-
-	if( c.length > 0 ) {
-		t = c.integer[i = ( c.length - 1 )];
-		if( t == -1 || t == 0 ) {
-			for( i = c.length - 2; i >= 0 && c.integer[i] == t; i-- )
-				;
-			i++;
-			c.size = t == -1 ? i : i == 0 ? i :
-			         c.integer[i - 1] > 0 ? i : i + 1;
-		}
-		else
-			c.size = c.length;
-
-	}
-
-	return c;
+	DIFFERENCE_METHOD_DECLARATION( i, t )
+	DIFFERENCE_METHOD_PROC( a->integer, b.integer, a->integer, a->length, b.length, a->length, a->size, i, t )
 
 }

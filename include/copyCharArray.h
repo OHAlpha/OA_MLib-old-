@@ -10,6 +10,6 @@
 
 #include "charArray.d"
 
-void copyCharArray( STR_TYPE source, STR_TYPE dest );
+void copyCharArray( struct charArray *source, struct charArray *dest, int flags );
 
 #endif /* COPYCHARARRAY_H_ */

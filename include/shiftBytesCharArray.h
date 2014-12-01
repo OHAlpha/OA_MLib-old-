@@ -10,8 +10,8 @@
 
 #include "charArray.d"
 
-void shiftRightBytesCharArray( STR_TYPE arr, int size, int s );
+void shiftRightBytesCharArray( struct charArray arr, int s );
 
-void shiftLeftBytesCharArray( STR_TYPE arr, int size, int s );
+void shiftLeftBytesCharArray( struct charArray arr, int s );
 
 #endif /* SHIFTBYTESCHARARRAY_H_ */

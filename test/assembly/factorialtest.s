@@ -1,4 +1,4 @@
-	.file	"factorialtest.c"
+	.file	"factorialtest.i"
 	.section	.rodata
 .LC0:
 	.string	"/**\n * gcd\n"

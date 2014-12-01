@@ -10,8 +10,8 @@
 
 #include "charArray.d"
 
-void rotateRightCharArray( STR_TYPE arr, int size, int s );
+void rotateRightCharArray( struct charArray arr, int s );
 
-void rotateLeftCharArray( STR_TYPE arr, int size, int s );
+void rotateLeftCharArray( struct charArray arr, int s );
 
 #endif /* ROTATECHARARRAY_H_ */

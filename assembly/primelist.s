@@ -1,4 +1,4 @@
-	.file	"primelist.c"
+	.file	"primelist.i"
 	.globl	numPrimes
 	.data
 	.align 4

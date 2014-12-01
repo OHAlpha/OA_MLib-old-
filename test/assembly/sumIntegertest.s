@@ -1,4 +1,4 @@
-	.file	"sumIntegertest.c"
+	.file	"sumIntegertest.i"
 	.section	.rodata
 .LC0:
 	.string	"/**\n * sumInteger\n"
@@ -42,15 +42,15 @@ testSumInteger:
 	movl	$4161436, (%rax)
 	movq	-24(%rbp), %rax
 	movl	$-1436116, (%rax)
+	leaq	-16(%rbp), %rcx
 	movq	-32(%rbp), %rax
 	movq	-24(%rbp), %rdx
 	movq	-48(%rbp), %rdi
 	movq	-40(%rbp), %rsi
+	movq	%rcx, %r8
 	movq	%rdx, %rcx
 	movq	%rax, %rdx
 	call	sumInteger
-	movq	%rax, -16(%rbp)
-	movq	%rdx, -8(%rbp)
 	movl	-12(%rbp), %ecx
 	movq	-8(%rbp), %rax
 	movl	(%rax), %edx
@@ -83,15 +83,15 @@ testSumInteger:
 	movl	$57275, (%rax)
 	movq	-24(%rbp), %rax
 	movl	$-1, (%rax)
+	leaq	-16(%rbp), %rcx
 	movq	-32(%rbp), %rax
 	movq	-24(%rbp), %rdx
 	movq	-48(%rbp), %rdi
 	movq	-40(%rbp), %rsi
+	movq	%rcx, %r8
 	movq	%rdx, %rcx
 	movq	%rax, %rdx
 	call	sumInteger
-	movq	%rax, -16(%rbp)
-	movq	%rdx, -8(%rbp)
 	movl	-12(%rbp), %ecx
 	movq	-8(%rbp), %rax
 	movl	(%rax), %edx
@@ -124,15 +124,15 @@ testSumInteger:
 	movl	$0, (%rax)
 	movq	-24(%rbp), %rax
 	movl	$-2367, (%rax)
+	leaq	-16(%rbp), %rcx
 	movq	-32(%rbp), %rax
 	movq	-24(%rbp), %rdx
 	movq	-48(%rbp), %rdi
 	movq	-40(%rbp), %rsi
+	movq	%rcx, %r8
 	movq	%rdx, %rcx
 	movq	%rax, %rdx
 	call	sumInteger
-	movq	%rax, -16(%rbp)
-	movq	%rdx, -8(%rbp)
 	movl	-12(%rbp), %ecx
 	movq	-8(%rbp), %rax
 	movl	(%rax), %edx
@@ -165,15 +165,15 @@ testSumInteger:
 	movl	$4161436, (%rax)
 	movq	-24(%rbp), %rax
 	movl	$1436116, (%rax)
+	leaq	-16(%rbp), %rcx
 	movq	-32(%rbp), %rax
 	movq	-24(%rbp), %rdx
 	movq	-48(%rbp), %rdi
 	movq	-40(%rbp), %rsi
+	movq	%rcx, %r8
 	movq	%rdx, %rcx
 	movq	%rax, %rdx
 	call	sumInteger
-	movq	%rax, -16(%rbp)
-	movq	%rdx, -8(%rbp)
 	movl	-12(%rbp), %ecx
 	movq	-8(%rbp), %rax
 	movl	(%rax), %edx
@@ -206,15 +206,15 @@ testSumInteger:
 	movl	$421, (%rax)
 	movq	-24(%rbp), %rax
 	movl	$-421, (%rax)
+	leaq	-16(%rbp), %rcx
 	movq	-32(%rbp), %rax
 	movq	-24(%rbp), %rdx
 	movq	-48(%rbp), %rdi
 	movq	-40(%rbp), %rsi
+	movq	%rcx, %r8
 	movq	%rdx, %rcx
 	movq	%rax, %rdx
 	call	sumInteger
-	movq	%rax, -16(%rbp)
-	movq	%rdx, -8(%rbp)
 	movl	-12(%rbp), %ecx
 	movq	-8(%rbp), %rax
 	movl	(%rax), %edx
@@ -247,15 +247,15 @@ testSumInteger:
 	movl	$-43671547, (%rax)
 	movq	-24(%rbp), %rax
 	movl	$-5428522, (%rax)
+	leaq	-16(%rbp), %rcx
 	movq	-32(%rbp), %rax
 	movq	-24(%rbp), %rdx
 	movq	-48(%rbp), %rdi
 	movq	-40(%rbp), %rsi
+	movq	%rcx, %r8
 	movq	%rdx, %rcx
 	movq	%rax, %rdx
 	call	sumInteger
-	movq	%rax, -16(%rbp)
-	movq	%rdx, -8(%rbp)
 	movl	-12(%rbp), %ecx
 	movq	-8(%rbp), %rax
 	movl	(%rax), %edx

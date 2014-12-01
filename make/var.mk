@@ -8,7 +8,7 @@
 # make[1]: Entering directory `/home/ubuntu/workspace'
 make[1]: `objects/lcm.o' is up to date.
 
-# Make data base, printed on Wed Nov 26 15:56:00 2014
+# Make data base, printed on Mon Dec  1 14:39:30 2014
 
 # Variables
 
@@ -16,10 +16,10 @@ make[1]: `objects/lcm.o' is up to date.
 <D = $(patsubst %/,%,$(dir $<))
 # environment
 RUBY_VERSION = ruby-2.1.4
-# makefile (from `make/files.mk', line 32)
+# makefile (from `make/files.mk', line 45)
 BuildOutputs := primelist.c
-# makefile (from `make/files.mk', line 10)
-Source := gcd.c lcm.c extgcd.c ipower.c factorial.c permutation.c combination.c invfactorial.c prime.c sumInteger.c differenceInteger.c mask.c hexi.c primelist.c
+# makefile (from `make/files.mk', line 11)
+Source := str.c gcd.c lcm.c extgcd.c ipower.c factorial.c permutation.c combination.c invfactorial.c prime.c sumInteger.c differenceInteger.c productInteger.c writeInteger.c writeDecimal.c readInteger.c readDecimal.c mask.c hexi.c primelist.c
 # makefile (from `make/configuration.mk', line 4)
 SourceDir := source
 # automatic
@@ -28,9 +28,9 @@ SourceDir := source
 ISOUTPUTPANE = 0
 # environment
 _VIRTUALENVWRAPPER_API =  mkvirtualenv rmvirtualenv lsvirtualenv showvirtualenv workon add2virtualenv cdsitepackages cdvirtualenv lssitepackages toggleglobalsitepackages cpvirtualenv setvirtualenvproject mkproject cdproject mktmpenv mkvirtualenv rmvirtualenv lsvirtualenv showvirtualenv workon add2virtualenv cdsitepackages cdvirtualenv lssitepackages toggleglobalsitepackages cpvirtualenv setvirtualenvproject mkproject cdproject mktmpenv
-# makefile (from `make/files.mk', line 22)
+# makefile (from `make/files.mk', line 33)
 BuildSource := primelistgen.c
-# makefile (from `make/configuration.mk', line 17)
+# makefile (from `make/configuration.mk', line 24)
 BuildSourceDir := build/source
 # default
 CWEAVE = cweave
@@ -56,6 +56,8 @@ RM = rm -f
 C9_USER = oalpha
 # default
 CO = co
+# makefile (from `make/files.mk', line 27)
+UtilAssembly := process.s
 # environment
 PHPRC = /home/ubuntu/workspace
 # environment
@@ -70,37 +72,43 @@ ObjectDir := objects
 LINK.o = $(CC) $(LDFLAGS) $(TARGET_ARCH)
 # default
 OUTPUT_OPTION = -o $@
+# makefile (from `make/files.mk', line 25)
+UtilTranslations := process.i
 # default
 COMPILE.cpp = $(COMPILE.cc)
-# makefile (from `make/files.mk', line 37)
-TestSource := gcdtest.c lcmtest.c ipowertest.c factorialtest.c sumIntegertest.c differenceIntegertest.c
+# makefile (from `make/files.mk', line 53)
+TestSource := gcdtest.c lcmtest.c ipowertest.c factorialtest.c sumIntegertest.c differenceIntegertest.c productIntegertest.c writeIntegertest.c writeDecimaltest.c readDecimaltest.c readIntegertest.c
 # environment
 _system_version = 14.04
 # makefile (from `make/recipes.mk', line 1)
 MAKEFILE_LIST :=  makefile make/configuration.mk make/files.mk make/dependencies.mk make/clean.mk make/recipes.mk
-# makefile (from `make/files.mk', line 41)
-TestTranslations := gcdtest.i lcmtest.i ipowertest.i factorialtest.i sumIntegertest.i differenceIntegertest.i
+# makefile (from `make/files.mk', line 57)
+TestTranslations := gcdtest.i lcmtest.i ipowertest.i factorialtest.i sumIntegertest.i differenceIntegertest.i productIntegertest.i writeIntegertest.i writeDecimaltest.i readDecimaltest.i readIntegertest.i
 # environment
 rvm_silence_path_mismatch_check_flag = 1
 # environment
 C9_IP = 0.0.0.0
 # default
 LINK.p = $(PC) $(PFLAGS) $(CPPFLAGS) $(LDFLAGS) $(TARGET_ARCH)
-# makefile (from `make/configuration.mk', line 21)
+# makefile (from `make/configuration.mk', line 28)
 BuildExecutableDir := build/bin
-# makefile (from `make/configuration.mk', line 14)
+# makefile (from `make/configuration.mk', line 15)
 BuildDir := build
 # environment
 C9_UID = 543830
 # makefile (from `make/configuration.mk', line 1)
 CC := gcc
+# makefile (from `make/files.mk', line 23)
+UtilSource := process.c
+# makefile (from `make/configuration.mk', line 18)
+UtilSourceDir := util/source
 # environment
 METEOR_PORT = 8080
-# makefile (from `make/files.mk', line 49)
-TestObjects := gcdtest.o lcmtest.o ipowertest.o factorialtest.o sumIntegertest.o differenceIntegertest.o
-# makefile (from `make/files.mk', line 8)
-Header := macro.h gcd.h lcm.h extgcd.h ipower.h factorial.h permutation.h combination.h invfactorial.h prime.h sumInteger.h differenceInteger.h mask.n hexi.n primelist.n prime.d integer.d
-# makefile (from `make/configuration.mk', line 18)
+# makefile (from `make/files.mk', line 65)
+TestObjects := gcdtest.o lcmtest.o ipowertest.o factorialtest.o sumIntegertest.o differenceIntegertest.o productIntegertest.o writeIntegertest.o writeDecimaltest.o readDecimaltest.o readIntegertest.o
+# makefile (from `make/files.mk', line 9)
+Header := macro.h str.h gcd.h lcm.h extgcd.h ipower.h factorial.h permutation.h combination.h invfactorial.h prime.h sumInteger.h differenceInteger.h productInteger.h writeInteger.h writeDecimal.h readInteger.h readDecimal.h mask.n hexi.n primelist.n prime.d integer.d
+# makefile (from `make/configuration.mk', line 25)
 BuildTranslationDir := build/processed
 # environment
 C9_EMAIL = lnugentgibson@gmail.com
@@ -114,67 +122,73 @@ NVM_PATH = /home/ubuntu/.nvm/v0.10.33/lib/node
 LESSOPEN = | /usr/bin/lesspipe %s
 # default
 CPP = $(CC) -E
-# makefile (from `make/files.mk', line 28)
+# makefile (from `make/files.mk', line 39)
 BuildObjects := primelistgen.o
 # default
 LINK.cc = $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(LDFLAGS) $(TARGET_ARCH)
-# makefile (from `make/files.mk', line 12)
-HTranslations := gcd.i lcm.i extgcd.i ipower.i factorial.i permutation.i combination.i invfactorial.i prime.i sumInteger.i differenceInteger.i
+# makefile (from `make/files.mk', line 13)
+HTranslations := str.i gcd.i lcm.i extgcd.i ipower.i factorial.i permutation.i combination.i invfactorial.i prime.i sumInteger.i differenceInteger.i productInteger.i writeInteger.i writeDecimal.i readInteger.i readDecimal.i
 # environment
 APACHE_RUN_USER = ubuntu
-# makefile (from `make/files.mk', line 57)
+# makefile (from `make/files.mk', line 73)
 Archives := mlib.a mlibtest.a
 # environment
-SSH_CONNECTION = ::ffff:10.240.185.115 43431 ::ffff:172.17.64.115 22
+SSH_CONNECTION = ::ffff:10.240.154.83 53467 ::ffff:172.17.87.87 22
 # environment
 PATH = /home/ubuntu/.nvm/v0.10.33/bin:/usr/local/rvm/gems/ruby-2.1.4@rails4/bin:/usr/local/rvm/gems/ruby-2.1.4@global/bin:/usr/local/rvm/rubies/ruby-2.1.4/bin:/mnt/shared/bin:/home/ubuntu/workspace/node_modules/.bin:/home/ubuntu/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/mnt/shared/sbin:/opt/gitl:/opt/go/bin:/mnt/shared/c9/app.nw/bin:/usr/local/rvm/bin
 # makefile (from `make/configuration.mk', line 11)
 ArchiveDir := archives
-# makefile (from `make/files.mk', line 26)
+# makefile (from `make/files.mk', line 37)
 BuildAssembly := primelistgen.s
 # environment
 C9_FULLNAME = Lloyd Nugent Gibson
 # default
 LD = ld
-# makefile (from `make/files.mk', line 4)
-HHeader := gcd.h lcm.h extgcd.h ipower.h factorial.h permutation.h combination.h invfactorial.h prime.h sumInteger.h differenceInteger.h
+# makefile (from `make/files.mk', line 5)
+HHeader := str.h gcd.h lcm.h extgcd.h ipower.h factorial.h permutation.h combination.h invfactorial.h prime.h sumInteger.h differenceInteger.h productInteger.h writeInteger.h writeDecimal.h readInteger.h readDecimal.h
 # default
 TEXI2DVI = texi2dvi
 # environment
 C9_PORT = 8080
 # default
 YACC = yacc
-# makefile (from `make/configuration.mk', line 28)
+# makefile (from `make/configuration.mk', line 35)
 TestAssemblyDir := test/assembly
 # makefile (from `make/configuration.mk', line 12)
 MakefileDir := make
 # default
 COMPILE.mod = $(M2C) $(M2FLAGS) $(MODFLAGS) $(TARGET_ARCH)
-# makefile (from `make/configuration.mk', line 19)
+# makefile (from `make/configuration.mk', line 26)
 BuildAssemblyDir := build/assembly
 # default
 ARFLAGS = rv
 # default
 LINK.r = $(FC) $(FFLAGS) $(RFLAGS) $(LDFLAGS) $(TARGET_ARCH)
+# makefile (from `make/files.mk', line 43)
+BuildResults := primelist_gen
+# makefile (from `make/files.mk', line 31)
+UtilExecutables := process
 # environment
 IP = 0.0.0.0
 # default
 LINT = lint
 # default
 COMPILE.f = $(FC) $(FFLAGS) $(TARGET_ARCH) -c
+# makefile (from `make/files.mk', line 29)
+UtilObjects := process.o
 # default
 LINT.c = $(LINT) $(LINTFLAGS) $(CPPFLAGS) $(TARGET_ARCH)
-# makefile (from `make/files.mk', line 55)
-TestResults := gcd_t.h lcm_t.h ipower_t.h factorial_t.h sumInteger_t.h differenceInteger_t.h
+# makefile (from `make/files.mk', line 71)
+TestResults := gcd_t.h lcm_t.h ipower_t.h factorial_t.h sumInteger_t.h differenceInteger_t.h productInteger_t.h writeInteger_t.h writeDecimal_t.h readDecimal_t.h readInteger_t.h
 # environment
 GOPATH = /home/ubuntu/workspace
 # environment
 NVM_BIN = /home/ubuntu/.nvm/v0.10.33/bin
 # default
 YACC.y = $(YACC) $(YFLAGS)
-# makefile (from `make/configuration.mk', line 42)
-VPATH := include:source:processed:assembly:objects:archives:make:build/source:build/processed:build/assembly:build/objects:build/bin:build/param:build/results:test/include:test/source:test/processed:test/assembly:test/objects:test/bin:test/results
-# makefile (from `make/files.mk', line 14)
+# makefile (from `make/configuration.mk', line 52)
+VPATH := include:source:processed:assembly:objects:archives:make:util/source:util/processed:util/assembly:util/objects:util/bin:build/source:build/processed:build/assembly:build/objects:build/bin:build/param:build/results:test/include:test/source:test/processed:test/assembly:test/objects:test/bin:test/results
+# makefile (from `make/files.mk', line 15)
 NTranslations := mask.i hexi.i primelist.i
 # environment
 _system_name = Ubuntu
@@ -186,8 +200,8 @@ APACHE_PID_FILE = /home/ubuntu/lib/apache2/run/apache2.pid
 .FEATURES := target-specific order-only second-expansion else-if archives jobserver check-symlink
 # default
 TANGLE = tangle
-# makefile (from `make/files.mk', line 16)
-Translations := gcd.i lcm.i extgcd.i ipower.i factorial.i permutation.i combination.i invfactorial.i prime.i sumInteger.i differenceInteger.i mask.i hexi.i primelist.i
+# makefile (from `make/files.mk', line 17)
+Translations := str.i gcd.i lcm.i extgcd.i ipower.i factorial.i permutation.i combination.i invfactorial.i prime.i sumInteger.i differenceInteger.i productInteger.i writeInteger.i writeDecimal.i readInteger.i readDecimal.i mask.i hexi.i primelist.i
 # environment
 EMAIL = lnugentgibson@gmail.com
 # makefile (from `make/configuration.mk', line 5)
@@ -196,15 +210,17 @@ TranslationDir := processed
 GET = get
 # automatic
 %F = $(notdir $%)
+# makefile (from `make/configuration.mk', line 19)
+UtilTranslationDir := util/processed
 # default
 COMPILE.F = $(FC) $(FFLAGS) $(CPPFLAGS) $(TARGET_ARCH) -c
-# makefile (from `make/configuration.mk', line 27)
+# makefile (from `make/configuration.mk', line 34)
 TestTranslationDir := test/processed
 # default
 CTANGLE = ctangle
 # environment
 TMUX_PANE = %0
-# makefile (from `make/configuration.mk', line 22)
+# makefile (from `make/configuration.mk', line 29)
 BuildParameterDir := build/param
 # default
 .LIBPATTERNS = lib%.so lib%.a
@@ -212,8 +228,8 @@ BuildParameterDir := build/param
 rvm_bin_path = /usr/local/rvm/bin
 # environment
 PWD = /home/ubuntu/workspace
-# makefile (from `make/files.mk', line 53)
-TestExecutables := gcdtest lcmtest ipowertest factorialtest sumIntegertest differenceIntegertest
+# makefile (from `make/files.mk', line 69)
+TestExecutables := gcdtest lcmtest ipowertest factorialtest sumIntegertest differenceIntegertest productIntegertest writeIntegertest writeDecimaltest readDecimaltest readIntegertest
 # default
 LINK.S = $(CC) $(ASFLAGS) $(CPPFLAGS) $(LDFLAGS) $(TARGET_MACH)
 # environment
@@ -245,23 +261,27 @@ define BASH_FUNC__xdgopen%%
 endef
 # environment
 LESSCLOSE = /usr/bin/lesspipe %s %s
+# makefile (from `make/configuration.mk', line 22)
+UtilExecutableDir := util/bin
 # environment
 LOGNAME = ubuntu
-# makefile (from `make/configuration.mk', line 29)
+# makefile (from `make/configuration.mk', line 36)
 TestObjectDir := test/objects
-# makefile (from `make/configuration.mk', line 46)
+# makefile (from `make/configuration.mk', line 56)
 INCLUDE := -Iinclude -Itest/include -imacros include/macro.h
 # environment
 APACHE_RUN_DIR = /home/ubuntu/lib/apache2/run
 # automatic
 ^D = $(patsubst %/,%,$(dir $^))
-# makefile (from `make/configuration.mk', line 20)
+# makefile (from `make/configuration.mk', line 14)
+UtilDir := util
+# makefile (from `make/configuration.mk', line 27)
 BuildObjectDir := build/objects
-# makefile (from `make/files.mk', line 18)
-Assembly := gcd.s lcm.s extgcd.s ipower.s factorial.s permutation.s combination.s invfactorial.s prime.s sumInteger.s differenceInteger.s mask.s hexi.s primelist.s
-# makefile (from `make/configuration.mk', line 15)
+# makefile (from `make/files.mk', line 19)
+Assembly := str.s gcd.s lcm.s extgcd.s ipower.s factorial.s permutation.s combination.s invfactorial.s prime.s sumInteger.s differenceInteger.s productInteger.s writeInteger.s writeDecimal.s readInteger.s readDecimal.s mask.s hexi.s primelist.s
+# makefile (from `make/configuration.mk', line 16)
 TestDir := test
-# makefile (from `make/configuration.mk', line 23)
+# makefile (from `make/configuration.mk', line 30)
 BuildResultDir := build/results
 # environment
 GEM_PATH = /usr/local/rvm/gems/ruby-2.1.4@rails4:/usr/local/rvm/gems/ruby-2.1.4@global
@@ -285,13 +305,15 @@ USER = ubuntu
 FC = f77
 # makefile
 .DEFAULT_GOAL := lcm.o
-# makefile (from `make/files.mk', line 61)
-MLibTestArchive := mlibtest.a(gcd.o) mlibtest.a(lcm.o) mlibtest.a(extgcd.o) mlibtest.a(ipower.o) mlibtest.a(factorial.o) mlibtest.a(permutation.o) mlibtest.a(combination.o) mlibtest.a(invfactorial.o) mlibtest.a(prime.o) mlibtest.a(sumInteger.o) mlibtest.a(differenceInteger.o) mlibtest.a(mask.o) mlibtest.a(hexi.o) mlibtest.a(primelist.o) mlibtest.a(gcdtest.o) mlibtest.a(lcmtest.o) mlibtest.a(ipowertest.o) mlibtest.a(factorialtest.o) mlibtest.a(sumIntegertest.o) mlibtest.a(differenceIntegertest.o)
+# makefile (from `make/configuration.mk', line 21)
+UtilObjectDir := util/objects
+# makefile (from `make/files.mk', line 77)
+MLibTestArchive := mlibtest.a(str.o) mlibtest.a(gcd.o) mlibtest.a(lcm.o) mlibtest.a(extgcd.o) mlibtest.a(ipower.o) mlibtest.a(factorial.o) mlibtest.a(permutation.o) mlibtest.a(combination.o) mlibtest.a(invfactorial.o) mlibtest.a(prime.o) mlibtest.a(sumInteger.o) mlibtest.a(differenceInteger.o) mlibtest.a(productInteger.o) mlibtest.a(writeInteger.o) mlibtest.a(writeDecimal.o) mlibtest.a(readInteger.o) mlibtest.a(readDecimal.o) mlibtest.a(mask.o) mlibtest.a(hexi.o) mlibtest.a(primelist.o) mlibtest.a(gcdtest.o) mlibtest.a(lcmtest.o) mlibtest.a(ipowertest.o) mlibtest.a(factorialtest.o) mlibtest.a(sumIntegertest.o) mlibtest.a(differenceIntegertest.o) mlibtest.a(productIntegertest.o) mlibtest.a(writeIntegertest.o) mlibtest.a(writeDecimaltest.o) mlibtest.a(readDecimaltest.o) mlibtest.a(readIntegertest.o)
 # environment
 GOROOT = /opt/go
-# makefile (from `make/configuration.mk', line 30)
+# makefile (from `make/configuration.mk', line 37)
 TestExecutableDir := test/bin
-# makefile (from `make/configuration.mk', line 31)
+# makefile (from `make/configuration.mk', line 38)
 TestResultDir := test/results
 # environment
 define BASH_FUNC__gnomeopen%%
@@ -306,7 +328,9 @@ endef
 rvm_version = 1.26.0 (1.26.0)
 # automatic
 %D = $(patsubst %/,%,$(dir $%))
-# makefile (from `make/files.mk', line 30)
+# makefile (from `make/configuration.mk', line 20)
+UtilAssemblyDir := util/assembly
+# makefile (from `make/files.mk', line 41)
 BuildExecutables := primelistgen
 # default
 WEAVE = weave
@@ -328,8 +352,8 @@ C9_SH_EXECUTED = 1
 *F = $(notdir $*)
 # environment
 LANGUAGE = C.UTF-8
-# makefile (from `make/files.mk', line 47)
-TestDriverAssembly := gcddriver.s lcmdriver.s ipowerdriver.s factorialdriver.s sumIntegerdriver.s differenceIntegerdriver.s
+# makefile (from `make/files.mk', line 63)
+TestDriverAssembly := gcddriver.s lcmdriver.s ipowerdriver.s factorialdriver.s sumIntegerdriver.s differenceIntegerdriver.s productIntegerdriver.s writeIntegerdriver.s writeDecimaldriver.s readDecimaldriver.s readIntegerdriver.s
 # default
 COMPILE.def = $(M2C) $(M2FLAGS) $(DEFFLAGS) $(TARGET_ARCH)
 # environment
@@ -351,14 +375,14 @@ LEX.l = $(LEX) $(LFLAGS) -t
 # default
 COMPILE.r = $(FC) $(FFLAGS) $(RFLAGS) $(TARGET_ARCH) -c
 # environment
-TMUX = /tmp/tmux-1000/cloud91.8,266,0
+TMUX = /tmp/tmux-1000/cloud91.8,241,0
 # automatic
 +F = $(notdir $+)
 # default
 M2C = m2c
-# makefile (from `make/configuration.mk', line 26)
+# makefile (from `make/configuration.mk', line 33)
 TestSourceDir := test/source
-# makefile (from `make/files.mk', line 6)
+# makefile (from `make/files.mk', line 7)
 NHeader := mask.n hexi.n primelist.n
 # makefile (from `make/configuration.mk', line 3)
 HeaderDir := include
@@ -370,14 +394,14 @@ ExecutableDir := bin
 C9_PID = 1122026
 # default
 MAKEFILES := 
-# makefile (from `make/files.mk', line 35)
-TestHeader := gcdtest.h lcmtest.h ipowertest.h factorialtest.h sumIntegertest.h differenceIntegertest.h
+# makefile (from `make/files.mk', line 51)
+TestHeader := gcdtest.h lcmtest.h ipowertest.h factorialtest.h sumIntegertest.h differenceIntegertest.h productIntegertest.h writeIntegertest.h writeDecimaltest.h readDecimaltest.h readIntegertest.h
 # environment
 _system_type = Linux
 # automatic
 <F = $(notdir $<)
-# makefile (from `make/files.mk', line 43)
-TestDriverTranslations := gcddriver.i lcmdriver.i ipowerdriver.i factorialdriver.i sumIntegerdriver.i differenceIntegerdriver.i
+# makefile (from `make/files.mk', line 59)
+TestDriverTranslations := gcddriver.i lcmdriver.i ipowerdriver.i factorialdriver.i sumIntegerdriver.i differenceIntegerdriver.i productIntegerdriver.i writeIntegerdriver.i writeDecimaldriver.i readDecimaldriver.i readIntegerdriver.i
 # environment
 VIRTUALENVWRAPPER_SCRIPT = /usr/share/virtualenvwrapper/virtualenvwrapper.sh
 # environment
@@ -386,8 +410,8 @@ HGUSER = Lloyd Nugent Gibson
 CXX = g++
 # makefile (from `make/configuration.mk', line 6)
 AssemblyDir := assembly
-# makefile (from `make/files.mk', line 59)
-MLibArchive := mlib.a(gcd.o) mlib.a(lcm.o) mlib.a(extgcd.o) mlib.a(ipower.o) mlib.a(factorial.o) mlib.a(permutation.o) mlib.a(combination.o) mlib.a(invfactorial.o) mlib.a(prime.o) mlib.a(sumInteger.o) mlib.a(differenceInteger.o) mlib.a(mask.o) mlib.a(hexi.o) mlib.a(primelist.o)
+# makefile (from `make/files.mk', line 75)
+MLibArchive := mlib.a(str.o) mlib.a(gcd.o) mlib.a(lcm.o) mlib.a(extgcd.o) mlib.a(ipower.o) mlib.a(factorial.o) mlib.a(permutation.o) mlib.a(combination.o) mlib.a(invfactorial.o) mlib.a(prime.o) mlib.a(sumInteger.o) mlib.a(differenceInteger.o) mlib.a(productInteger.o) mlib.a(writeInteger.o) mlib.a(writeDecimal.o) mlib.a(readInteger.o) mlib.a(readDecimal.o) mlib.a(mask.o) mlib.a(hexi.o) mlib.a(primelist.o)
 # environment
 NODE_PATH = /home/ubuntu/.nvm/v0.10.33/lib/node_modules:/mnt/shared/lib/node_modules
 # default
@@ -416,18 +440,18 @@ SUFFIXES := .out .a .ln .o .c .cc .C .cpp .p .f .F .r .y .l .s .S .mod .sym .def
 COMPILE.c = $(CC) $(CFLAGS) $(CPPFLAGS) $(TARGET_ARCH) -c
 # default
 MAKE_COMMAND := make
-# makefile (from `make/files.mk', line 51)
-TestDriverObjects := gcddriver.o lcmdriver.o ipowerdriver.o factorialdriver.o sumIntegerdriver.o differenceIntegerdriver.o
+# makefile (from `make/files.mk', line 67)
+TestDriverObjects := gcddriver.o lcmdriver.o ipowerdriver.o factorialdriver.o sumIntegerdriver.o differenceIntegerdriver.o productIntegerdriver.o writeIntegerdriver.o writeDecimaldriver.o readDecimaldriver.o readIntegerdriver.o
 # environment
 _system_arch = x86_64
-# makefile (from `make/files.mk', line 24)
+# makefile (from `make/files.mk', line 35)
 BuildTranslations := primelistgen.i
 # default
 COMPILE.s = $(AS) $(ASFLAGS) $(TARGET_MACH)
 # default
 .INCLUDE_DIRS = /usr/include /usr/local/include /usr/include
-# makefile (from `make/files.mk', line 39)
-TestDrivers := gcddriver.c lcmdriver.c ipowerdriver.c factorialdriver.c sumIntegerdriver.c differenceIntegerdriver.c
+# makefile (from `make/files.mk', line 55)
+TestDrivers := gcddriver.c lcmdriver.c ipowerdriver.c factorialdriver.c sumIntegerdriver.c differenceIntegerdriver.c productIntegerdriver.c writeIntegerdriver.c writeDecimaldriver.c readDecimaldriver.c readIntegerdriver.c
 # environment
 MAKELEVEL := 1
 # default
@@ -444,16 +468,16 @@ TERM = screen
 F77FLAGS = $(FFLAGS)
 # default
 LINK.f = $(FC) $(FFLAGS) $(LDFLAGS) $(TARGET_ARCH)
-# makefile (from `make/files.mk', line 20)
-Objects := gcd.o lcm.o extgcd.o ipower.o factorial.o permutation.o combination.o invfactorial.o prime.o sumInteger.o differenceInteger.o mask.o hexi.o primelist.o
-# makefile (from `make/files.mk', line 45)
-TestAssembly := gcdtest.s lcmtest.s ipowertest.s factorialtest.s sumIntegertest.s differenceIntegertest.s
+# makefile (from `make/files.mk', line 21)
+Objects := str.o gcd.o lcm.o extgcd.o ipower.o factorial.o permutation.o combination.o invfactorial.o prime.o sumInteger.o differenceInteger.o productInteger.o writeInteger.o writeDecimal.o readInteger.o readDecimal.o mask.o hexi.o primelist.o
+# makefile (from `make/files.mk', line 61)
+TestAssembly := gcdtest.s lcmtest.s ipowertest.s factorialtest.s sumIntegertest.s differenceIntegertest.s productIntegertest.s writeIntegertest.s writeDecimaltest.s readDecimaltest.s readIntegertest.s
 # environment
 MY_RUBY_HOME = /usr/local/rvm/rubies/ruby-2.1.4
-# makefile (from `make/configuration.mk', line 25)
+# makefile (from `make/configuration.mk', line 32)
 TestHeaderDir := test/include
 # variable set hash-table stats:
-# Load=213/1024=21%, Rehash=0, Collisions=51/378=13%
+# Load=225/1024=22%, Rehash=0, Collisions=57/427=13%
 
 # Pattern-specific Variable Values
 
@@ -462,100 +486,119 @@ TestHeaderDir := test/include
 # Directories
 
 # test/processed/make/RCS: could not be stat'd.
-# test/bin (device 8388676, inode 493): 3 files, no impossibilities.
+# util/assembly/make: could not be stat'd.
+# test/bin (device 9437247, inode 91): 3 files, no impossibilities.
 # build/assembly/make/RCS: could not be stat'd.
 # build/processed/make/SCCS: could not be stat'd.
 # make/make/SCCS: could not be stat'd.
-# source (device 8388676, inode 480): 17 files, no impossibilities.
+# build/param/RCS: could not be stat'd.
+# source (device 9437247, inode 103): 23 files, no impossibilities.
 # build/param/SCCS: could not be stat'd.
+# util/source/make: could not be stat'd.
 # build/source/make/RCS: could not be stat'd.
 # test/source/make: could not be stat'd.
 # build/objects/make: could not be stat'd.
+# util/objects/make/SCCS: could not be stat'd.
 # processed/make/SCCS: could not be stat'd.
 # source/SCCS: could not be stat'd.
 # build/results/make/SCCS: could not be stat'd.
 # build/param/make: could not be stat'd.
+# util/assembly/RCS: could not be stat'd.
+# util/processed/SCCS: could not be stat'd.
 # SCCS: could not be stat'd.
+# include/SCCS: could not be stat'd.
 # build/bin/SCCS: could not be stat'd.
 # build/objects/SCCS: could not be stat'd.
-# include (device 8388676, inode 475): 46 files, no impossibilities.
+# util/source/RCS: could not be stat'd.
+# include (device 9437247, inode 105): 66 files, no impossibilities.
+# util/processed/make: could not be stat'd.
 # test/bin/SCCS: could not be stat'd.
 # build/processed/make/RCS: could not be stat'd.
-# build/bin (device 8388676, inode 486): 3 files, no impossibilities.
+# build/bin (device 9437247, inode 127): 3 files, no impossibilities.
 # make/make/RCS: could not be stat'd.
-# assembly (device 8388676, inode 477): 16 files, no impossibilities.
-# . (device 8388676, inode 98): 15 files, 20 impossibilities.
-# test/results (device 8388676, inode 497): 43 files, no impossibilities.
+# assembly (device 9437247, inode 106): 22 files, no impossibilities.
+# . (device 9437247, inode 88): 16 files, 23 impossibilities.
+# test/results (device 9437247, inode 93): 65 files, no impossibilities.
 # test/source/make/RCS: could not be stat'd.
 # test/bin/make: could not be stat'd.
 # build/objects/make/RCS: could not be stat'd.
+# util/objects/make/RCS: could not be stat'd.
 # test/assembly/make/RCS: could not be stat'd.
 # test/include/make: could not be stat'd.
 # build/results/SCCS: could not be stat'd.
+# util/source/make/SCCS: could not be stat'd.
 # test/results/RCS: could not be stat'd.
-# test/objects (device 8388676, inode 495): 9 files, no impossibilities.
+# util/processed/RCS: could not be stat'd.
+# test/objects (device 9437247, inode 96): 14 files, no impossibilities.
 # source/make: could not be stat'd.
 # build/param/make/SCCS: could not be stat'd.
+# test/processed/SCCS: could not be stat'd.
 # test/objects/SCCS: could not be stat'd.
 # assembly/SCCS: could not be stat'd.
 # test/results/make/SCCS: could not be stat'd.
 # test/bin/RCS: could not be stat'd.
 # test/include/RCS: could not be stat'd.
-# build/objects (device 8388676, inode 487): 3 files, no impossibilities.
-# build/param/RCS: could not be stat'd.
+# build/objects (device 9437247, inode 132): 3 files, no impossibilities.
+# archives/make: could not be stat'd.
 # assembly/make: could not be stat'd.
-# test/source/RCS: could not be stat'd.
-# build/results (device 8388676, inode 490): 4 files, no impossibilities.
+# util/processed/make/SCCS: could not be stat'd.
+# util/assembly/make/SCCS: could not be stat'd.
+# build/results (device 9437247, inode 130): 4 files, no impossibilities.
 # build/objects/RCS: could not be stat'd.
-# test/source (device 8388676, inode 498): 15 files, no impossibilities.
+# test/source (device 9437247, inode 92): 21 files, no impossibilities.
 # build/bin/make: could not be stat'd.
+# util/source/make/RCS: could not be stat'd.
+# objects/RCS: could not be stat'd.
 # include/make: could not be stat'd.
 # test/bin/make/SCCS: could not be stat'd.
-# test/assembly (device 8388676, inode 492): 9 files, no impossibilities.
+# test/assembly (device 9437247, inode 95): 14 files, no impossibilities.
 # build/bin/RCS: could not be stat'd.
 # test/include/make/SCCS: could not be stat'd.
-# objects (device 8388676, inode 479): 16 files, no impossibilities.
+# objects (device 9437247, inode 107): 22 files, no impossibilities.
 # build/param/make/RCS: could not be stat'd.
 # test/objects/make: could not be stat'd.
-# processed (device 8388676, inode 481): 16 files, no impossibilities.
+# processed (device 9437247, inode 98): 23 files, no impossibilities.
 # test/results/make: could not be stat'd.
 # source/make/SCCS: could not be stat'd.
-# test/processed (device 8388676, inode 496): 9 files, no impossibilities.
+# test/processed (device 9437247, inode 90): 14 files, no impossibilities.
 # archives/make/RCS: could not be stat'd.
 # include/RCS: could not be stat'd.
-# archives/make/SCCS: could not be stat'd.
+# util/processed/make/RCS: could not be stat'd.
+# util/bin (device 9437247, inode 659): 3 files, no impossibilities.
 # test/assembly/SCCS: could not be stat'd.
 # build/results/RCS: could not be stat'd.
-# build/source (device 8388676, inode 491): 3 files, no impossibilities.
+# build/source (device 9437247, inode 129): 3 files, no impossibilities.
 # assembly/make/SCCS: could not be stat'd.
 # build/results/make: could not be stat'd.
 # test/bin/make/RCS: could not be stat'd.
 # objects/SCCS: could not be stat'd.
 # test/assembly/make: could not be stat'd.
-# build/assembly (device 8388676, inode 485): 3 files, no impossibilities.
+# build/assembly (device 9437247, inode 131): 3 files, no impossibilities.
 # include/make/SCCS: could not be stat'd.
 # test/objects/RCS: could not be stat'd.
 # test/results/make/RCS: could not be stat'd.
 # objects/make: could not be stat'd.
 # source/make/RCS: could not be stat'd.
-# include/SCCS: could not be stat'd.
+# util/bin/make/SCCS: could not be stat'd.
 # test/objects/make/SCCS: could not be stat'd.
-# build/processed (device 8388676, inode 489): 3 files, no impossibilities.
-# make (device 8388676, inode 190): 8 files, 85 impossibilities.
+# build/processed (device 9437247, inode 126): 3 files, no impossibilities.
+# archives/make/SCCS: could not be stat'd.
+# util/assembly/make/RCS: could not be stat'd.
+# make (device 9437247, inode 104): 8 files, 85 impossibilities.
 # test/assembly/RCS: could not be stat'd.
-# test/processed/SCCS: could not be stat'd.
+# processed/SCCS: could not be stat'd.
 # test/source/SCCS: could not be stat'd.
 # test/include/SCCS: could not be stat'd.
 # assembly/make/RCS: could not be stat'd.
 # processed/make: could not be stat'd.
-# objects/RCS: could not be stat'd.
-# test/results/SCCS: could not be stat'd.
+# util/bin/make: could not be stat'd.
+# test/source/RCS: could not be stat'd.
 # build/bin/make/RCS: could not be stat'd.
 # test/processed/make: could not be stat'd.
-# archives (device 8388676, inode 476): 4 files, no impossibilities.
+# archives (device 9437247, inode 97): 4 files, no impossibilities.
 # build/assembly/make: could not be stat'd.
 # source/RCS: could not be stat'd.
-# test/assembly/make/SCCS: could not be stat'd.
+# util/objects (device 9437247, inode 660): 3 files, no impossibilities.
 # build/assembly/SCCS: could not be stat'd.
 # include/make/RCS: could not be stat'd.
 # build/source/make: could not be stat'd.
@@ -563,35 +606,46 @@ TestHeaderDir := test/include
 # processed/RCS: could not be stat'd.
 # build/processed/RCS: could not be stat'd.
 # objects/make/SCCS: could not be stat'd.
+# util/bin/RCS: could not be stat'd.
 # test/processed/RCS: could not be stat'd.
 # test/include/make/RCS: could not be stat'd.
 # build/assembly/RCS: could not be stat'd.
 # build/processed/SCCS: could not be stat'd.
+# test/results/SCCS: could not be stat'd.
 # make/SCCS: could not be stat'd.
 # archives/SCCS: could not be stat'd.
-# processed/SCCS: could not be stat'd.
+# util/source (device 9437247, inode 664): 3 files, no impossibilities.
 # build/source/RCS: could not be stat'd.
 # build/results/make/RCS: could not be stat'd.
 # build/processed/make: could not be stat'd.
+# util/objects/SCCS: could not be stat'd.
 # build/source/SCCS: could not be stat'd.
 # make/make: could not be stat'd.
-# archives/make: could not be stat'd.
+# util/assembly (device 9437247, inode 658): 3 files, no impossibilities.
 # test/processed/make/SCCS: could not be stat'd.
+# util/bin/make/RCS: could not be stat'd.
 # build/assembly/make/SCCS: could not be stat'd.
-# build/param (device 8388676, inode 488): 3 files, no impossibilities.
+# util/objects/make: could not be stat'd.
+# build/param (device 9437247, inode 128): 3 files, no impossibilities.
 # objects/make/RCS: could not be stat'd.
 # build/source/make/SCCS: could not be stat'd.
 # test/source/make/SCCS: could not be stat'd.
+# util/processed (device 9437247, inode 663): 3 files, no impossibilities.
 # build/objects/make/SCCS: could not be stat'd.
-# assembly/RCS: could not be stat'd.
+# test/assembly/make/SCCS: could not be stat'd.
+# util/bin/SCCS: could not be stat'd.
 # make/RCS: could not be stat'd.
 # archives/RCS: could not be stat'd.
+# assembly/RCS: could not be stat'd.
+# util/assembly/SCCS: could not be stat'd.
+# util/objects/RCS: could not be stat'd.
 # build/bin/make/SCCS: could not be stat'd.
 # processed/make/RCS: could not be stat'd.
 # RCS: could not be stat'd.
-# test/include (device 8388676, inode 494): 9 files, no impossibilities.
+# test/include (device 9437247, inode 94): 14 files, no impossibilities.
+# util/source/SCCS: could not be stat'd.
 
-# 257 files, 105 impossibilities in 129 directories.
+# 366 files, 108 impossibilities in 159 directories.
 
 # Implicit Rules
 
@@ -905,6 +959,25 @@ mlibtest.a(%.o): %.o
 # Files
 
 # Not a target:
+writeIntegerdriver.c:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+readIntegertest.i: readIntegertest.c readIntegertest.h readInteger.c readInteger.h util/bin/process
+#  Implicit rule search has not been done.
+#  Implicit/static pattern stem: `readInteger'
+#  Modification time never checked.
+#  File has not been updated.
+#  commands to execute (from `make/recipes.mk', line 42):
+	$(CC) -E $(INCLUDE) $(TestSourceDir)/$*test.c -o $(TestTranslationDir)/$*testtmp.i
+	$(UtilExecutableDir)/process $(TestTranslationDir)/$*test
+	rm $(TestTranslationDir)/$*testtmp.i
+	indent $(TestTranslationDir)/$*test.i
+	rm $(TestTranslationDir)/$*test.i~
+	
+
+# Not a target:
 mlibtest.a(mask.o):
 #  Implicit rule search has not been done.
 #  Modification time never checked.
@@ -914,18 +987,28 @@ cleanBuildOutputs:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  commands to execute (from `make/clean.mk', line 37):
+#  commands to execute (from `make/clean.mk', line 35):
 	-cd $(SourceDir) && rm $(BuildOutputs)
 	
 
-ipowerdriver.i: ipowerdriver.c
+ipowerdriver.i: ipowerdriver.c util/bin/process
 #  Implicit rule search has not been done.
 #  Implicit/static pattern stem: `ipower'
 #  Modification time never checked.
 #  File has not been updated.
-#  commands to execute (from `make/recipes.mk', line 35):
-	$(CC) -E $(INCLUDE) $(TestSourceDir)/$*driver.c -o $(TestTranslationDir)/$*driver.i
+#  commands to execute (from `make/recipes.mk', line 55):
+	$(CC) -E $(INCLUDE) $(TestSourceDir)/$*driver.c -o $(TestTranslationDir)/$*drivertmp.i
+	$(UtilExecutableDir)/process $(TestTranslationDir)/$*driver
+	rm $(TestTranslationDir)/$*drivertmp.i
+	indent $(TestTranslationDir)/$*driver.i
+	rm $(TestTranslationDir)/$*driver.i~
 	
+
+# Not a target:
+mlib.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
 mlibtest.a(sumIntegertest.o):
@@ -938,7 +1021,7 @@ ipowerdriver.o: ipowerdriver.s
 #  Implicit/static pattern stem: `ipower'
 #  Modification time never checked.
 #  File has not been updated.
-#  commands to execute (from `make/recipes.mk', line 41):
+#  commands to execute (from `make/recipes.mk', line 65):
 	$(CC) -c $(TestAssemblyDir)/$*driver.s -o $(TestObjectDir)/$*driver.o
 	
 
@@ -956,23 +1039,61 @@ mlibtest.a(sumInteger.o):
 #  Modification time never checked.
 #  File has not been updated.
 
+writeDecimal_t.h: writeDecimaltest
+#  Implicit rule search has not been done.
+#  Implicit/static pattern stem: `writeDecimal'
+#  Modification time never checked.
+#  File has not been updated.
+#  commands to execute (from `make/recipes.mk', line 71):
+	$(TestExecutableDir)/$*test > $(TestResultDir)/$*_t.h
+	
+
+# Not a target:
+mlibtest.a(differenceIntegertest.o):
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
 # Not a target:
 mlib.a(differenceInteger.o):
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
 
-differenceIntegerdriver.i: differenceIntegerdriver.c
+differenceIntegerdriver.i: differenceIntegerdriver.c util/bin/process
 #  Implicit rule search has not been done.
 #  Implicit/static pattern stem: `differenceInteger'
 #  Modification time never checked.
 #  File has not been updated.
-#  commands to execute (from `make/recipes.mk', line 35):
-	$(CC) -E $(INCLUDE) $(TestSourceDir)/$*driver.c -o $(TestTranslationDir)/$*driver.i
+#  commands to execute (from `make/recipes.mk', line 55):
+	$(CC) -E $(INCLUDE) $(TestSourceDir)/$*driver.c -o $(TestTranslationDir)/$*drivertmp.i
+	$(UtilExecutableDir)/process $(TestTranslationDir)/$*driver
+	rm $(TestTranslationDir)/$*drivertmp.i
+	indent $(TestTranslationDir)/$*driver.i
+	rm $(TestTranslationDir)/$*driver.i~
+	
+
+writeDecimal.i: writeDecimal.c writeDecimal.h util/bin/process
+#  Implicit rule search has not been done.
+#  Implicit/static pattern stem: `writeDecimal'
+#  Modification time never checked.
+#  File has not been updated.
+#  commands to execute (from `make/recipes.mk', line 74):
+	$(CC) -E $(INCLUDE) $(SourceDir)/$*.c -o $(TranslationDir)/$*tmp.i
+	$(UtilExecutableDir)/process $(TranslationDir)/$*
+	rm $(TranslationDir)/$*tmp.i
+	indent $(TranslationDir)/$*.i
+	rm $(TranslationDir)/$*.i~
 	
 
 # Not a target:
-lcmdriver.c:
+differenceInteger.c:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+mlibtest.a(gcdtest.o):
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
@@ -982,9 +1103,30 @@ differenceIntegerdriver.o: differenceIntegerdriver.s
 #  Implicit/static pattern stem: `differenceInteger'
 #  Modification time never checked.
 #  File has not been updated.
-#  commands to execute (from `make/recipes.mk', line 41):
+#  commands to execute (from `make/recipes.mk', line 65):
 	$(CC) -c $(TestAssemblyDir)/$*driver.s -o $(TestObjectDir)/$*driver.o
 	
+
+writeDecimal.o: writeDecimal.s decimal.d
+#  Implicit rule search has not been done.
+#  Implicit/static pattern stem: `writeDecimal'
+#  Modification time never checked.
+#  File has not been updated.
+#  commands to execute (from `make/recipes.mk', line 91):
+	$(CC) -c $(AssemblyDir)/$*.s -o $(ObjectDir)/$*.o
+	
+
+# Not a target:
+mlibtest.a(readInteger.o):
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+writeDecimaltest.c:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
 .l.r:
@@ -1000,8 +1142,20 @@ lcmdriver.s: lcmdriver.i
 #  Implicit/static pattern stem: `lcm'
 #  Modification time never checked.
 #  File has not been updated.
-#  commands to execute (from `make/recipes.mk', line 38):
+#  commands to execute (from `make/recipes.mk', line 62):
 	$(CC) -S $(INCLUDE) $(TestTranslationDir)/$*driver.i -o $(TestAssemblyDir)/$*driver.s
+	
+
+util/objects/process.o: util/assembly/process.s
+#  Implicit rule search has not been done.
+#  Implicit/static pattern stem: `process'
+#  Last modified 2014-12-01 14:38:50.841211155
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `make/recipes.mk', line 17):
+	$(CC) -c $(UtilAssemblyDir)/$*.s -o $(UtilObjectDir)/$*.o
 	
 
 gcddriver.o: gcddriver.s
@@ -1009,9 +1163,15 @@ gcddriver.o: gcddriver.s
 #  Implicit/static pattern stem: `gcd'
 #  Modification time never checked.
 #  File has not been updated.
-#  commands to execute (from `make/recipes.mk', line 41):
+#  commands to execute (from `make/recipes.mk', line 65):
 	$(CC) -c $(TestAssemblyDir)/$*driver.s -o $(TestObjectDir)/$*driver.o
 	
+
+# Not a target:
+readDecimal.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
 .dvi:
@@ -1019,13 +1179,17 @@ gcddriver.o: gcddriver.s
 #  Modification time never checked.
 #  File has not been updated.
 
-mask.i: mask.c mask.n
+mask.i: mask.c mask.n util/bin/process
 #  Implicit rule search has not been done.
 #  Implicit/static pattern stem: `mask'
 #  Modification time never checked.
 #  File has not been updated.
-#  commands to execute (from `make/recipes.mk', line 53):
-	$(CC) -E $(INCLUDE) $(SourceDir)/$*.c -o $(TranslationDir)/$*.i
+#  commands to execute (from `make/recipes.mk', line 81):
+	$(CC) -E $(INCLUDE) $(SourceDir)/$*.c -o $(TranslationDir)/$*tmp.i
+	$(UtilExecutableDir)/process $(TranslationDir)/$*
+	rm $(TranslationDir)/$*tmp.i
+	indent $(TranslationDir)/$*.i
+	rm $(TranslationDir)/$*.i~
 	
 
 # Not a target:
@@ -1034,14 +1198,24 @@ mask.n:
 #  Modification time never checked.
 #  File has not been updated.
 
-extgcd.i: extgcd.c extgcd.h
+extgcd.i: extgcd.c extgcd.h util/bin/process
 #  Implicit rule search has not been done.
 #  Implicit/static pattern stem: `extgcd'
 #  Modification time never checked.
 #  File has not been updated.
-#  commands to execute (from `make/recipes.mk', line 50):
-	$(CC) -E $(INCLUDE) $(SourceDir)/$*.c -o $(TranslationDir)/$*.i
+#  commands to execute (from `make/recipes.mk', line 74):
+	$(CC) -E $(INCLUDE) $(SourceDir)/$*.c -o $(TranslationDir)/$*tmp.i
+	$(UtilExecutableDir)/process $(TranslationDir)/$*
+	rm $(TranslationDir)/$*tmp.i
+	indent $(TranslationDir)/$*.i
+	rm $(TranslationDir)/$*.i~
 	
+
+# Not a target:
+readDecimal.c:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
 mlibtest.a(primelist.o):
@@ -1054,14 +1228,14 @@ extgcd.o: extgcd.s
 #  Implicit/static pattern stem: `extgcd'
 #  Modification time never checked.
 #  File has not been updated.
-#  commands to execute (from `make/recipes.mk', line 59):
+#  commands to execute (from `make/recipes.mk', line 91):
 	$(CC) -c $(AssemblyDir)/$*.s -o $(ObjectDir)/$*.o
 	
 
 # Not a target:
 make/recipes.mk:
 #  Implicit rule search has been done.
-#  Last modified 2014-11-26 15:28:17.885218743
+#  Last modified 2014-12-01 14:31:56.365214225
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -1075,7 +1249,28 @@ make/recipes.mk:
 #  commands to execute (built-in):
 	$(COMPILE.F) $(OUTPUT_OPTION) $<
 
+writeIntegerdriver.s: writeIntegerdriver.i
+#  Implicit rule search has not been done.
+#  Implicit/static pattern stem: `writeInteger'
+#  Modification time never checked.
+#  File has not been updated.
+#  commands to execute (from `make/recipes.mk', line 62):
+	$(CC) -S $(INCLUDE) $(TestTranslationDir)/$*driver.i -o $(TestAssemblyDir)/$*driver.s
+	
+
+# Not a target:
+mlib.a(writeInteger.o):
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
 all: build buildtest test var.mk
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+negateInteger.h:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
@@ -1100,6 +1295,21 @@ all: build buildtest test var.mk
 
 # Not a target:
 mlibtest.a(factorialtest.o):
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+readDecimal.s: readDecimal.i
+#  Implicit rule search has not been done.
+#  Implicit/static pattern stem: `readDecimal'
+#  Modification time never checked.
+#  File has not been updated.
+#  commands to execute (from `make/recipes.mk', line 88):
+	$(CC) -S $(INCLUDE) $(TranslationDir)/$*.i -o $(AssemblyDir)/$*.s
+	
+
+# Not a target:
+writeDecimaldriver.c:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
@@ -1136,6 +1346,15 @@ sumIntegertest.c:
 #  Modification time never checked.
 #  File has not been updated.
 
+writeDecimaldriver.s: writeDecimaldriver.i
+#  Implicit rule search has not been done.
+#  Implicit/static pattern stem: `writeDecimal'
+#  Modification time never checked.
+#  File has not been updated.
+#  commands to execute (from `make/recipes.mk', line 62):
+	$(CC) -S $(INCLUDE) $(TestTranslationDir)/$*driver.i -o $(TestAssemblyDir)/$*driver.s
+	
+
 .PHONY:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
@@ -1147,27 +1366,59 @@ mlib.a(lcm.o):
 #  Modification time never checked.
 #  File has not been updated.
 
+# Not a target:
+factorialdriver.c:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
 buildtest: mlibtest.a
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
+
+productInteger.i: productInteger.c productInteger.h util/bin/process
+#  Implicit rule search has not been done.
+#  Implicit/static pattern stem: `productInteger'
+#  Modification time never checked.
+#  File has not been updated.
+#  commands to execute (from `make/recipes.mk', line 74):
+	$(CC) -E $(INCLUDE) $(SourceDir)/$*.c -o $(TranslationDir)/$*tmp.i
+	$(UtilExecutableDir)/process $(TranslationDir)/$*
+	rm $(TranslationDir)/$*tmp.i
+	indent $(TranslationDir)/$*.i
+	rm $(TranslationDir)/$*.i~
+	
 
 sumIntegertest.s: sumIntegertest.i
 #  Implicit rule search has not been done.
 #  Implicit/static pattern stem: `sumInteger'
 #  Modification time never checked.
 #  File has not been updated.
-#  commands to execute (from `make/recipes.mk', line 29):
+#  commands to execute (from `make/recipes.mk', line 49):
 	$(CC) -S $(INCLUDE) $(TestTranslationDir)/$*test.i -o $(TestAssemblyDir)/$*test.s
 	
 
-factorialtest.i: factorialtest.c factorialtest.h factorial.c factorial.h
+factorialtest.i: factorialtest.c factorialtest.h factorial.c factorial.h util/bin/process
 #  Implicit rule search has not been done.
 #  Implicit/static pattern stem: `factorial'
 #  Modification time never checked.
 #  File has not been updated.
-#  commands to execute (from `make/recipes.mk', line 26):
-	$(CC) -E $(INCLUDE) $(TestSourceDir)/$*test.c -o $(TestTranslationDir)/$*test.i
+#  commands to execute (from `make/recipes.mk', line 42):
+	$(CC) -E $(INCLUDE) $(TestSourceDir)/$*test.c -o $(TestTranslationDir)/$*testtmp.i
+	$(UtilExecutableDir)/process $(TestTranslationDir)/$*test
+	rm $(TestTranslationDir)/$*testtmp.i
+	indent $(TestTranslationDir)/$*test.i
+	rm $(TestTranslationDir)/$*test.i~
+	
+
+readIntegerdriver.s: readIntegerdriver.i
+#  Implicit rule search has not been done.
+#  Implicit/static pattern stem: `readInteger'
+#  Modification time never checked.
+#  File has not been updated.
+#  commands to execute (from `make/recipes.mk', line 62):
+	$(CC) -S $(INCLUDE) $(TestTranslationDir)/$*driver.i -o $(TestAssemblyDir)/$*driver.s
 	
 
 sumInteger.s: sumInteger.i
@@ -1175,7 +1426,7 @@ sumInteger.s: sumInteger.i
 #  Implicit/static pattern stem: `sumInteger'
 #  Modification time never checked.
 #  File has not been updated.
-#  commands to execute (from `make/recipes.mk', line 56):
+#  commands to execute (from `make/recipes.mk', line 88):
 	$(CC) -S $(INCLUDE) $(TranslationDir)/$*.i -o $(AssemblyDir)/$*.s
 	
 
@@ -1184,7 +1435,7 @@ factorialtest.o: factorialtest.s
 #  Implicit/static pattern stem: `factorial'
 #  Modification time never checked.
 #  File has not been updated.
-#  commands to execute (from `make/recipes.mk', line 32):
+#  commands to execute (from `make/recipes.mk', line 52):
 	$(CC) -c $(TestAssemblyDir)/$*test.s -o $(TestObjectDir)/$*test.o
 	
 
@@ -1205,7 +1456,7 @@ factorialtest.o: factorialtest.s
 	$(LINK.p) $^ $(LOADLIBES) $(LDLIBS) -o $@
 
 # Not a target:
-mlibtest.a(gcdtest.o):
+sumInteger.h:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
@@ -1225,6 +1476,12 @@ ipowertest.h:
 #  File has not been updated.
 
 # Not a target:
+mlibtest.a(writeDecimaltest.o):
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
 mlib.a(prime.o):
 #  Implicit rule search has not been done.
 #  Modification time never checked.
@@ -1235,23 +1492,30 @@ ipower_t.h: ipowertest
 #  Implicit/static pattern stem: `ipower'
 #  Modification time never checked.
 #  File has not been updated.
-#  commands to execute (from `make/recipes.mk', line 47):
+#  commands to execute (from `make/recipes.mk', line 71):
 	$(TestExecutableDir)/$*test > $(TestResultDir)/$*_t.h
 	
 
-# Not a target:
-.a:
+readInteger_t.h: readIntegertest
 #  Implicit rule search has not been done.
+#  Implicit/static pattern stem: `readInteger'
 #  Modification time never checked.
 #  File has not been updated.
+#  commands to execute (from `make/recipes.mk', line 71):
+	$(TestExecutableDir)/$*test > $(TestResultDir)/$*_t.h
+	
 
-ipowertest.i: ipowertest.c ipowertest.h ipower.c ipower.h
+ipowertest.i: ipowertest.c ipowertest.h ipower.c ipower.h util/bin/process
 #  Implicit rule search has not been done.
 #  Implicit/static pattern stem: `ipower'
 #  Modification time never checked.
 #  File has not been updated.
-#  commands to execute (from `make/recipes.mk', line 26):
-	$(CC) -E $(INCLUDE) $(TestSourceDir)/$*test.c -o $(TestTranslationDir)/$*test.i
+#  commands to execute (from `make/recipes.mk', line 42):
+	$(CC) -E $(INCLUDE) $(TestSourceDir)/$*test.c -o $(TestTranslationDir)/$*testtmp.i
+	$(UtilExecutableDir)/process $(TestTranslationDir)/$*test
+	rm $(TestTranslationDir)/$*testtmp.i
+	indent $(TestTranslationDir)/$*test.i
+	rm $(TestTranslationDir)/$*test.i~
 	
 
 ipowertest.o: ipowertest.s
@@ -1259,17 +1523,21 @@ ipowertest.o: ipowertest.s
 #  Implicit/static pattern stem: `ipower'
 #  Modification time never checked.
 #  File has not been updated.
-#  commands to execute (from `make/recipes.mk', line 32):
+#  commands to execute (from `make/recipes.mk', line 52):
 	$(CC) -c $(TestAssemblyDir)/$*test.s -o $(TestObjectDir)/$*test.o
 	
 
-ipower.i: ipower.c ipower.h
+ipower.i: ipower.c ipower.h util/bin/process
 #  Implicit rule search has not been done.
 #  Implicit/static pattern stem: `ipower'
 #  Modification time never checked.
 #  File has not been updated.
-#  commands to execute (from `make/recipes.mk', line 50):
-	$(CC) -E $(INCLUDE) $(SourceDir)/$*.c -o $(TranslationDir)/$*.i
+#  commands to execute (from `make/recipes.mk', line 74):
+	$(CC) -E $(INCLUDE) $(SourceDir)/$*.c -o $(TranslationDir)/$*tmp.i
+	$(UtilExecutableDir)/process $(TranslationDir)/$*
+	rm $(TranslationDir)/$*tmp.i
+	indent $(TranslationDir)/$*.i
+	rm $(TranslationDir)/$*.i~
 	
 
 ipowertest: ipowertest.o ipowerdriver.o mlib.a
@@ -1277,7 +1545,7 @@ ipowertest: ipowertest.o ipowerdriver.o mlib.a
 #  Implicit/static pattern stem: `ipower'
 #  Modification time never checked.
 #  File has not been updated.
-#  commands to execute (from `make/recipes.mk', line 44):
+#  commands to execute (from `make/recipes.mk', line 68):
 	$(LINK.o) $(TestObjectDir)/$*test.o $(TestObjectDir)/$*driver.o $(ArchiveDir)/mlib.a $(LOADLIBES) $(LDLIBS) -o $(TestExecutableDir)/$*test
 	
 
@@ -1303,20 +1571,24 @@ differenceInteger_t.h: differenceIntegertest
 #  Implicit/static pattern stem: `differenceInteger'
 #  Modification time never checked.
 #  File has not been updated.
-#  commands to execute (from `make/recipes.mk', line 47):
+#  commands to execute (from `make/recipes.mk', line 71):
 	$(TestExecutableDir)/$*test > $(TestResultDir)/$*_t.h
 	
 
-processed/lcm.i: source/lcm.c include/lcm.h
+processed/lcm.i: source/lcm.c include/lcm.h util/bin/process
 #  Implicit rule search has not been done.
 #  Implicit/static pattern stem: `lcm'
-#  Last modified 2014-11-26 15:52:29.965218686
+#  Last modified 2014-12-01 14:38:50.929211155
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
 # Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-#  commands to execute (from `make/recipes.mk', line 50):
-	$(CC) -E $(INCLUDE) $(SourceDir)/$*.c -o $(TranslationDir)/$*.i
+#  commands to execute (from `make/recipes.mk', line 74):
+	$(CC) -E $(INCLUDE) $(SourceDir)/$*.c -o $(TranslationDir)/$*tmp.i
+	$(UtilExecutableDir)/process $(TranslationDir)/$*
+	rm $(TranslationDir)/$*tmp.i
+	indent $(TranslationDir)/$*.i
+	rm $(TranslationDir)/$*.i~
 	
 
 # Not a target:
@@ -1344,7 +1616,7 @@ mlib.a(factorial.o):
 # Not a target:
 source/lcm.c:
 #  Implicit rule search has been done.
-#  Last modified 2014-11-26 15:31:17.657218391
+#  Last modified 2014-12-01 14:32:28.005213898
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -1359,13 +1631,17 @@ source/lcm.c:
 	cat $< >$@ 
 	chmod a+x $@
 
-differenceIntegertest.i: differenceIntegertest.c differenceIntegertest.h differenceInteger.c differenceInteger.h
+differenceIntegertest.i: differenceIntegertest.c differenceIntegertest.h differenceInteger.c differenceInteger.h util/bin/process
 #  Implicit rule search has not been done.
 #  Implicit/static pattern stem: `differenceInteger'
 #  Modification time never checked.
 #  File has not been updated.
-#  commands to execute (from `make/recipes.mk', line 26):
-	$(CC) -E $(INCLUDE) $(TestSourceDir)/$*test.c -o $(TestTranslationDir)/$*test.i
+#  commands to execute (from `make/recipes.mk', line 42):
+	$(CC) -E $(INCLUDE) $(TestSourceDir)/$*test.c -o $(TestTranslationDir)/$*testtmp.i
+	$(UtilExecutableDir)/process $(TestTranslationDir)/$*test
+	rm $(TestTranslationDir)/$*testtmp.i
+	indent $(TestTranslationDir)/$*test.i
+	rm $(TestTranslationDir)/$*test.i~
 	
 
 # Not a target:
@@ -1379,17 +1655,21 @@ differenceIntegertest.o: differenceIntegertest.s
 #  Implicit/static pattern stem: `differenceInteger'
 #  Modification time never checked.
 #  File has not been updated.
-#  commands to execute (from `make/recipes.mk', line 32):
+#  commands to execute (from `make/recipes.mk', line 52):
 	$(CC) -c $(TestAssemblyDir)/$*test.s -o $(TestObjectDir)/$*test.o
 	
 
-differenceInteger.i: differenceInteger.c differenceInteger.h
+differenceInteger.i: differenceInteger.c differenceInteger.h util/bin/process
 #  Implicit rule search has not been done.
 #  Implicit/static pattern stem: `differenceInteger'
 #  Modification time never checked.
 #  File has not been updated.
-#  commands to execute (from `make/recipes.mk', line 50):
-	$(CC) -E $(INCLUDE) $(SourceDir)/$*.c -o $(TranslationDir)/$*.i
+#  commands to execute (from `make/recipes.mk', line 74):
+	$(CC) -E $(INCLUDE) $(SourceDir)/$*.c -o $(TranslationDir)/$*tmp.i
+	$(UtilExecutableDir)/process $(TranslationDir)/$*
+	rm $(TranslationDir)/$*tmp.i
+	indent $(TranslationDir)/$*.i
+	rm $(TranslationDir)/$*.i~
 	
 
 differenceIntegertest: differenceIntegertest.o differenceIntegerdriver.o mlib.a
@@ -1397,7 +1677,7 @@ differenceIntegertest: differenceIntegertest.o differenceIntegerdriver.o mlib.a
 #  Implicit/static pattern stem: `differenceInteger'
 #  Modification time never checked.
 #  File has not been updated.
-#  commands to execute (from `make/recipes.mk', line 44):
+#  commands to execute (from `make/recipes.mk', line 68):
 	$(LINK.o) $(TestObjectDir)/$*test.o $(TestObjectDir)/$*driver.o $(ArchiveDir)/mlib.a $(LOADLIBES) $(LDLIBS) -o $(TestExecutableDir)/$*test
 	
 
@@ -1406,7 +1686,7 @@ differenceInteger.o: differenceInteger.s integer.d
 #  Implicit/static pattern stem: `differenceInteger'
 #  Modification time never checked.
 #  File has not been updated.
-#  commands to execute (from `make/recipes.mk', line 59):
+#  commands to execute (from `make/recipes.mk', line 91):
 	$(CC) -c $(AssemblyDir)/$*.s -o $(ObjectDir)/$*.o
 	
 
@@ -1414,7 +1694,7 @@ cleanBuildObjects:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  commands to execute (from `make/clean.mk', line 28):
+#  commands to execute (from `make/clean.mk', line 26):
 	-cd $(BuildObjectDir) && rm $(BuildObjects)
 	
 
@@ -1423,7 +1703,7 @@ factorial_t.h: factorialtest
 #  Implicit/static pattern stem: `factorial'
 #  Modification time never checked.
 #  File has not been updated.
-#  commands to execute (from `make/recipes.mk', line 47):
+#  commands to execute (from `make/recipes.mk', line 71):
 	$(TestExecutableDir)/$*test > $(TestResultDir)/$*_t.h
 	
 
@@ -1440,7 +1720,7 @@ sumIntegerdriver.o: sumIntegerdriver.s
 #  Implicit/static pattern stem: `sumInteger'
 #  Modification time never checked.
 #  File has not been updated.
-#  commands to execute (from `make/recipes.mk', line 41):
+#  commands to execute (from `make/recipes.mk', line 65):
 	$(CC) -c $(TestAssemblyDir)/$*driver.s -o $(TestObjectDir)/$*driver.o
 	
 
@@ -1449,7 +1729,7 @@ gcdtest.o: gcdtest.s
 #  Implicit/static pattern stem: `gcd'
 #  Modification time never checked.
 #  File has not been updated.
-#  commands to execute (from `make/recipes.mk', line 32):
+#  commands to execute (from `make/recipes.mk', line 52):
 	$(CC) -c $(TestAssemblyDir)/$*test.s -o $(TestObjectDir)/$*test.o
 	
 
@@ -1458,15 +1738,9 @@ gcdtest: gcdtest.o gcddriver.o mlib.a
 #  Implicit/static pattern stem: `gcd'
 #  Modification time never checked.
 #  File has not been updated.
-#  commands to execute (from `make/recipes.mk', line 44):
+#  commands to execute (from `make/recipes.mk', line 68):
 	$(LINK.o) $(TestObjectDir)/$*test.o $(TestObjectDir)/$*driver.o $(ArchiveDir)/mlib.a $(LOADLIBES) $(LDLIBS) -o $(TestExecutableDir)/$*test
 	
-
-# Not a target:
-mlibtest.a(combination.o):
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
 
 # Not a target:
 .cc.o:
@@ -1482,13 +1756,30 @@ gcdtest.c:
 #  Modification time never checked.
 #  File has not been updated.
 
-factorial.i: factorial.c factorial.h
+factorial.i: factorial.c factorial.h util/bin/process
 #  Implicit rule search has not been done.
 #  Implicit/static pattern stem: `factorial'
 #  Modification time never checked.
 #  File has not been updated.
-#  commands to execute (from `make/recipes.mk', line 50):
-	$(CC) -E $(INCLUDE) $(SourceDir)/$*.c -o $(TranslationDir)/$*.i
+#  commands to execute (from `make/recipes.mk', line 74):
+	$(CC) -E $(INCLUDE) $(SourceDir)/$*.c -o $(TranslationDir)/$*tmp.i
+	$(UtilExecutableDir)/process $(TranslationDir)/$*
+	rm $(TranslationDir)/$*tmp.i
+	indent $(TranslationDir)/$*.i
+	rm $(TranslationDir)/$*.i~
+	
+
+productIntegertest.i: productIntegertest.c productIntegertest.h productInteger.c productInteger.h util/bin/process
+#  Implicit rule search has not been done.
+#  Implicit/static pattern stem: `productInteger'
+#  Modification time never checked.
+#  File has not been updated.
+#  commands to execute (from `make/recipes.mk', line 42):
+	$(CC) -E $(INCLUDE) $(TestSourceDir)/$*test.c -o $(TestTranslationDir)/$*testtmp.i
+	$(UtilExecutableDir)/process $(TestTranslationDir)/$*test
+	rm $(TestTranslationDir)/$*testtmp.i
+	indent $(TestTranslationDir)/$*test.i
+	rm $(TestTranslationDir)/$*test.i~
 	
 
 # Not a target:
@@ -1502,9 +1793,21 @@ factorial.o: factorial.s
 #  Implicit/static pattern stem: `factorial'
 #  Modification time never checked.
 #  File has not been updated.
-#  commands to execute (from `make/recipes.mk', line 59):
+#  commands to execute (from `make/recipes.mk', line 91):
 	$(CC) -c $(AssemblyDir)/$*.s -o $(ObjectDir)/$*.o
 	
+
+# Not a target:
+prime.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+writeIntegertest.c:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
 .def:
@@ -1512,13 +1815,17 @@ factorial.o: factorial.s
 #  Modification time never checked.
 #  File has not been updated.
 
-combination.i: combination.c combination.h
+productIntegerdriver.i: productIntegerdriver.c util/bin/process
 #  Implicit rule search has not been done.
-#  Implicit/static pattern stem: `combination'
+#  Implicit/static pattern stem: `productInteger'
 #  Modification time never checked.
 #  File has not been updated.
-#  commands to execute (from `make/recipes.mk', line 50):
-	$(CC) -E $(INCLUDE) $(SourceDir)/$*.c -o $(TranslationDir)/$*.i
+#  commands to execute (from `make/recipes.mk', line 55):
+	$(CC) -E $(INCLUDE) $(TestSourceDir)/$*driver.c -o $(TestTranslationDir)/$*drivertmp.i
+	$(UtilExecutableDir)/process $(TestTranslationDir)/$*driver
+	rm $(TestTranslationDir)/$*drivertmp.i
+	indent $(TestTranslationDir)/$*driver.i
+	rm $(TestTranslationDir)/$*driver.i~
 	
 
 # Not a target:
@@ -1538,7 +1845,7 @@ combination.o: combination.s factorial.h permutation.h
 #  Implicit/static pattern stem: `combination'
 #  Modification time never checked.
 #  File has not been updated.
-#  commands to execute (from `make/recipes.mk', line 59):
+#  commands to execute (from `make/recipes.mk', line 91):
 	$(CC) -c $(AssemblyDir)/$*.s -o $(ObjectDir)/$*.o
 	
 
@@ -1546,9 +1853,15 @@ mlibtest: mlibtest.o mlibtest.a
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  commands to execute (from `makefile', line 32):
+#  commands to execute (from `makefile', line 37):
 	$(LINK.o) $(TestObjectDir)/mlibtest.o $(ArchiveDir)/mlib.a $(ArchiveDir)/mlibtest.a $(LOADLIBES) $(LDLIBS) -o $(TestExecutableDir)/mlibtest
 	
+
+# Not a target:
+writeInteger.c:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
 sumIntegertest.h:
@@ -1560,7 +1873,7 @@ cleanTestAssembly:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  commands to execute (from `make/clean.mk', line 13):
+#  commands to execute (from `make/clean.mk', line 42):
 	-cd $(TestAssemblyDir) && rm $(TestAssembly)
 	
 
@@ -1569,15 +1882,27 @@ ipower.o: ipower.s
 #  Implicit/static pattern stem: `ipower'
 #  Modification time never checked.
 #  File has not been updated.
-#  commands to execute (from `make/recipes.mk', line 59):
+#  commands to execute (from `make/recipes.mk', line 91):
 	$(CC) -c $(AssemblyDir)/$*.s -o $(ObjectDir)/$*.o
 	
 
-# Not a target:
-sumInteger.h:
+writeIntegertest.s: writeIntegertest.i
 #  Implicit rule search has not been done.
+#  Implicit/static pattern stem: `writeInteger'
 #  Modification time never checked.
 #  File has not been updated.
+#  commands to execute (from `make/recipes.mk', line 49):
+	$(CC) -S $(INCLUDE) $(TestTranslationDir)/$*test.i -o $(TestAssemblyDir)/$*test.s
+	
+
+writeDecimal.s: writeDecimal.i
+#  Implicit rule search has not been done.
+#  Implicit/static pattern stem: `writeDecimal'
+#  Modification time never checked.
+#  File has not been updated.
+#  commands to execute (from `make/recipes.mk', line 88):
+	$(CC) -S $(INCLUDE) $(TranslationDir)/$*.i -o $(AssemblyDir)/$*.s
+	
 
 # Not a target:
 .c.o:
@@ -1587,13 +1912,26 @@ sumInteger.h:
 #  commands to execute (built-in):
 	$(COMPILE.c) $(OUTPUT_OPTION) $<
 
-primelistgen.i: primelistgen.c
+primelistgen.i: primelistgen.c util/bin/process
 #  Implicit rule search has not been done.
 #  Implicit/static pattern stem: `primelist'
 #  Modification time never checked.
 #  File has not been updated.
-#  commands to execute (from `make/recipes.mk', line 11):
-	$(CC) -E $(INCLUDE) $(BuildSourceDir)/$*gen.c -o $(BuildTranslationDir)/$*gen.i
+#  commands to execute (from `make/recipes.mk', line 23):
+	$(CC) -E $(INCLUDE) $(BuildSourceDir)/$*gen.c -o $(BuildTranslationDir)/$*gentmp.i
+	$(UtilExecutableDir)/process $(BuildTranslationDir)/$*gen
+	rm $(BuildTranslationDir)/$*gentmp.i
+	indent $(BuildTranslationDir)/$*gen.i
+	rm $(BuildTranslationDir)/$*gen.i~
+	
+
+writeInteger.s: writeInteger.i
+#  Implicit rule search has not been done.
+#  Implicit/static pattern stem: `writeInteger'
+#  Modification time never checked.
+#  File has not been updated.
+#  commands to execute (from `make/recipes.mk', line 88):
+	$(CC) -S $(INCLUDE) $(TranslationDir)/$*.i -o $(AssemblyDir)/$*.s
 	
 
 primelistgen: primelistgen.o primelistgen.o
@@ -1601,7 +1939,7 @@ primelistgen: primelistgen.o primelistgen.o
 #  Implicit/static pattern stem: `primelist'
 #  Modification time never checked.
 #  File has not been updated.
-#  commands to execute (from `make/recipes.mk', line 20):
+#  commands to execute (from `make/recipes.mk', line 36):
 	$(LINK.o) $(BuildObjectDir)/$*gen.o $(ArchiveDir)/mlib.a $(LOADLIBES) $(LDLIBS) -o $(BuildExecutableDir)/$*gen
 	
 
@@ -1612,6 +1950,19 @@ primelistgen: primelistgen.o primelistgen.o
 #  File has not been updated.
 #  commands to execute (built-in):
 	$(COMPILE.r) $(OUTPUT_OPTION) $<
+
+readDecimaldriver.i: readDecimaldriver.c util/bin/process
+#  Implicit rule search has not been done.
+#  Implicit/static pattern stem: `readDecimal'
+#  Modification time never checked.
+#  File has not been updated.
+#  commands to execute (from `make/recipes.mk', line 55):
+	$(CC) -E $(INCLUDE) $(TestSourceDir)/$*driver.c -o $(TestTranslationDir)/$*drivertmp.i
+	$(UtilExecutableDir)/process $(TestTranslationDir)/$*driver
+	rm $(TestTranslationDir)/$*drivertmp.i
+	indent $(TestTranslationDir)/$*driver.i
+	rm $(TestTranslationDir)/$*driver.i~
+	
 
 # Not a target:
 .r:
@@ -1625,12 +1976,54 @@ cleanBuildResults:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  commands to execute (from `make/clean.mk', line 34):
+#  commands to execute (from `make/clean.mk', line 32):
 	-cd $(BuildResultDir) && rm $(BuildResults)
+	
+
+readDecimaldriver.o: readDecimaldriver.s
+#  Implicit rule search has not been done.
+#  Implicit/static pattern stem: `readDecimal'
+#  Modification time never checked.
+#  File has not been updated.
+#  commands to execute (from `make/recipes.mk', line 65):
+	$(CC) -c $(TestAssemblyDir)/$*driver.s -o $(TestObjectDir)/$*driver.o
 	
 
 # Not a target:
 prime.c:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+mlib.a(readInteger.o):
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+writeDecimaltest.s: writeDecimaltest.i
+#  Implicit rule search has not been done.
+#  Implicit/static pattern stem: `writeDecimal'
+#  Modification time never checked.
+#  File has not been updated.
+#  commands to execute (from `make/recipes.mk', line 49):
+	$(CC) -S $(INCLUDE) $(TestTranslationDir)/$*test.i -o $(TestAssemblyDir)/$*test.s
+	
+
+util/assembly/process.s: util/processed/process.i
+#  Implicit rule search has not been done.
+#  Implicit/static pattern stem: `process'
+#  Last modified 2014-12-01 14:38:50.833211155
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `make/recipes.mk', line 14):
+	$(CC) -S $(INCLUDE) $(UtilTranslationDir)/$*.i -o $(UtilAssemblyDir)/$*.s
+	
+
+# Not a target:
+readInteger.c:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
@@ -1641,11 +2034,14 @@ sumInteger.c:
 #  Modification time never checked.
 #  File has not been updated.
 
-# Not a target:
-factorialdriver.c:
+readIntegertest.s: readIntegertest.i
 #  Implicit rule search has not been done.
+#  Implicit/static pattern stem: `readInteger'
 #  Modification time never checked.
 #  File has not been updated.
+#  commands to execute (from `make/recipes.mk', line 49):
+	$(CC) -S $(INCLUDE) $(TestTranslationDir)/$*test.i -o $(TestAssemblyDir)/$*test.s
+	
 
 test: mlib_t.h
 #  Implicit rule search has not been done.
@@ -1658,11 +2054,20 @@ permutation.c:
 #  Modification time never checked.
 #  File has not been updated.
 
+readInteger.s: readInteger.i
+#  Implicit rule search has not been done.
+#  Implicit/static pattern stem: `readInteger'
+#  Modification time never checked.
+#  File has not been updated.
+#  commands to execute (from `make/recipes.mk', line 88):
+	$(CC) -S $(INCLUDE) $(TranslationDir)/$*.i -o $(AssemblyDir)/$*.s
+	
+
 cleanAssembly:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  commands to execute (from `make/clean.mk', line 7):
+#  commands to execute (from `make/clean.mk', line 13):
 	-cd $(AssemblyDir) && rm $(Assembly)
 	
 
@@ -1671,23 +2076,63 @@ factorialdriver.s: factorialdriver.i
 #  Implicit/static pattern stem: `factorial'
 #  Modification time never checked.
 #  File has not been updated.
-#  commands to execute (from `make/recipes.mk', line 38):
+#  commands to execute (from `make/recipes.mk', line 62):
 	$(CC) -S $(INCLUDE) $(TestTranslationDir)/$*driver.i -o $(TestAssemblyDir)/$*driver.s
 	
 
 # Not a target:
+mlib.a(sumInteger.o):
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
 makefile:
 #  Implicit rule search has been done.
-#  Last modified 2014-11-26 15:55:57.485219764
+#  Last modified 2014-12-01 14:38:43.621211179
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
 # Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
-build: mlib.a
+# Not a target:
+macro.h:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
+
+# Not a target:
+mlib.a(writeDecimal.o):
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+build: mlib.a mlib.i
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+str.i: str.c str.h util/bin/process
+#  Implicit rule search has not been done.
+#  Implicit/static pattern stem: `str'
+#  Modification time never checked.
+#  File has not been updated.
+#  commands to execute (from `make/recipes.mk', line 74):
+	$(CC) -E $(INCLUDE) $(SourceDir)/$*.c -o $(TranslationDir)/$*tmp.i
+	$(UtilExecutableDir)/process $(TranslationDir)/$*
+	rm $(TranslationDir)/$*tmp.i
+	indent $(TranslationDir)/$*.i
+	rm $(TranslationDir)/$*.i~
+	
+
+str.o: str.s
+#  Implicit rule search has not been done.
+#  Implicit/static pattern stem: `str'
+#  Modification time never checked.
+#  File has not been updated.
+#  commands to execute (from `make/recipes.mk', line 91):
+	$(CC) -c $(AssemblyDir)/$*.s -o $(ObjectDir)/$*.o
+	
 
 # Not a target:
 lcmtest.h:
@@ -1702,10 +2147,35 @@ ipowerdriver.c:
 #  File has not been updated.
 
 # Not a target:
-.info:
+readIntegerdriver.c:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
+
+util/processed/process.i: util/source/process.c
+#  Implicit rule search has not been done.
+#  Implicit/static pattern stem: `process'
+#  Last modified 2014-12-01 14:38:50.809211155
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `make/recipes.mk', line 11):
+	$(CC) -E $(INCLUDE) $(UtilSourceDir)/$*.c -o $(UtilTranslationDir)/$*.i
+	
+
+combination.i: combination.c combination.h util/bin/process
+#  Implicit rule search has not been done.
+#  Implicit/static pattern stem: `combination'
+#  Modification time never checked.
+#  File has not been updated.
+#  commands to execute (from `make/recipes.mk', line 74):
+	$(CC) -E $(INCLUDE) $(SourceDir)/$*.c -o $(TranslationDir)/$*tmp.i
+	$(UtilExecutableDir)/process $(TranslationDir)/$*
+	rm $(TranslationDir)/$*tmp.i
+	indent $(TranslationDir)/$*.i
+	rm $(TranslationDir)/$*.i~
+	
 
 # Not a target:
 .elc:
@@ -1718,9 +2188,15 @@ ipowerdriver.s: ipowerdriver.i
 #  Implicit/static pattern stem: `ipower'
 #  Modification time never checked.
 #  File has not been updated.
-#  commands to execute (from `make/recipes.mk', line 38):
+#  commands to execute (from `make/recipes.mk', line 62):
 	$(CC) -S $(INCLUDE) $(TestTranslationDir)/$*driver.i -o $(TestAssemblyDir)/$*driver.s
 	
+
+# Not a target:
+writeDecimaltest.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
 .l.c:
@@ -1730,6 +2206,19 @@ ipowerdriver.s: ipowerdriver.i
 #  commands to execute (built-in):
 	@$(RM) $@ 
 	$(LEX.l) $< > $@
+
+writeIntegerdriver.i: writeIntegerdriver.c util/bin/process
+#  Implicit rule search has not been done.
+#  Implicit/static pattern stem: `writeInteger'
+#  Modification time never checked.
+#  File has not been updated.
+#  commands to execute (from `make/recipes.mk', line 55):
+	$(CC) -E $(INCLUDE) $(TestSourceDir)/$*driver.c -o $(TestTranslationDir)/$*drivertmp.i
+	$(UtilExecutableDir)/process $(TestTranslationDir)/$*driver
+	rm $(TestTranslationDir)/$*drivertmp.i
+	indent $(TestTranslationDir)/$*driver.i
+	rm $(TestTranslationDir)/$*driver.i~
+	
 
 # Not a target:
 mlibtest.a(gcd.o):
@@ -1744,9 +2233,15 @@ differenceIntegerdriver.c:
 #  File has not been updated.
 
 # Not a target:
+writeDecimal.c:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
 make/dependencies.mk:
 #  Implicit rule search has been done.
-#  Last modified 2014-11-26 13:50:36.701210227
+#  Last modified 2014-12-01 14:31:55.91321423
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -1758,17 +2253,53 @@ integer.d:
 #  Modification time never checked.
 #  File has not been updated.
 
+cleanTranslations:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  commands to execute (from `make/clean.mk', line 9):
+	-cd $(TranslationDir) && rm $(Translations)
+	-cd $(TranslationDir) && rm $(patsubst %.i,%.i~,$(Translations) )
+	
+
+# Not a target:
+mlibtest.a(productIntegertest.o):
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
 differenceIntegerdriver.s: differenceIntegerdriver.i
 #  Implicit rule search has not been done.
 #  Implicit/static pattern stem: `differenceInteger'
 #  Modification time never checked.
 #  File has not been updated.
-#  commands to execute (from `make/recipes.mk', line 38):
+#  commands to execute (from `make/recipes.mk', line 62):
 	$(CC) -S $(INCLUDE) $(TestTranslationDir)/$*driver.i -o $(TestAssemblyDir)/$*driver.s
 	
 
 # Not a target:
+writeIntegertest.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+combination.s: combination.i
+#  Implicit rule search has not been done.
+#  Implicit/static pattern stem: `combination'
+#  Modification time never checked.
+#  File has not been updated.
+#  commands to execute (from `make/recipes.mk', line 88):
+	$(CC) -S $(INCLUDE) $(TranslationDir)/$*.i -o $(AssemblyDir)/$*.s
+	
+
+# Not a target:
 .out:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+mlibtest.a(productInteger.o):
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
@@ -1778,17 +2309,38 @@ permutation.s: permutation.i
 #  Implicit/static pattern stem: `permutation'
 #  Modification time never checked.
 #  File has not been updated.
-#  commands to execute (from `make/recipes.mk', line 56):
+#  commands to execute (from `make/recipes.mk', line 88):
 	$(CC) -S $(INCLUDE) $(TranslationDir)/$*.i -o $(AssemblyDir)/$*.s
 	
+
+# Not a target:
+writeInteger.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+mlib.a(readDecimal.o):
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 gcddriver.s: gcddriver.i
 #  Implicit rule search has not been done.
 #  Implicit/static pattern stem: `gcd'
 #  Modification time never checked.
 #  File has not been updated.
-#  commands to execute (from `make/recipes.mk', line 38):
+#  commands to execute (from `make/recipes.mk', line 62):
 	$(CC) -S $(INCLUDE) $(TestTranslationDir)/$*driver.i -o $(TestAssemblyDir)/$*driver.s
+	
+
+cleanTestTranslations:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  commands to execute (from `make/clean.mk', line 38):
+	-cd $(TestTranslationDir) && rm $(TestTranslations)
+	-cd $(TestTranslationDir) && rm $(patsubst %.i,%.i~,$(TestTranslations) )
 	
 
 # Not a target:
@@ -1798,6 +2350,15 @@ gcddriver.s: gcddriver.i
 #  File has not been updated.
 #  commands to execute (built-in):
 	$(LINK.C) $^ $(LOADLIBES) $(LDLIBS) -o $@
+
+productInteger_t.h: productIntegertest
+#  Implicit rule search has not been done.
+#  Implicit/static pattern stem: `productInteger'
+#  Modification time never checked.
+#  File has not been updated.
+#  commands to execute (from `make/recipes.mk', line 71):
+	$(TestExecutableDir)/$*test > $(TestResultDir)/$*_t.h
+	
 
 # Not a target:
 mask.c:
@@ -1811,6 +2372,15 @@ extgcd.c:
 #  Modification time never checked.
 #  File has not been updated.
 
+readDecimaltest.o: readDecimaltest.s
+#  Implicit rule search has not been done.
+#  Implicit/static pattern stem: `readDecimal'
+#  Modification time never checked.
+#  File has not been updated.
+#  commands to execute (from `make/recipes.mk', line 52):
+	$(CC) -c $(TestAssemblyDir)/$*test.s -o $(TestObjectDir)/$*test.o
+	
+
 # Not a target:
 .r.f:
 #  Implicit rule search has not been done.
@@ -1823,7 +2393,7 @@ mlibtest.o: mlibtest.c mlibtest.h
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  commands to execute (from `makefile', line 25):
+#  commands to execute (from `makefile', line 32):
 	$(CC) -E $(INCLUDE) $(TestSourceDir)/mlibtest.c -o $(TestTranslationDir)/mlibtest.i
 	$(CC) -S $(INCLUDE) $(TestTranslationDir)/mlibtest.i -o $(TestAssemblyDir)/mlibtest.s
 	$(CC) -c $(TestAssemblyDir)/mlibtest.s -o $(TestObjectDir)/mlibtest.o
@@ -1834,7 +2404,7 @@ gcd_t.h: gcdtest
 #  Implicit/static pattern stem: `gcd'
 #  Modification time never checked.
 #  File has not been updated.
-#  commands to execute (from `make/recipes.mk', line 47):
+#  commands to execute (from `make/recipes.mk', line 71):
 	$(TestExecutableDir)/$*test > $(TestResultDir)/$*_t.h
 	
 
@@ -1849,35 +2419,50 @@ gcd_t.h: gcdtest
 # Not a target:
 make/configuration.mk:
 #  Implicit rule search has been done.
-#  Last modified 2014-11-26 15:12:01.249221345
+#  Last modified 2014-12-01 14:31:55.90121423
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
 # Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
 # Not a target:
-prime.h:
+decimal.d:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
+
+productIntegertest: productIntegertest.o productIntegerdriver.o mlib.a
+#  Implicit rule search has not been done.
+#  Implicit/static pattern stem: `productInteger'
+#  Modification time never checked.
+#  File has not been updated.
+#  commands to execute (from `make/recipes.mk', line 68):
+	$(LINK.o) $(TestObjectDir)/$*test.o $(TestObjectDir)/$*driver.o $(ArchiveDir)/mlib.a $(LOADLIBES) $(LDLIBS) -o $(TestExecutableDir)/$*test
+	
 
 prime.s: prime.i
 #  Implicit rule search has not been done.
 #  Implicit/static pattern stem: `prime'
 #  Modification time never checked.
 #  File has not been updated.
-#  commands to execute (from `make/recipes.mk', line 56):
+#  commands to execute (from `make/recipes.mk', line 88):
 	$(CC) -S $(INCLUDE) $(TranslationDir)/$*.i -o $(AssemblyDir)/$*.s
 	
 
-extgcd.s: extgcd.i
+productInteger.o: productInteger.s integer.d negateInteger.h
 #  Implicit rule search has not been done.
-#  Implicit/static pattern stem: `extgcd'
+#  Implicit/static pattern stem: `productInteger'
 #  Modification time never checked.
 #  File has not been updated.
-#  commands to execute (from `make/recipes.mk', line 56):
-	$(CC) -S $(INCLUDE) $(TranslationDir)/$*.i -o $(AssemblyDir)/$*.s
+#  commands to execute (from `make/recipes.mk', line 91):
+	$(CC) -c $(AssemblyDir)/$*.s -o $(ObjectDir)/$*.o
 	
+
+# Not a target:
+readIntegertest.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
 .texinfo.info:
@@ -1887,13 +2472,17 @@ extgcd.s: extgcd.i
 #  commands to execute (built-in):
 	$(MAKEINFO) $(MAKEINFO_FLAGS) $< -o $@
 
-gcd.i: gcd.c include/gcd.h
+gcd.i: gcd.c include/gcd.h util/bin/process
 #  Implicit rule search has not been done.
 #  Implicit/static pattern stem: `gcd'
 #  Modification time never checked.
 #  File has not been updated.
-#  commands to execute (from `make/recipes.mk', line 50):
-	$(CC) -E $(INCLUDE) $(SourceDir)/$*.c -o $(TranslationDir)/$*.i
+#  commands to execute (from `make/recipes.mk', line 74):
+	$(CC) -E $(INCLUDE) $(SourceDir)/$*.c -o $(TranslationDir)/$*tmp.i
+	$(UtilExecutableDir)/process $(TranslationDir)/$*
+	rm $(TranslationDir)/$*tmp.i
+	indent $(TranslationDir)/$*.i
+	rm $(TranslationDir)/$*.i~
 	
 
 # Not a target:
@@ -1904,12 +2493,24 @@ gcd.i: gcd.c include/gcd.h
 #  commands to execute (built-in):
 	$(LINK.c) $^ $(LOADLIBES) $(LDLIBS) -o $@
 
+# Not a target:
+mlibtest.a(combination.o):
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+readInteger.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
 gcd.o: gcd.s
 #  Implicit rule search has not been done.
 #  Implicit/static pattern stem: `gcd'
 #  Modification time never checked.
 #  File has not been updated.
-#  commands to execute (from `make/recipes.mk', line 59):
+#  commands to execute (from `make/recipes.mk', line 91):
 	$(CC) -c $(AssemblyDir)/$*.s -o $(ObjectDir)/$*.o
 	
 
@@ -1920,6 +2521,19 @@ gcd.o: gcd.s
 #  File has not been updated.
 #  commands to execute (built-in):
 	$(CWEAVE) $< - $@
+
+readDecimaltest.i: readDecimaltest.c readDecimaltest.h readDecimal.c readDecimal.h util/bin/process
+#  Implicit rule search has not been done.
+#  Implicit/static pattern stem: `readDecimal'
+#  Modification time never checked.
+#  File has not been updated.
+#  commands to execute (from `make/recipes.mk', line 42):
+	$(CC) -E $(INCLUDE) $(TestSourceDir)/$*test.c -o $(TestTranslationDir)/$*testtmp.i
+	$(UtilExecutableDir)/process $(TestTranslationDir)/$*test
+	rm $(TestTranslationDir)/$*testtmp.i
+	indent $(TestTranslationDir)/$*test.i
+	rm $(TestTranslationDir)/$*test.i~
+	
 
 # Not a target:
 .c.ln:
@@ -1942,7 +2556,7 @@ mask.s: mask.i
 #  Implicit/static pattern stem: `mask'
 #  Modification time never checked.
 #  File has not been updated.
-#  commands to execute (from `make/recipes.mk', line 56):
+#  commands to execute (from `make/recipes.mk', line 88):
 	$(CC) -S $(INCLUDE) $(TranslationDir)/$*.i -o $(AssemblyDir)/$*.s
 	
 
@@ -1966,11 +2580,20 @@ mlib.a(primelist.o):
 #  Modification time never checked.
 #  File has not been updated.
 
+readDecimaltest: readDecimaltest.o readDecimaldriver.o mlib.a
+#  Implicit rule search has not been done.
+#  Implicit/static pattern stem: `readDecimal'
+#  Modification time never checked.
+#  File has not been updated.
+#  commands to execute (from `make/recipes.mk', line 68):
+	$(LINK.o) $(TestObjectDir)/$*test.o $(TestObjectDir)/$*driver.o $(ArchiveDir)/mlib.a $(LOADLIBES) $(LDLIBS) -o $(TestExecutableDir)/$*test
+	
+
 cleanTestObjects:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  commands to execute (from `make/clean.mk', line 16):
+#  commands to execute (from `make/clean.mk', line 45):
 	-cd $(TestObjectDir) && rm $(TestObjects)
 	
 
@@ -1985,24 +2608,28 @@ mask.o: mask.s
 #  Implicit/static pattern stem: `mask'
 #  Modification time never checked.
 #  File has not been updated.
-#  commands to execute (from `make/recipes.mk', line 59):
+#  commands to execute (from `make/recipes.mk', line 91):
 	$(CC) -c $(AssemblyDir)/$*.s -o $(ObjectDir)/$*.o
 	
 
-invfactorial.i: invfactorial.c invfactorial.h
+invfactorial.i: invfactorial.c invfactorial.h util/bin/process
 #  Implicit rule search has not been done.
 #  Implicit/static pattern stem: `invfactorial'
 #  Modification time never checked.
 #  File has not been updated.
-#  commands to execute (from `make/recipes.mk', line 50):
-	$(CC) -E $(INCLUDE) $(SourceDir)/$*.c -o $(TranslationDir)/$*.i
+#  commands to execute (from `make/recipes.mk', line 74):
+	$(CC) -E $(INCLUDE) $(SourceDir)/$*.c -o $(TranslationDir)/$*tmp.i
+	$(UtilExecutableDir)/process $(TranslationDir)/$*
+	rm $(TranslationDir)/$*tmp.i
+	indent $(TranslationDir)/$*.i
+	rm $(TranslationDir)/$*.i~
 	
 
 mlib_t.h: mlibtest
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  commands to execute (from `makefile', line 35):
+#  commands to execute (from `makefile', line 40):
 	$(TestExecutableDir)/mlibtest > $(TestResultDir)/mlib_t.h
 	
 
@@ -2017,7 +2644,7 @@ invfactorial.o: invfactorial.s
 #  Implicit/static pattern stem: `invfactorial'
 #  Modification time never checked.
 #  File has not been updated.
-#  commands to execute (from `make/recipes.mk', line 59):
+#  commands to execute (from `make/recipes.mk', line 91):
 	$(CC) -c $(AssemblyDir)/$*.s -o $(ObjectDir)/$*.o
 	
 
@@ -2026,7 +2653,7 @@ factorialtest.s: factorialtest.i
 #  Implicit/static pattern stem: `factorial'
 #  Modification time never checked.
 #  File has not been updated.
-#  commands to execute (from `make/recipes.mk', line 29):
+#  commands to execute (from `make/recipes.mk', line 49):
 	$(CC) -S $(INCLUDE) $(TestTranslationDir)/$*test.i -o $(TestAssemblyDir)/$*test.s
 	
 
@@ -2037,7 +2664,25 @@ mlib.a(extgcd.o):
 #  File has not been updated.
 
 # Not a target:
+lcmdriver.c:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+.texinfo:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
 mlibtest.a(hexi.o):
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+writeDecimal.h:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
@@ -2056,13 +2701,17 @@ ipowertest.c:
 #  commands to execute (built-in):
 	$(TEXI2DVI) $(TEXI2DVI_FLAGS) $<
 
-gcddriver.i: gcddriver.c
+gcddriver.i: gcddriver.c util/bin/process
 #  Implicit rule search has not been done.
 #  Implicit/static pattern stem: `gcd'
 #  Modification time never checked.
 #  File has not been updated.
-#  commands to execute (from `make/recipes.mk', line 35):
-	$(CC) -E $(INCLUDE) $(TestSourceDir)/$*driver.c -o $(TestTranslationDir)/$*driver.i
+#  commands to execute (from `make/recipes.mk', line 55):
+	$(CC) -E $(INCLUDE) $(TestSourceDir)/$*driver.c -o $(TestTranslationDir)/$*drivertmp.i
+	$(UtilExecutableDir)/process $(TestTranslationDir)/$*driver
+	rm $(TestTranslationDir)/$*drivertmp.i
+	indent $(TestTranslationDir)/$*driver.i
+	rm $(TestTranslationDir)/$*driver.i~
 	
 
 # Not a target:
@@ -2081,12 +2730,27 @@ cleanObjects:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  commands to execute (from `make/clean.mk', line 10):
+#  commands to execute (from `make/clean.mk', line 16):
 	-cd $(ObjectDir) && rm $(Objects)
 	
 
+readDecimal_t.h: readDecimaltest
+#  Implicit rule search has not been done.
+#  Implicit/static pattern stem: `readDecimal'
+#  Modification time never checked.
+#  File has not been updated.
+#  commands to execute (from `make/recipes.mk', line 71):
+	$(TestExecutableDir)/$*test > $(TestResultDir)/$*_t.h
+	
+
 # Not a target:
-.texinfo:
+mlibtest.a(readDecimaltest.o):
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+.a:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
@@ -2096,14 +2760,20 @@ ipowertest.s: ipowertest.i
 #  Implicit/static pattern stem: `ipower'
 #  Modification time never checked.
 #  File has not been updated.
-#  commands to execute (from `make/recipes.mk', line 29):
+#  commands to execute (from `make/recipes.mk', line 49):
 	$(CC) -S $(INCLUDE) $(TestTranslationDir)/$*test.i -o $(TestAssemblyDir)/$*test.s
 	
 
 # Not a target:
+mlibtest.a(readIntegertest.o):
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
 include/gcd.h:
 #  Implicit rule search has been done.
-#  Last modified 2014-11-26 15:30:17.345218505
+#  Last modified 2014-12-01 14:31:26.141214538
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -2114,17 +2784,21 @@ ipower.s: ipower.i
 #  Implicit/static pattern stem: `ipower'
 #  Modification time never checked.
 #  File has not been updated.
-#  commands to execute (from `make/recipes.mk', line 56):
+#  commands to execute (from `make/recipes.mk', line 88):
 	$(CC) -S $(INCLUDE) $(TranslationDir)/$*.i -o $(AssemblyDir)/$*.s
 	
 
-primelist.i: primelist.c primelist.n
+primelist.i: primelist.c primelist.n util/bin/process
 #  Implicit rule search has not been done.
 #  Implicit/static pattern stem: `primelist'
 #  Modification time never checked.
 #  File has not been updated.
-#  commands to execute (from `make/recipes.mk', line 53):
-	$(CC) -E $(INCLUDE) $(SourceDir)/$*.c -o $(TranslationDir)/$*.i
+#  commands to execute (from `make/recipes.mk', line 81):
+	$(CC) -E $(INCLUDE) $(SourceDir)/$*.c -o $(TranslationDir)/$*tmp.i
+	$(UtilExecutableDir)/process $(TranslationDir)/$*
+	rm $(TranslationDir)/$*tmp.i
+	indent $(TranslationDir)/$*.i
+	rm $(TranslationDir)/$*.i~
 	
 
 # Not a target:
@@ -2142,6 +2816,19 @@ differenceIntegertest.c:
 #  Modification time never checked.
 #  File has not been updated.
 
+readDecimal.i: readDecimal.c readDecimal.h util/bin/process
+#  Implicit rule search has not been done.
+#  Implicit/static pattern stem: `readDecimal'
+#  Modification time never checked.
+#  File has not been updated.
+#  commands to execute (from `make/recipes.mk', line 74):
+	$(CC) -E $(INCLUDE) $(SourceDir)/$*.c -o $(TranslationDir)/$*tmp.i
+	$(UtilExecutableDir)/process $(TranslationDir)/$*
+	rm $(TranslationDir)/$*tmp.i
+	indent $(TranslationDir)/$*.i
+	rm $(TranslationDir)/$*.i~
+	
+
 # Not a target:
 primelist.n:
 #  Implicit rule search has not been done.
@@ -2153,15 +2840,18 @@ primelist.o: primelist.s
 #  Implicit/static pattern stem: `primelist'
 #  Modification time never checked.
 #  File has not been updated.
-#  commands to execute (from `make/recipes.mk', line 59):
+#  commands to execute (from `make/recipes.mk', line 91):
 	$(CC) -c $(AssemblyDir)/$*.s -o $(ObjectDir)/$*.o
 	
 
-# Not a target:
-differenceInteger.c:
+readDecimal.o: readDecimal.s decimal.d
 #  Implicit rule search has not been done.
+#  Implicit/static pattern stem: `readDecimal'
 #  Modification time never checked.
 #  File has not been updated.
+#  commands to execute (from `make/recipes.mk', line 91):
+	$(CC) -c $(AssemblyDir)/$*.s -o $(ObjectDir)/$*.o
+	
 
 # Not a target:
 .web.tex:
@@ -2190,7 +2880,7 @@ differenceIntegertest.s: differenceIntegertest.i
 #  Implicit/static pattern stem: `differenceInteger'
 #  Modification time never checked.
 #  File has not been updated.
-#  commands to execute (from `make/recipes.mk', line 29):
+#  commands to execute (from `make/recipes.mk', line 49):
 	$(CC) -S $(INCLUDE) $(TestTranslationDir)/$*test.i -o $(TestAssemblyDir)/$*test.s
 	
 
@@ -2199,9 +2889,15 @@ differenceInteger.s: differenceInteger.i
 #  Implicit/static pattern stem: `differenceInteger'
 #  Modification time never checked.
 #  File has not been updated.
-#  commands to execute (from `make/recipes.mk', line 56):
+#  commands to execute (from `make/recipes.mk', line 88):
 	$(CC) -S $(INCLUDE) $(TranslationDir)/$*.i -o $(AssemblyDir)/$*.s
 	
+
+# Not a target:
+productInteger.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
 .DEFAULT:
@@ -2209,13 +2905,17 @@ differenceInteger.s: differenceInteger.i
 #  Modification time never checked.
 #  File has not been updated.
 
-sumIntegerdriver.i: sumIntegerdriver.c
+sumIntegerdriver.i: sumIntegerdriver.c util/bin/process
 #  Implicit rule search has not been done.
 #  Implicit/static pattern stem: `sumInteger'
 #  Modification time never checked.
 #  File has not been updated.
-#  commands to execute (from `make/recipes.mk', line 35):
-	$(CC) -E $(INCLUDE) $(TestSourceDir)/$*driver.c -o $(TestTranslationDir)/$*driver.i
+#  commands to execute (from `make/recipes.mk', line 55):
+	$(CC) -E $(INCLUDE) $(TestSourceDir)/$*driver.c -o $(TestTranslationDir)/$*drivertmp.i
+	$(UtilExecutableDir)/process $(TestTranslationDir)/$*driver
+	rm $(TestTranslationDir)/$*drivertmp.i
+	indent $(TestTranslationDir)/$*driver.i
+	rm $(TestTranslationDir)/$*driver.i~
 	
 
 gcdtest.s: gcdtest.i
@@ -2223,7 +2923,7 @@ gcdtest.s: gcdtest.i
 #  Implicit/static pattern stem: `gcd'
 #  Modification time never checked.
 #  File has not been updated.
-#  commands to execute (from `make/recipes.mk', line 29):
+#  commands to execute (from `make/recipes.mk', line 49):
 	$(CC) -S $(INCLUDE) $(TestTranslationDir)/$*test.i -o $(TestAssemblyDir)/$*test.s
 	
 
@@ -2236,7 +2936,7 @@ factorial.c:
 # Not a target:
 make/clean.mk:
 #  Implicit rule search has been done.
-#  Last modified 2014-11-26 13:50:36.701210227
+#  Last modified 2014-12-01 14:31:55.565214233
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -2248,20 +2948,24 @@ make/clean.mk:
 #  Modification time never checked.
 #  File has not been updated.
 
-hexi.i: hexi.c hexi.n
+hexi.i: hexi.c hexi.n util/bin/process
 #  Implicit rule search has not been done.
 #  Implicit/static pattern stem: `hexi'
 #  Modification time never checked.
 #  File has not been updated.
-#  commands to execute (from `make/recipes.mk', line 53):
-	$(CC) -E $(INCLUDE) $(SourceDir)/$*.c -o $(TranslationDir)/$*.i
+#  commands to execute (from `make/recipes.mk', line 81):
+	$(CC) -E $(INCLUDE) $(SourceDir)/$*.c -o $(TranslationDir)/$*tmp.i
+	$(UtilExecutableDir)/process $(TranslationDir)/$*
+	rm $(TranslationDir)/$*tmp.i
+	indent $(TranslationDir)/$*.i
+	rm $(TranslationDir)/$*.i~
 	
 
 cleanTestResults:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  commands to execute (from `make/clean.mk', line 22):
+#  commands to execute (from `make/clean.mk', line 51):
 	-cd $(TestResultDir) && rm $(TestResults)
 	
 
@@ -2276,12 +2980,12 @@ hexi.o: hexi.s
 #  Implicit/static pattern stem: `hexi'
 #  Modification time never checked.
 #  File has not been updated.
-#  commands to execute (from `make/recipes.mk', line 59):
+#  commands to execute (from `make/recipes.mk', line 91):
 	$(CC) -c $(AssemblyDir)/$*.s -o $(ObjectDir)/$*.o
 	
 
 # Not a target:
-combination.c:
+productIntegerdriver.c:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
@@ -2291,7 +2995,7 @@ factorial.s: factorial.i
 #  Implicit/static pattern stem: `factorial'
 #  Modification time never checked.
 #  File has not been updated.
-#  commands to execute (from `make/recipes.mk', line 56):
+#  commands to execute (from `make/recipes.mk', line 88):
 	$(CC) -S $(INCLUDE) $(TranslationDir)/$*.i -o $(AssemblyDir)/$*.s
 	
 
@@ -2301,23 +3005,41 @@ mlib.a(hexi.o):
 #  Modification time never checked.
 #  File has not been updated.
 
-combination.s: combination.i
+# Not a target:
+readIntegertest.c:
 #  Implicit rule search has not been done.
-#  Implicit/static pattern stem: `combination'
 #  Modification time never checked.
 #  File has not been updated.
-#  commands to execute (from `make/recipes.mk', line 56):
-	$(CC) -S $(INCLUDE) $(TranslationDir)/$*.i -o $(AssemblyDir)/$*.s
+
+productIntegerdriver.s: productIntegerdriver.i
+#  Implicit rule search has not been done.
+#  Implicit/static pattern stem: `productInteger'
+#  Modification time never checked.
+#  File has not been updated.
+#  commands to execute (from `make/recipes.mk', line 62):
+	$(CC) -S $(INCLUDE) $(TestTranslationDir)/$*driver.i -o $(TestAssemblyDir)/$*driver.s
 	
 
 # Not a target:
 include/lcm.h:
 #  Implicit rule search has been done.
-#  Last modified 2014-11-26 15:30:18.321218503
+#  Last modified 2014-12-01 14:31:27.025214529
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
 # Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+util/bin/process: util/objects/process.o
+#  Implicit rule search has not been done.
+#  Implicit/static pattern stem: `process'
+#  Last modified 2014-12-01 14:38:50.881211155
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `make/recipes.mk', line 20):
+	$(LINK.o) $(UtilObjectDir)/$*.o $(ArchiveDir)/mlib.a $(LOADLIBES) $(LDLIBS) -o $(UtilExecutableDir)/$*
+	
 
 # Not a target:
 primelistgen.c:
@@ -2337,15 +3059,21 @@ factorialtest.h:
 #  Modification time never checked.
 #  File has not been updated.
 
+# Not a target:
+readDecimaldriver.c:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
 assembly/lcm.s: processed/lcm.i
 #  Implicit rule search has not been done.
 #  Implicit/static pattern stem: `lcm'
-#  Last modified 2014-11-26 15:52:29.985218686
+#  Last modified 2014-12-01 14:38:50.953211155
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
 # Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-#  commands to execute (from `make/recipes.mk', line 56):
+#  commands to execute (from `make/recipes.mk', line 88):
 	$(CC) -S $(INCLUDE) $(TranslationDir)/$*.i -o $(AssemblyDir)/$*.s
 	
 
@@ -2354,9 +3082,30 @@ primelistgen.s: primelistgen.i
 #  Implicit/static pattern stem: `primelist'
 #  Modification time never checked.
 #  File has not been updated.
-#  commands to execute (from `make/recipes.mk', line 14):
+#  commands to execute (from `make/recipes.mk', line 30):
 	$(CC) -S $(INCLUDE) $(BuildTranslationDir)/$*gen.i -o $(BuildAssemblyDir)/$*gen.s
 	
+
+# Not a target:
+mlibtest.a(readDecimal.o):
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+readDecimaldriver.s: readDecimaldriver.i
+#  Implicit rule search has not been done.
+#  Implicit/static pattern stem: `readDecimal'
+#  Modification time never checked.
+#  File has not been updated.
+#  commands to execute (from `make/recipes.mk', line 62):
+	$(CC) -S $(INCLUDE) $(TestTranslationDir)/$*driver.i -o $(TestAssemblyDir)/$*driver.s
+	
+
+# Not a target:
+prime.d:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
 .tex.dvi:
@@ -2365,6 +3114,27 @@ primelistgen.s: primelistgen.i
 #  File has not been updated.
 #  commands to execute (built-in):
 	$(TEX) $<
+
+productIntegerdriver.o: productIntegerdriver.s
+#  Implicit rule search has not been done.
+#  Implicit/static pattern stem: `productInteger'
+#  Modification time never checked.
+#  File has not been updated.
+#  commands to execute (from `make/recipes.mk', line 65):
+	$(CC) -c $(TestAssemblyDir)/$*driver.s -o $(TestObjectDir)/$*driver.o
+	
+
+# Not a target:
+mlib.a(productInteger.o):
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+mlibtest.a(permutation.o):
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
 .cpp.o:
@@ -2382,7 +3152,7 @@ primelistgen.s: primelistgen.i
 #  commands to execute (built-in):
 	$(LINK.cpp) $^ $(LOADLIBES) $(LDLIBS) -o $@
 
-clean: cleanAssembly cleanObjects cleanTestAssembly cleanTestObjects cleanTestExecutables cleanTestResults cleanBuildAssembly cleanBuildObjects cleanBuildExecutables cleanBuildResults cleanArchives
+clean: cleanTranslations cleanAssembly cleanObjects cleanBuildTranslations cleanBuildAssembly cleanBuildObjects cleanBuildExecutables cleanBuildResults cleanTestTranslations cleanTestAssembly cleanTestObjects cleanTestExecutables cleanTestResults cleanArchives
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
@@ -2390,6 +3160,8 @@ clean: cleanAssembly cleanObjects cleanTestAssembly cleanTestObjects cleanTestEx
 	-rm $(TestResultDir)/mlib_t.h
 	-rm $(TestExecutableDir)/mlibtest
 	-rm $(TestObjectDir)/mlibtest.o
+	-rm $(TranslationDir)/mlib.i
+	-rm $(BuildResultDir)/primelistprep
 	
 
 # Not a target:
@@ -2406,13 +3178,17 @@ mlib.a(invfactorial.o):
 #  commands to execute (built-in):
 	$(COMPILE.C) $(OUTPUT_OPTION) $<
 
-lcmdriver.i: lcmdriver.c
+lcmdriver.i: lcmdriver.c util/bin/process
 #  Implicit rule search has not been done.
 #  Implicit/static pattern stem: `lcm'
 #  Modification time never checked.
 #  File has not been updated.
-#  commands to execute (from `make/recipes.mk', line 35):
-	$(CC) -E $(INCLUDE) $(TestSourceDir)/$*driver.c -o $(TestTranslationDir)/$*driver.i
+#  commands to execute (from `make/recipes.mk', line 55):
+	$(CC) -E $(INCLUDE) $(TestSourceDir)/$*driver.c -o $(TestTranslationDir)/$*drivertmp.i
+	$(UtilExecutableDir)/process $(TestTranslationDir)/$*driver
+	rm $(TestTranslationDir)/$*drivertmp.i
+	indent $(TestTranslationDir)/$*driver.i
+	rm $(TestTranslationDir)/$*driver.i~
 	
 
 lcmdriver.o: lcmdriver.s
@@ -2420,7 +3196,7 @@ lcmdriver.o: lcmdriver.s
 #  Implicit/static pattern stem: `lcm'
 #  Modification time never checked.
 #  File has not been updated.
-#  commands to execute (from `make/recipes.mk', line 41):
+#  commands to execute (from `make/recipes.mk', line 65):
 	$(CC) -c $(TestAssemblyDir)/$*driver.s -o $(TestObjectDir)/$*driver.o
 	
 
@@ -2431,6 +3207,15 @@ ipower.h:
 #  File has not been updated.
 
 # Not a target:
+util/source/process.c:
+#  Implicit rule search has been done.
+#  Last modified 2014-12-01 14:35:24.557212109
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+# Not a target:
 .texi:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
@@ -2438,6 +3223,12 @@ ipower.h:
 
 # Not a target:
 .txinfo:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+str.c:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
@@ -2458,7 +3249,7 @@ var.mk: makefile make/configuration.mk make/files.mk make/dependencies.mk make/c
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  commands to execute (from `makefile', line 40):
+#  commands to execute (from `makefile', line 45):
 	$(MAKE) -p > $(MakefileDir)/$@
 	
 
@@ -2472,8 +3263,17 @@ cleanTestExecutables:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  commands to execute (from `make/clean.mk', line 19):
+#  commands to execute (from `make/clean.mk', line 48):
 	-cd $(TestExecutableDir) && rm $(TestExecutables)
+	
+
+str.s: str.i
+#  Implicit rule search has not been done.
+#  Implicit/static pattern stem: `str'
+#  Modification time never checked.
+#  File has not been updated.
+#  commands to execute (from `make/recipes.mk', line 88):
+	$(CC) -S $(INCLUDE) $(TranslationDir)/$*.i -o $(AssemblyDir)/$*.s
 	
 
 # Not a target:
@@ -2496,6 +3296,15 @@ gcdtest.h:
 #  Modification time never checked.
 #  File has not been updated.
 
+writeIntegerdriver.o: writeIntegerdriver.s
+#  Implicit rule search has not been done.
+#  Implicit/static pattern stem: `writeInteger'
+#  Modification time never checked.
+#  File has not been updated.
+#  commands to execute (from `make/recipes.mk', line 65):
+	$(CC) -c $(TestAssemblyDir)/$*driver.s -o $(TestObjectDir)/$*driver.o
+	
+
 # Not a target:
 factorial.h:
 #  Implicit rule search has not been done.
@@ -2503,7 +3312,38 @@ factorial.h:
 #  File has not been updated.
 
 # Not a target:
+mlibtest.a(prime.o):
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+readIntegerdriver.i: readIntegerdriver.c util/bin/process
+#  Implicit rule search has not been done.
+#  Implicit/static pattern stem: `readInteger'
+#  Modification time never checked.
+#  File has not been updated.
+#  commands to execute (from `make/recipes.mk', line 55):
+	$(CC) -E $(INCLUDE) $(TestSourceDir)/$*driver.c -o $(TestTranslationDir)/$*drivertmp.i
+	$(UtilExecutableDir)/process $(TestTranslationDir)/$*driver
+	rm $(TestTranslationDir)/$*drivertmp.i
+	indent $(TestTranslationDir)/$*driver.i
+	rm $(TestTranslationDir)/$*driver.i~
+	
+
+# Not a target:
 mlibtest.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+.info:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+productInteger.c:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
@@ -2520,38 +3360,58 @@ mlib.a(combination.o):
 #  Modification time never checked.
 #  File has not been updated.
 
+writeDecimaldriver.i: writeDecimaldriver.c util/bin/process
+#  Implicit rule search has not been done.
+#  Implicit/static pattern stem: `writeDecimal'
+#  Modification time never checked.
+#  File has not been updated.
+#  commands to execute (from `make/recipes.mk', line 55):
+	$(CC) -E $(INCLUDE) $(TestSourceDir)/$*driver.c -o $(TestTranslationDir)/$*drivertmp.i
+	$(UtilExecutableDir)/process $(TestTranslationDir)/$*driver
+	rm $(TestTranslationDir)/$*drivertmp.i
+	indent $(TestTranslationDir)/$*driver.i
+	rm $(TestTranslationDir)/$*driver.i~
+	
+
 sumInteger_t.h: sumIntegertest
 #  Implicit rule search has not been done.
 #  Implicit/static pattern stem: `sumInteger'
 #  Modification time never checked.
 #  File has not been updated.
-#  commands to execute (from `make/recipes.mk', line 47):
+#  commands to execute (from `make/recipes.mk', line 71):
 	$(TestExecutableDir)/$*test > $(TestResultDir)/$*_t.h
 	
 
 # Not a target:
 make/files.mk:
 #  Implicit rule search has been done.
-#  Last modified 2014-11-26 15:54:09.145219203
+#  Last modified 2014-12-01 14:31:56.041214228
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
 # Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
-permutation.i: permutation.c permutation.h
+permutation.i: permutation.c permutation.h util/bin/process
 #  Implicit rule search has not been done.
 #  Implicit/static pattern stem: `permutation'
 #  Modification time never checked.
 #  File has not been updated.
-#  commands to execute (from `make/recipes.mk', line 50):
-	$(CC) -E $(INCLUDE) $(SourceDir)/$*.c -o $(TranslationDir)/$*.i
+#  commands to execute (from `make/recipes.mk', line 74):
+	$(CC) -E $(INCLUDE) $(SourceDir)/$*.c -o $(TranslationDir)/$*tmp.i
+	$(UtilExecutableDir)/process $(TranslationDir)/$*
+	rm $(TranslationDir)/$*tmp.i
+	indent $(TranslationDir)/$*.i
+	rm $(TranslationDir)/$*.i~
 	
 
-# Not a target:
-mlibtest.a(differenceIntegertest.o):
+writeDecimaldriver.o: writeDecimaldriver.s
 #  Implicit rule search has not been done.
+#  Implicit/static pattern stem: `writeDecimal'
 #  Modification time never checked.
 #  File has not been updated.
+#  commands to execute (from `make/recipes.mk', line 65):
+	$(CC) -c $(TestAssemblyDir)/$*driver.s -o $(TestObjectDir)/$*driver.o
+	
 
 # Not a target:
 .ch:
@@ -2559,13 +3419,17 @@ mlibtest.a(differenceIntegertest.o):
 #  Modification time never checked.
 #  File has not been updated.
 
-sumIntegertest.i: sumIntegertest.c sumIntegertest.h sumInteger.c sumInteger.h
+sumIntegertest.i: sumIntegertest.c sumIntegertest.h sumInteger.c sumInteger.h util/bin/process
 #  Implicit rule search has not been done.
 #  Implicit/static pattern stem: `sumInteger'
 #  Modification time never checked.
 #  File has not been updated.
-#  commands to execute (from `make/recipes.mk', line 26):
-	$(CC) -E $(INCLUDE) $(TestSourceDir)/$*test.c -o $(TestTranslationDir)/$*test.i
+#  commands to execute (from `make/recipes.mk', line 42):
+	$(CC) -E $(INCLUDE) $(TestSourceDir)/$*test.c -o $(TestTranslationDir)/$*testtmp.i
+	$(UtilExecutableDir)/process $(TestTranslationDir)/$*test
+	rm $(TestTranslationDir)/$*testtmp.i
+	indent $(TestTranslationDir)/$*test.i
+	rm $(TestTranslationDir)/$*test.i~
 	
 
 # Not a target:
@@ -2579,17 +3443,21 @@ sumIntegertest.o: sumIntegertest.s
 #  Implicit/static pattern stem: `sumInteger'
 #  Modification time never checked.
 #  File has not been updated.
-#  commands to execute (from `make/recipes.mk', line 32):
+#  commands to execute (from `make/recipes.mk', line 52):
 	$(CC) -c $(TestAssemblyDir)/$*test.s -o $(TestObjectDir)/$*test.o
 	
 
-sumInteger.i: sumInteger.c sumInteger.h
+sumInteger.i: sumInteger.c sumInteger.h util/bin/process
 #  Implicit rule search has not been done.
 #  Implicit/static pattern stem: `sumInteger'
 #  Modification time never checked.
 #  File has not been updated.
-#  commands to execute (from `make/recipes.mk', line 50):
-	$(CC) -E $(INCLUDE) $(SourceDir)/$*.c -o $(TranslationDir)/$*.i
+#  commands to execute (from `make/recipes.mk', line 74):
+	$(CC) -E $(INCLUDE) $(SourceDir)/$*.c -o $(TranslationDir)/$*tmp.i
+	$(UtilExecutableDir)/process $(TranslationDir)/$*
+	rm $(TranslationDir)/$*tmp.i
+	indent $(TranslationDir)/$*.i
+	rm $(TranslationDir)/$*.i~
 	
 
 sumIntegertest: sumIntegertest.o sumIntegerdriver.o mlib.a
@@ -2597,20 +3465,17 @@ sumIntegertest: sumIntegertest.o sumIntegerdriver.o mlib.a
 #  Implicit/static pattern stem: `sumInteger'
 #  Modification time never checked.
 #  File has not been updated.
-#  commands to execute (from `make/recipes.mk', line 44):
+#  commands to execute (from `make/recipes.mk', line 68):
 	$(LINK.o) $(TestObjectDir)/$*test.o $(TestObjectDir)/$*driver.o $(ArchiveDir)/mlib.a $(LOADLIBES) $(LDLIBS) -o $(TestExecutableDir)/$*test
 	
 
-primelistprep: primelist.n
+readIntegerdriver.o: readIntegerdriver.s
 #  Implicit rule search has not been done.
+#  Implicit/static pattern stem: `readInteger'
 #  Modification time never checked.
 #  File has not been updated.
-#  commands to execute (from `makefile', line 14):
-	$(CC) -c $(INCLUDE) $(SourceDir)/prime.c -o $(ObjectDir)/prime.o
-	ar -cr $(ArchiveDir)/mlib.a $(ObjectDir)/prime.o
-	$(CC) -c $(INCLUDE) $(SourceDir)/primelist.c -o $(ObjectDir)/primelist.o
-	ar -cr $(ArchiveDir)/mlib.a $(ObjectDir)/primelist.o
-	echo prep > $(BuildResultDir)/primelistprep
+#  commands to execute (from `make/recipes.mk', line 65):
+	$(CC) -c $(TestAssemblyDir)/$*driver.s -o $(TestObjectDir)/$*driver.o
 	
 
 sumInteger.o: sumInteger.s integer.d
@@ -2618,9 +3483,15 @@ sumInteger.o: sumInteger.s integer.d
 #  Implicit/static pattern stem: `sumInteger'
 #  Modification time never checked.
 #  File has not been updated.
-#  commands to execute (from `make/recipes.mk', line 59):
+#  commands to execute (from `make/recipes.mk', line 91):
 	$(CC) -c $(AssemblyDir)/$*.s -o $(ObjectDir)/$*.o
 	
+
+# Not a target:
+productIntegertest.c:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
 mlibtest.a(lcmtest.o):
@@ -2628,22 +3499,46 @@ mlibtest.a(lcmtest.o):
 #  Modification time never checked.
 #  File has not been updated.
 
-gcdtest.i: gcdtest.c gcdtest.h gcd.c include/gcd.h
+# Not a target:
+mlibtest.a(str.o):
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+gcdtest.i: gcdtest.c gcdtest.h gcd.c include/gcd.h util/bin/process
 #  Implicit rule search has not been done.
 #  Implicit/static pattern stem: `gcd'
 #  Modification time never checked.
 #  File has not been updated.
-#  commands to execute (from `make/recipes.mk', line 26):
-	$(CC) -E $(INCLUDE) $(TestSourceDir)/$*test.c -o $(TestTranslationDir)/$*test.i
+#  commands to execute (from `make/recipes.mk', line 42):
+	$(CC) -E $(INCLUDE) $(TestSourceDir)/$*test.c -o $(TestTranslationDir)/$*testtmp.i
+	$(UtilExecutableDir)/process $(TestTranslationDir)/$*test
+	rm $(TestTranslationDir)/$*testtmp.i
+	indent $(TestTranslationDir)/$*test.i
+	rm $(TestTranslationDir)/$*test.i~
 	
 
-prime.i: prime.c prime.h
+mlib.i: mlib.h util/bin/process macro.h str.h include/gcd.h include/lcm.h extgcd.h ipower.h factorial.h permutation.h combination.h invfactorial.h prime.h sumInteger.h differenceInteger.h productInteger.h writeInteger.h writeDecimal.h readInteger.h readDecimal.h mask.n hexi.n primelist.n prime.d integer.d
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  commands to execute (from `makefile', line 14):
+	$(CC) -E $(INCLUDE) $(HeaderDir)/mlib.h -o $(TranslationDir)/mlibtmp.i
+	$(UtilExecutableDir)/process $(TranslationDir)/mlib
+	rm $(TranslationDir)/mlibtmp.i
+	
+
+prime.i: prime.c prime.h util/bin/process
 #  Implicit rule search has not been done.
 #  Implicit/static pattern stem: `prime'
 #  Modification time never checked.
 #  File has not been updated.
-#  commands to execute (from `make/recipes.mk', line 50):
-	$(CC) -E $(INCLUDE) $(SourceDir)/$*.c -o $(TranslationDir)/$*.i
+#  commands to execute (from `make/recipes.mk', line 74):
+	$(CC) -E $(INCLUDE) $(SourceDir)/$*.c -o $(TranslationDir)/$*tmp.i
+	$(UtilExecutableDir)/process $(TranslationDir)/$*
+	rm $(TranslationDir)/$*tmp.i
+	indent $(TranslationDir)/$*.i
+	rm $(TranslationDir)/$*.i~
 	
 
 lcmtest.s: lcmtest.i
@@ -2651,7 +3546,16 @@ lcmtest.s: lcmtest.i
 #  Implicit/static pattern stem: `lcm'
 #  Modification time never checked.
 #  File has not been updated.
-#  commands to execute (from `make/recipes.mk', line 29):
+#  commands to execute (from `make/recipes.mk', line 49):
+	$(CC) -S $(INCLUDE) $(TestTranslationDir)/$*test.i -o $(TestAssemblyDir)/$*test.s
+	
+
+productIntegertest.s: productIntegertest.i
+#  Implicit rule search has not been done.
+#  Implicit/static pattern stem: `productInteger'
+#  Modification time never checked.
+#  File has not been updated.
+#  commands to execute (from `make/recipes.mk', line 49):
 	$(CC) -S $(INCLUDE) $(TestTranslationDir)/$*test.i -o $(TestAssemblyDir)/$*test.s
 	
 
@@ -2660,7 +3564,7 @@ primelistgen.o: primelistgen.s primelistgen.c primelistprep
 #  Implicit/static pattern stem: `primelist'
 #  Modification time never checked.
 #  File has not been updated.
-#  commands to execute (from `make/recipes.mk', line 17):
+#  commands to execute (from `make/recipes.mk', line 33):
 	$(CC) -c $(BuildAssemblyDir)/$*gen.s -o $(BuildObjectDir)/$*gen.o
 	
 
@@ -2670,8 +3574,23 @@ gcd.c:
 #  Modification time never checked.
 #  File has not been updated.
 
+productInteger.s: productInteger.i
+#  Implicit rule search has not been done.
+#  Implicit/static pattern stem: `productInteger'
+#  Modification time never checked.
+#  File has not been updated.
+#  commands to execute (from `make/recipes.mk', line 88):
+	$(CC) -S $(INCLUDE) $(TranslationDir)/$*.i -o $(AssemblyDir)/$*.s
+	
+
 # Not a target:
 mlibtest.a(factorial.o):
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+readDecimaltest.c:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
@@ -2681,7 +3600,7 @@ gcd.s: gcd.i
 #  Implicit/static pattern stem: `gcd'
 #  Modification time never checked.
 #  File has not been updated.
-#  commands to execute (from `make/recipes.mk', line 56):
+#  commands to execute (from `make/recipes.mk', line 88):
 	$(CC) -S $(INCLUDE) $(TranslationDir)/$*.i -o $(AssemblyDir)/$*.s
 	
 
@@ -2705,11 +3624,26 @@ cleanArchives:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  commands to execute (from `make/clean.mk', line 40):
+#  commands to execute (from `make/clean.mk', line 54):
 	-cd $(ArchiveDir) && rm $(Archives)
 	
 
-mlibtest.a: gcdtest.o lcmtest.o ipowertest.o factorialtest.o sumIntegertest.o differenceIntegertest.o mlibtest.a(gcd.o) mlibtest.a(lcm.o) mlibtest.a(extgcd.o) mlibtest.a(ipower.o) mlibtest.a(factorial.o) mlibtest.a(permutation.o) mlibtest.a(combination.o) mlibtest.a(invfactorial.o) mlibtest.a(prime.o) mlibtest.a(sumInteger.o) mlibtest.a(differenceInteger.o) mlibtest.a(mask.o) mlibtest.a(hexi.o) mlibtest.a(primelist.o) mlibtest.a(gcdtest.o) mlibtest.a(lcmtest.o) mlibtest.a(ipowertest.o) mlibtest.a(factorialtest.o) mlibtest.a(sumIntegertest.o) mlibtest.a(differenceIntegertest.o)
+readDecimaltest.s: readDecimaltest.i
+#  Implicit rule search has not been done.
+#  Implicit/static pattern stem: `readDecimal'
+#  Modification time never checked.
+#  File has not been updated.
+#  commands to execute (from `make/recipes.mk', line 49):
+	$(CC) -S $(INCLUDE) $(TestTranslationDir)/$*test.i -o $(TestAssemblyDir)/$*test.s
+	
+
+# Not a target:
+mlibtest.a(writeIntegertest.o):
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+mlibtest.a: gcdtest.o lcmtest.o ipowertest.o factorialtest.o sumIntegertest.o differenceIntegertest.o productIntegertest.o writeIntegertest.o writeDecimaltest.o readDecimaltest.o readIntegertest.o mlibtest.a(str.o) mlibtest.a(gcd.o) mlibtest.a(lcm.o) mlibtest.a(extgcd.o) mlibtest.a(ipower.o) mlibtest.a(factorial.o) mlibtest.a(permutation.o) mlibtest.a(combination.o) mlibtest.a(invfactorial.o) mlibtest.a(prime.o) mlibtest.a(sumInteger.o) mlibtest.a(differenceInteger.o) mlibtest.a(productInteger.o) mlibtest.a(writeInteger.o) mlibtest.a(writeDecimal.o) mlibtest.a(readInteger.o) mlibtest.a(readDecimal.o) mlibtest.a(mask.o) mlibtest.a(hexi.o) mlibtest.a(primelist.o) mlibtest.a(gcdtest.o) mlibtest.a(lcmtest.o) mlibtest.a(ipowertest.o) mlibtest.a(factorialtest.o) mlibtest.a(sumIntegertest.o) mlibtest.a(differenceIntegertest.o) mlibtest.a(productIntegertest.o) mlibtest.a(writeIntegertest.o) mlibtest.a(writeDecimaltest.o) mlibtest.a(readDecimaltest.o) mlibtest.a(readIntegertest.o)
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
@@ -2721,6 +3655,12 @@ mlibtest.a: gcdtest.o lcmtest.o ipowertest.o factorialtest.o sumIntegertest.o di
 #  File has not been updated.
 #  commands to execute (built-in):
 	$(COMPILE.mod) -o $@ $<
+
+# Not a target:
+mlibtest.a(writeInteger.o):
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
 invfactorial.c:
@@ -2736,16 +3676,44 @@ invfactorial.c:
 #  commands to execute (built-in):
 	$(PREPROCESS.F) $(OUTPUT_OPTION) $<
 
-lcmtest.i: lcmtest.c lcmtest.h source/lcm.c include/lcm.h
+# Not a target:
+str.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+mlib.a(str.o):
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+primelistprep: primelist.n
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  commands to execute (from `makefile', line 19):
+	$(CC) -c $(INCLUDE) $(SourceDir)/prime.c -o $(ObjectDir)/prime.o
+	ar -cr $(ArchiveDir)/mlib.a $(ObjectDir)/prime.o
+	$(CC) -c $(INCLUDE) $(SourceDir)/primelist.c -o $(ObjectDir)/primelist.o
+	ar -cr $(ArchiveDir)/mlib.a $(ObjectDir)/primelist.o
+	echo prep > $(BuildResultDir)/primelistprep
+	
+
+lcmtest.i: lcmtest.c lcmtest.h source/lcm.c include/lcm.h util/bin/process
 #  Implicit rule search has not been done.
 #  Implicit/static pattern stem: `lcm'
 #  Modification time never checked.
 #  File has not been updated.
-#  commands to execute (from `make/recipes.mk', line 26):
-	$(CC) -E $(INCLUDE) $(TestSourceDir)/$*test.c -o $(TestTranslationDir)/$*test.i
+#  commands to execute (from `make/recipes.mk', line 42):
+	$(CC) -E $(INCLUDE) $(TestSourceDir)/$*test.c -o $(TestTranslationDir)/$*testtmp.i
+	$(UtilExecutableDir)/process $(TestTranslationDir)/$*test
+	rm $(TestTranslationDir)/$*testtmp.i
+	indent $(TestTranslationDir)/$*test.i
+	rm $(TestTranslationDir)/$*test.i~
 	
 
-mlib.a: gcd.o objects/lcm.o extgcd.o ipower.o factorial.o permutation.o combination.o invfactorial.o prime.o sumInteger.o differenceInteger.o mask.o hexi.o primelist.o mlib.a(gcd.o) mlib.a(lcm.o) mlib.a(extgcd.o) mlib.a(ipower.o) mlib.a(factorial.o) mlib.a(permutation.o) mlib.a(combination.o) mlib.a(invfactorial.o) mlib.a(prime.o) mlib.a(sumInteger.o) mlib.a(differenceInteger.o) mlib.a(mask.o) mlib.a(hexi.o) mlib.a(primelist.o)
+mlib.a: str.o gcd.o objects/lcm.o extgcd.o ipower.o factorial.o permutation.o combination.o invfactorial.o prime.o sumInteger.o differenceInteger.o productInteger.o writeInteger.o writeDecimal.o readInteger.o readDecimal.o mask.o hexi.o primelist.o mlib.a(str.o) mlib.a(gcd.o) mlib.a(lcm.o) mlib.a(extgcd.o) mlib.a(ipower.o) mlib.a(factorial.o) mlib.a(permutation.o) mlib.a(combination.o) mlib.a(invfactorial.o) mlib.a(prime.o) mlib.a(sumInteger.o) mlib.a(differenceInteger.o) mlib.a(productInteger.o) mlib.a(writeInteger.o) mlib.a(writeDecimal.o) mlib.a(readInteger.o) mlib.a(readDecimal.o) mlib.a(mask.o) mlib.a(hexi.o) mlib.a(primelist.o)
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
@@ -2755,7 +3723,7 @@ invfactorial.s: invfactorial.i
 #  Implicit/static pattern stem: `invfactorial'
 #  Modification time never checked.
 #  File has not been updated.
-#  commands to execute (from `make/recipes.mk', line 56):
+#  commands to execute (from `make/recipes.mk', line 88):
 	$(CC) -S $(INCLUDE) $(TranslationDir)/$*.i -o $(AssemblyDir)/$*.s
 	
 
@@ -2764,7 +3732,7 @@ lcmtest.o: lcmtest.s
 #  Implicit/static pattern stem: `lcm'
 #  Modification time never checked.
 #  File has not been updated.
-#  commands to execute (from `make/recipes.mk', line 32):
+#  commands to execute (from `make/recipes.mk', line 52):
 	$(CC) -c $(TestAssemblyDir)/$*test.s -o $(TestObjectDir)/$*test.o
 	
 
@@ -2773,7 +3741,7 @@ lcmtest: lcmtest.o lcmdriver.o mlib.a
 #  Implicit/static pattern stem: `lcm'
 #  Modification time never checked.
 #  File has not been updated.
-#  commands to execute (from `make/recipes.mk', line 44):
+#  commands to execute (from `make/recipes.mk', line 68):
 	$(LINK.o) $(TestObjectDir)/$*test.o $(TestObjectDir)/$*driver.o $(ArchiveDir)/mlib.a $(LOADLIBES) $(LDLIBS) -o $(TestExecutableDir)/$*test
 	
 
@@ -2786,7 +3754,41 @@ lcmtest: lcmtest.o lcmdriver.o mlib.a
 	$(COMPILE.S) -o $@ $<
 
 # Not a target:
+mlibtest.a(writeDecimal.o):
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
 mlibtest.a(lcm.o):
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+writeInteger_t.h: writeIntegertest
+#  Implicit rule search has not been done.
+#  Implicit/static pattern stem: `writeInteger'
+#  Modification time never checked.
+#  File has not been updated.
+#  commands to execute (from `make/recipes.mk', line 71):
+	$(TestExecutableDir)/$*test > $(TestResultDir)/$*_t.h
+	
+
+writeIntegertest.i: writeIntegertest.c writeIntegertest.h writeInteger.c writeInteger.h util/bin/process
+#  Implicit rule search has not been done.
+#  Implicit/static pattern stem: `writeInteger'
+#  Modification time never checked.
+#  File has not been updated.
+#  commands to execute (from `make/recipes.mk', line 42):
+	$(CC) -E $(INCLUDE) $(TestSourceDir)/$*test.c -o $(TestTranslationDir)/$*testtmp.i
+	$(UtilExecutableDir)/process $(TestTranslationDir)/$*test
+	rm $(TestTranslationDir)/$*testtmp.i
+	indent $(TestTranslationDir)/$*test.i
+	rm $(TestTranslationDir)/$*test.i~
+	
+
+# Not a target:
+.sym:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
@@ -2797,19 +3799,71 @@ gcddriver.c:
 #  Modification time never checked.
 #  File has not been updated.
 
-# Not a target:
-mlibtest.a(prime.o):
+writeIntegertest.o: writeIntegertest.s
 #  Implicit rule search has not been done.
+#  Implicit/static pattern stem: `writeInteger'
 #  Modification time never checked.
 #  File has not been updated.
+#  commands to execute (from `make/recipes.mk', line 52):
+	$(CC) -c $(TestAssemblyDir)/$*test.s -o $(TestObjectDir)/$*test.o
+	
+
+writeInteger.i: writeInteger.c writeInteger.h util/bin/process
+#  Implicit rule search has not been done.
+#  Implicit/static pattern stem: `writeInteger'
+#  Modification time never checked.
+#  File has not been updated.
+#  commands to execute (from `make/recipes.mk', line 74):
+	$(CC) -E $(INCLUDE) $(SourceDir)/$*.c -o $(TranslationDir)/$*tmp.i
+	$(UtilExecutableDir)/process $(TranslationDir)/$*
+	rm $(TranslationDir)/$*tmp.i
+	indent $(TranslationDir)/$*.i
+	rm $(TranslationDir)/$*.i~
+	
 
 primelist.c: primelistgen primelist_param primelistgen primelist_param
 #  Implicit rule search has not been done.
 #  Implicit/static pattern stem: `primelist'
 #  Modification time never checked.
 #  File has not been updated.
-#  commands to execute (from `make/recipes.mk', line 23):
+#  commands to execute (from `make/recipes.mk', line 39):
 	$(BuildExecutableDir)/$*gen $(BuildParameterDir)/$*_param $(SourceDir)/$*.c > $(BuildResultDir)/$*_gen
+	
+
+writeIntegertest: writeIntegertest.o writeIntegerdriver.o mlib.a
+#  Implicit rule search has not been done.
+#  Implicit/static pattern stem: `writeInteger'
+#  Modification time never checked.
+#  File has not been updated.
+#  commands to execute (from `make/recipes.mk', line 68):
+	$(LINK.o) $(TestObjectDir)/$*test.o $(TestObjectDir)/$*driver.o $(ArchiveDir)/mlib.a $(LOADLIBES) $(LDLIBS) -o $(TestExecutableDir)/$*test
+	
+
+productIntegertest.o: productIntegertest.s
+#  Implicit rule search has not been done.
+#  Implicit/static pattern stem: `productInteger'
+#  Modification time never checked.
+#  File has not been updated.
+#  commands to execute (from `make/recipes.mk', line 52):
+	$(CC) -c $(TestAssemblyDir)/$*test.s -o $(TestObjectDir)/$*test.o
+	
+
+writeInteger.o: writeInteger.s integer.d
+#  Implicit rule search has not been done.
+#  Implicit/static pattern stem: `writeInteger'
+#  Modification time never checked.
+#  File has not been updated.
+#  commands to execute (from `make/recipes.mk', line 91):
+	$(CC) -c $(AssemblyDir)/$*.s -o $(ObjectDir)/$*.o
+	
+
+cleanBuildTranslations:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  commands to execute (from `make/clean.mk', line 19):
+	-cd $(BuildTranslationDir) && rm $(BuildTranslations)
+	-cd $(BuildTranslationDir) && rm $(patsubst %.i,%.i~,$(BuildTranslations) )
 	
 
 # Not a target:
@@ -2829,7 +3883,7 @@ lcm_t.h: lcmtest
 #  Implicit/static pattern stem: `lcm'
 #  Modification time never checked.
 #  File has not been updated.
-#  commands to execute (from `make/recipes.mk', line 47):
+#  commands to execute (from `make/recipes.mk', line 71):
 	$(TestExecutableDir)/$*test > $(TestResultDir)/$*_t.h
 	
 
@@ -2844,19 +3898,38 @@ primelist.s: primelist.i
 #  Implicit/static pattern stem: `primelist'
 #  Modification time never checked.
 #  File has not been updated.
-#  commands to execute (from `make/recipes.mk', line 56):
+#  commands to execute (from `make/recipes.mk', line 88):
 	$(CC) -S $(INCLUDE) $(TranslationDir)/$*.i -o $(AssemblyDir)/$*.s
+	
+
+# Not a target:
+productIntegertest.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+writeDecimaltest.i: writeDecimaltest.c writeDecimaltest.h writeDecimal.c writeDecimal.h util/bin/process
+#  Implicit rule search has not been done.
+#  Implicit/static pattern stem: `writeDecimal'
+#  Modification time never checked.
+#  File has not been updated.
+#  commands to execute (from `make/recipes.mk', line 42):
+	$(CC) -E $(INCLUDE) $(TestSourceDir)/$*test.c -o $(TestTranslationDir)/$*testtmp.i
+	$(UtilExecutableDir)/process $(TestTranslationDir)/$*test
+	rm $(TestTranslationDir)/$*testtmp.i
+	indent $(TestTranslationDir)/$*test.i
+	rm $(TestTranslationDir)/$*test.i~
 	
 
 objects/lcm.o: assembly/lcm.s include/gcd.h
 #  Implicit rule search has not been done.
 #  Implicit/static pattern stem: `lcm'
-#  Last modified 2014-11-26 15:52:29.997218686
+#  Last modified 2014-12-01 14:38:50.961211155
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
 # Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-#  commands to execute (from `make/recipes.mk', line 59):
+#  commands to execute (from `make/recipes.mk', line 91):
 	$(CC) -c $(AssemblyDir)/$*.s -o $(ObjectDir)/$*.o
 	
 
@@ -2865,15 +3938,18 @@ factorialtest: factorialtest.o factorialdriver.o mlib.a
 #  Implicit/static pattern stem: `factorial'
 #  Modification time never checked.
 #  File has not been updated.
-#  commands to execute (from `make/recipes.mk', line 44):
+#  commands to execute (from `make/recipes.mk', line 68):
 	$(LINK.o) $(TestObjectDir)/$*test.o $(TestObjectDir)/$*driver.o $(ArchiveDir)/mlib.a $(LOADLIBES) $(LDLIBS) -o $(TestExecutableDir)/$*test
 	
 
-# Not a target:
-mlibtest.a(permutation.o):
+writeDecimaltest.o: writeDecimaltest.s
 #  Implicit rule search has not been done.
+#  Implicit/static pattern stem: `writeDecimal'
 #  Modification time never checked.
 #  File has not been updated.
+#  commands to execute (from `make/recipes.mk', line 52):
+	$(CC) -c $(TestAssemblyDir)/$*test.s -o $(TestObjectDir)/$*test.o
+	
 
 # Not a target:
 .F:
@@ -2882,6 +3958,15 @@ mlibtest.a(permutation.o):
 #  File has not been updated.
 #  commands to execute (built-in):
 	$(LINK.F) $^ $(LOADLIBES) $(LDLIBS) -o $@
+
+writeDecimaltest: writeDecimaltest.o writeDecimaldriver.o mlib.a
+#  Implicit rule search has not been done.
+#  Implicit/static pattern stem: `writeDecimal'
+#  Modification time never checked.
+#  File has not been updated.
+#  commands to execute (from `make/recipes.mk', line 68):
+	$(LINK.o) $(TestObjectDir)/$*test.o $(TestObjectDir)/$*driver.o $(ArchiveDir)/mlib.a $(LOADLIBES) $(LDLIBS) -o $(TestExecutableDir)/$*test
+	
 
 # Not a target:
 sumIntegerdriver.c:
@@ -2901,47 +3986,85 @@ hexi.c:
 #  Modification time never checked.
 #  File has not been updated.
 
+readIntegertest.o: readIntegertest.s
+#  Implicit rule search has not been done.
+#  Implicit/static pattern stem: `readInteger'
+#  Modification time never checked.
+#  File has not been updated.
+#  commands to execute (from `make/recipes.mk', line 52):
+	$(CC) -c $(TestAssemblyDir)/$*test.s -o $(TestObjectDir)/$*test.o
+	
+
 # Not a target:
 .web:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
 
+readInteger.i: readInteger.c readInteger.h util/bin/process
+#  Implicit rule search has not been done.
+#  Implicit/static pattern stem: `readInteger'
+#  Modification time never checked.
+#  File has not been updated.
+#  commands to execute (from `make/recipes.mk', line 74):
+	$(CC) -E $(INCLUDE) $(SourceDir)/$*.c -o $(TranslationDir)/$*tmp.i
+	$(UtilExecutableDir)/process $(TranslationDir)/$*
+	rm $(TranslationDir)/$*tmp.i
+	indent $(TranslationDir)/$*.i
+	rm $(TranslationDir)/$*.i~
+	
+
+readIntegertest: readIntegertest.o readIntegerdriver.o mlib.a
+#  Implicit rule search has not been done.
+#  Implicit/static pattern stem: `readInteger'
+#  Modification time never checked.
+#  File has not been updated.
+#  commands to execute (from `make/recipes.mk', line 68):
+	$(LINK.o) $(TestObjectDir)/$*test.o $(TestObjectDir)/$*driver.o $(ArchiveDir)/mlib.a $(LOADLIBES) $(LDLIBS) -o $(TestExecutableDir)/$*test
+	
+
 sumIntegerdriver.s: sumIntegerdriver.i
 #  Implicit rule search has not been done.
 #  Implicit/static pattern stem: `sumInteger'
 #  Modification time never checked.
 #  File has not been updated.
-#  commands to execute (from `make/recipes.mk', line 38):
+#  commands to execute (from `make/recipes.mk', line 62):
 	$(CC) -S $(INCLUDE) $(TestTranslationDir)/$*driver.i -o $(TestAssemblyDir)/$*driver.s
 	
 
 # Not a target:
-mlib.a(sumInteger.o):
+readDecimaltest.h:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
 
-# Not a target:
-.sym:
+readInteger.o: readInteger.s integer.d
 #  Implicit rule search has not been done.
+#  Implicit/static pattern stem: `readInteger'
 #  Modification time never checked.
 #  File has not been updated.
+#  commands to execute (from `make/recipes.mk', line 91):
+	$(CC) -c $(AssemblyDir)/$*.s -o $(ObjectDir)/$*.o
+	
 
-factorialdriver.i: factorialdriver.c
+factorialdriver.i: factorialdriver.c util/bin/process
 #  Implicit rule search has not been done.
 #  Implicit/static pattern stem: `factorial'
 #  Modification time never checked.
 #  File has not been updated.
-#  commands to execute (from `make/recipes.mk', line 35):
-	$(CC) -E $(INCLUDE) $(TestSourceDir)/$*driver.c -o $(TestTranslationDir)/$*driver.i
+#  commands to execute (from `make/recipes.mk', line 55):
+	$(CC) -E $(INCLUDE) $(TestSourceDir)/$*driver.c -o $(TestTranslationDir)/$*drivertmp.i
+	$(UtilExecutableDir)/process $(TestTranslationDir)/$*driver
+	rm $(TestTranslationDir)/$*drivertmp.i
+	indent $(TestTranslationDir)/$*driver.i
+	rm $(TestTranslationDir)/$*driver.i~
 	
 
 cleanBuildExecutables:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  commands to execute (from `make/clean.mk', line 31):
+#  commands to execute (from `make/clean.mk', line 29):
 	-cd $(BuildExecutableDir) && rm $(BuildExecutables)
 	
 
@@ -2950,7 +4073,7 @@ hexi.s: hexi.i
 #  Implicit/static pattern stem: `hexi'
 #  Modification time never checked.
 #  File has not been updated.
-#  commands to execute (from `make/recipes.mk', line 56):
+#  commands to execute (from `make/recipes.mk', line 88):
 	$(CC) -S $(INCLUDE) $(TranslationDir)/$*.i -o $(AssemblyDir)/$*.s
 	
 
@@ -2959,7 +4082,7 @@ factorialdriver.o: factorialdriver.s
 #  Implicit/static pattern stem: `factorial'
 #  Modification time never checked.
 #  File has not been updated.
-#  commands to execute (from `make/recipes.mk', line 41):
+#  commands to execute (from `make/recipes.mk', line 65):
 	$(CC) -c $(TestAssemblyDir)/$*driver.s -o $(TestObjectDir)/$*driver.o
 	
 
@@ -2976,7 +4099,7 @@ permutation.o: permutation.s
 #  Implicit/static pattern stem: `permutation'
 #  Modification time never checked.
 #  File has not been updated.
-#  commands to execute (from `make/recipes.mk', line 59):
+#  commands to execute (from `make/recipes.mk', line 91):
 	$(CC) -c $(AssemblyDir)/$*.s -o $(ObjectDir)/$*.o
 	
 
@@ -2994,12 +4117,18 @@ differenceIntegertest.h:
 #  Modification time never checked.
 #  File has not been updated.
 
+# Not a target:
+combination.c:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
 prime.o: prime.s
 #  Implicit rule search has not been done.
 #  Implicit/static pattern stem: `prime'
 #  Modification time never checked.
 #  File has not been updated.
-#  commands to execute (from `make/recipes.mk', line 59):
+#  commands to execute (from `make/recipes.mk', line 91):
 	$(CC) -c $(AssemblyDir)/$*.s -o $(ObjectDir)/$*.o
 	
 
@@ -3007,7 +4136,7 @@ cleanBuildAssembly:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  commands to execute (from `make/clean.mk', line 25):
+#  commands to execute (from `make/clean.mk', line 23):
 	-cd $(BuildAssemblyDir) && rm $(BuildAssembly)
 	
 
@@ -3017,20 +4146,29 @@ invfactorial.h:
 #  Modification time never checked.
 #  File has not been updated.
 
+extgcd.s: extgcd.i
+#  Implicit rule search has not been done.
+#  Implicit/static pattern stem: `extgcd'
+#  Modification time never checked.
+#  File has not been updated.
+#  commands to execute (from `make/recipes.mk', line 88):
+	$(CC) -S $(INCLUDE) $(TranslationDir)/$*.i -o $(AssemblyDir)/$*.s
+	
+
 # files hash-table stats:
-# Load=276/1024=27%, Rehash=0, Collisions=7871/21624=36%
+# Load=392/1024=38%, Rehash=0, Collisions=16303/27120=60%
 # VPATH Search Paths
 
 # No `vpath' search paths.
 
 # General (`VPATH' variable) search path:
-# include:source:processed:assembly:objects:archives:make:build/source:build/processed:build/assembly:build/objects:build/bin:build/param:build/results:test/include:test/source:test/processed:test/assembly:test/objects:test/bin:test/results
+# include:source:processed:assembly:objects:archives:make:util/source:util/processed:util/assembly:util/objects:util/bin:build/source:build/processed:build/assembly:build/objects:build/bin:build/param:build/results:test/include:test/source:test/processed:test/assembly:test/objects:test/bin:test/results
 
 # # of strings in strcache: 6
 # # of strcache buffers: 1
 # strcache size: total = 4096 / max = 4096 / min = 4096 / avg = 4096
 # strcache free: total = 4000 / max = 4000 / min = 4000 / avg = 4000
 
-# Finished Make data base on Wed Nov 26 15:56:00 2014
+# Finished Make data base on Mon Dec  1 14:39:30 2014
 
 # make[1]: Leaving directory `/home/ubuntu/workspace'

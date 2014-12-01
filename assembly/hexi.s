@@ -1,4 +1,4 @@
-	.file	"hexi.c"
+	.file	"hexi.i"
 	.globl	hexi
 	.data
 	.align 16

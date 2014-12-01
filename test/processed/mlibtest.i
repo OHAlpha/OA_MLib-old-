@@ -863,6 +863,26 @@ int testSumInteger( FILE *stream );
 # 29 "test/include/differenceIntegertest.h"
 int testDifferenceInteger( FILE *stream );
 # 12 "<command-line>" 2
+# 1 "test/include/productIntegertest.h" 1
+# 29 "test/include/productIntegertest.h"
+int testProductInteger( FILE *stream );
+# 13 "<command-line>" 2
+# 1 "test/include/writeIntegertest.h" 1
+# 26 "test/include/writeIntegertest.h"
+int testStrInteger( FILE *stream );
+# 14 "<command-line>" 2
+# 1 "test/include/writeDecimaltest.h" 1
+# 26 "test/include/writeDecimaltest.h"
+int testStrDecimal( FILE *stream );
+# 15 "<command-line>" 2
+# 1 "test/include/readIntegertest.h" 1
+# 24 "test/include/readIntegertest.h"
+int testReadInteger( FILE *stream );
+# 16 "<command-line>" 2
+# 1 "test/include/readDecimaltest.h" 1
+# 24 "test/include/readDecimaltest.h"
+int testReadDecimal( FILE *stream );
+# 17 "<command-line>" 2
 # 1 "test/include/mlibtest.h" 1
 # 13 "test/include/mlibtest.h"
 struct Test {
@@ -899,6 +919,28 @@ struct Tests {
   struct Test cmpZIntegerTest;
   struct Test sExtIntegerTest;
   struct Test zExtIntegerTest;
+  struct Test writeIntegerTest;
+  struct Test readIntegerTest;
+  struct Test copyDecimalTest;
+  struct Test moveDecimalTest;
+  struct Test sumDecimalTest;
+  struct Test differenceDecimalTest;
+  struct Test preIncrementDecimalTest;
+  struct Test postIncrementDecimalTest;
+  struct Test postDecrementDecimalTest;
+  struct Test preDecrementDecimalTest;
+  struct Test productDecimalTest;
+  struct Test negateDecimalTest;
+  struct Test quotientDecimalTest;
+  struct Test modDecimalTest;
+  struct Test sizeDecimalTest;
+  struct Test cmpDecimalTest;
+  struct Test cmpLDecimalTest;
+  struct Test cmpZDecimalTest;
+  struct Test sExtDecimalTest;
+  struct Test zExtDecimalTest;
+  struct Test writeDecimalTest;
+  struct Test readDecimalTest;
   struct Test wBinCArrayTest;
   struct Test wOctCArrayTest;
   struct Test wHexCArrayTest;
@@ -916,7 +958,7 @@ struct Tests {
 extern struct Test *tests;
 
 int testMLib();
-# 13 "<command-line>" 2
+# 18 "<command-line>" 2
 # 1 "/usr/include/stdlib.h" 1 3 4
 # 32 "/usr/include/stdlib.h" 3 4
 # 1 "/usr/lib/gcc/x86_64-linux-gnu/4.8/include/stddef.h" 1 3 4
@@ -1955,7 +1997,7 @@ extern int getloadavg (double __loadavg[], int __nelem)
 # 956 "/usr/include/stdlib.h" 2 3 4
 # 968 "/usr/include/stdlib.h" 3 4
 
-# 14 "<command-line>" 2
+# 19 "<command-line>" 2
 
 
 struct Test *tests;
@@ -2003,7 +2045,7 @@ void init() {
  t->postDecrementIntegerTest.name = "postDecrementInteger";
  t->postDecrementIntegerTest.test = 0;
  t->productIntegerTest.name = "productInteger";
- t->productIntegerTest.test = 0;
+ t->productIntegerTest.test = &testProductInteger;
  t->negateIntegerTest.name = "negateInteger";
  t->negateIntegerTest.test = 0;
  t->quotientIntegerTest.name = "quotientInteger";
@@ -2022,6 +2064,50 @@ void init() {
  t->sExtIntegerTest.test = 0;
  t->zExtIntegerTest.name = "zExtendInteger";
  t->zExtIntegerTest.test = 0;
+ t->writeIntegerTest.name = "writeInteger";
+ t->writeIntegerTest.test = &testStrInteger;
+ t->readIntegerTest.name = "readInteger";
+ t->readIntegerTest.test = &testReadInteger;
+ t->copyDecimalTest.name = "copyDecimal";
+ t->copyDecimalTest.test = 0;
+ t->moveDecimalTest.name = "moveDecimal";
+ t->moveDecimalTest.test = 0;
+ t->sumDecimalTest.name = "sumDecimal";
+ t->sumDecimalTest.test = 0;
+ t->differenceDecimalTest.name = "differenceDecimal";
+ t->differenceDecimalTest.test = 0;
+ t->preIncrementDecimalTest.name = "preIncrementDecimal";
+ t->preIncrementDecimalTest.test = 0;
+ t->postIncrementDecimalTest.name = "postIncrementDecimal";
+ t->postIncrementDecimalTest.test = 0;
+ t->preDecrementDecimalTest.name = "preDecrementDecimal";
+ t->preDecrementDecimalTest.test = 0;
+ t->postDecrementDecimalTest.name = "postDecrementDecimal";
+ t->postDecrementDecimalTest.test = 0;
+ t->productDecimalTest.name = "productDecimal";
+ t->productDecimalTest.test = 0;
+ t->negateDecimalTest.name = "negateDecimal";
+ t->negateDecimalTest.test = 0;
+ t->quotientDecimalTest.name = "quotientDecimal";
+ t->quotientDecimalTest.test = 0;
+ t->modDecimalTest.name = "modDecimal";
+ t->modDecimalTest.test = 0;
+ t->sizeDecimalTest.name = "sizeDecimal";
+ t->sizeDecimalTest.test = 0;
+ t->cmpDecimalTest.name = "cmpDecimal";
+ t->cmpDecimalTest.test = 0;
+ t->cmpLDecimalTest.name = "cmpLDecimal";
+ t->cmpLDecimalTest.test = 0;
+ t->cmpZDecimalTest.name = "cmpZDecimal";
+ t->cmpZDecimalTest.test = 0;
+ t->sExtDecimalTest.name = "sExtendDecimal";
+ t->sExtDecimalTest.test = 0;
+ t->zExtDecimalTest.name = "zExtendDecimal";
+ t->zExtDecimalTest.test = 0;
+ t->writeDecimalTest.name = "writeDecimal";
+ t->writeDecimalTest.test = &testStrDecimal;
+ t->readDecimalTest.name = "readDecimal";
+ t->readDecimalTest.test = &testReadDecimal;
  t->wBinCArrayTest.name = "wBinCArray";
  t->wBinCArrayTest.test = 0;
  t->wOctCArrayTest.name = "wOctCArray";
@@ -2091,7 +2177,7 @@ int testMLib() {
 
  printf( "/**\n * MLib\n\n" );
 
- for( i = 0; i < 40; i++ ) {
+ for( i = 0; i < 62; i++ ) {
   printf( " * \t%s\n", tests[i].name );
   f = concat( tests[i].name );
   stream = fopen( f, "w" );

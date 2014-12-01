@@ -1,4 +1,4 @@
-	.file	"lcm.c"
+	.file	"lcm.i"
 	.text
 	.globl	lcmC
 	.type	lcmC, @function

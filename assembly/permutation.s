@@ -1,4 +1,4 @@
-	.file	"permutation.c"
+	.file	"permutation.i"
 	.text
 	.globl	permuteC
 	.type	permuteC, @function

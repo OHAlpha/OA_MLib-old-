@@ -10,6 +10,8 @@
 
 #include "integer.d"
 
-SI_TYPE modInteger( SI_TYPE a, SI_TYPE b );
+void modInteger( SI_TYPE a, SI_TYPE b, SI_TYPE *c );
+
+void modEqualsInteger( SI_TYPE *a, SI_TYPE b );
 
 #endif /* MODINTEGER_H_ */

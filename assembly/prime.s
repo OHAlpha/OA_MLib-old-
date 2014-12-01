@@ -1,4 +1,4 @@
-	.file	"prime.c"
+	.file	"prime.i"
 	.section	.rodata
 .LC0:
 	.string	"%d: %Ld\n"

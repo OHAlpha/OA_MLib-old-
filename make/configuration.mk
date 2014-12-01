@@ -11,8 +11,15 @@ ResultDir := results
 ArchiveDir := archives
 MakefileDir := make
 
+UtilDir := util
 BuildDir := build
 TestDir := test
+
+UtilSourceDir := $(UtilDir)/$(SourceDir)
+UtilTranslationDir := $(UtilDir)/$(TranslationDir)
+UtilAssemblyDir := $(UtilDir)/$(AssemblyDir)
+UtilObjectDir := $(UtilDir)/$(ObjectDir)
+UtilExecutableDir := $(UtilDir)/$(ExecutableDir)
 
 BuildSourceDir := $(BuildDir)/$(SourceDir)
 BuildTranslationDir := $(BuildDir)/$(TranslationDir)
@@ -32,6 +39,9 @@ TestResultDir := $(TestDir)/$(ResultDir)
 
 VPATH := $(HeaderDir):$(SourceDir):$(TranslationDir):$(AssemblyDir)
 VPATH := $(VPATH):$(ObjectDir):$(ArchiveDir):$(MakefileDir)
+
+VPATH := $(VPATH):$(UtilSourceDir):$(UtilTranslationDir):$(UtilAssemblyDir)
+VPATH := $(VPATH):$(UtilObjectDir):$(UtilExecutableDir)
 
 VPATH := $(VPATH):$(BuildSourceDir):$(BuildTranslationDir):$(BuildAssemblyDir)
 VPATH := $(VPATH):$(BuildObjectDir):$(BuildExecutableDir):$(BuildParameterDir)

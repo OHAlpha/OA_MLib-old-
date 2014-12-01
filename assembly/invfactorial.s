@@ -1,4 +1,4 @@
-	.file	"invfactorial.c"
+	.file	"invfactorial.i"
 	.text
 	.globl	ifactF
 	.type	ifactF, @function

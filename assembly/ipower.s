@@ -1,4 +1,4 @@
-	.file	"ipower.c"
+	.file	"ipower.i"
 	.text
 	.globl	ipowC
 	.type	ipowC, @function

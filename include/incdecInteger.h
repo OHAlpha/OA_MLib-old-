@@ -10,12 +10,12 @@
 
 #include "integer.d"
 
-SI_TYPE preIncrementInteger( SI_TYPE n );
+void preIncrementInteger( SI_TYPE *n );
 
-SI_TYPE postIncrementInteger( SI_TYPE n );
+void postIncrementInteger( SI_TYPE *n );
 
-SI_TYPE preDecrementInteger( SI_TYPE n );
+void preDecrementInteger( SI_TYPE *n );
 
-SI_TYPE postDecrementInteger( SI_TYPE n );
+void postDecrementInteger( SI_TYPE *n );
 
 #endif /* INCDECINTEGER_H_ */

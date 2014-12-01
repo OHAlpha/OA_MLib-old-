@@ -1,4 +1,4 @@
-	.file	"mask.c"
+	.file	"mask.i"
 	.globl	rightMask
 	.data
 	.align 32

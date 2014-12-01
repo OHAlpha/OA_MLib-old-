@@ -1,4 +1,4 @@
-	.file	"primelistgen.c"
+	.file	"primelistgen.i"
 	.section	.rodata
 .LC0:
 	.string	"r"

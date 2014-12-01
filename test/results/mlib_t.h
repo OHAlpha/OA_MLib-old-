@@ -56,7 +56,7 @@
  * 	TODO: implement tests for preDecrementInteger
 
  * 	productInteger
- * 	TODO: implement tests for productInteger
+ * 	productInteger succeeded
 
  * 	negateInteger
  * 	TODO: implement tests for negateInteger
@@ -84,6 +84,72 @@
 
  * 	zExtendInteger
  * 	TODO: implement tests for zExtendInteger
+
+ * 	writeInteger
+ * 	writeInteger succeeded
+
+ * 	readInteger
+ * 	readInteger succeeded
+
+ * 	copyDecimal
+ * 	TODO: implement tests for copyDecimal
+
+ * 	moveDecimal
+ * 	TODO: implement tests for moveDecimal
+
+ * 	sumDecimal
+ * 	TODO: implement tests for sumDecimal
+
+ * 	differenceDecimal
+ * 	TODO: implement tests for differenceDecimal
+
+ * 	preIncrementDecimal
+ * 	TODO: implement tests for preIncrementDecimal
+
+ * 	postIncrementDecimal
+ * 	TODO: implement tests for postIncrementDecimal
+
+ * 	postDecrementDecimal
+ * 	TODO: implement tests for postDecrementDecimal
+
+ * 	preDecrementDecimal
+ * 	TODO: implement tests for preDecrementDecimal
+
+ * 	productDecimal
+ * 	TODO: implement tests for productDecimal
+
+ * 	negateDecimal
+ * 	TODO: implement tests for negateDecimal
+
+ * 	quotientDecimal
+ * 	TODO: implement tests for quotientDecimal
+
+ * 	modDecimal
+ * 	TODO: implement tests for modDecimal
+
+ * 	sizeDecimal
+ * 	TODO: implement tests for sizeDecimal
+
+ * 	cmpDecimal
+ * 	TODO: implement tests for cmpDecimal
+
+ * 	cmpLDecimal
+ * 	TODO: implement tests for cmpLDecimal
+
+ * 	cmpZDecimal
+ * 	TODO: implement tests for cmpZDecimal
+
+ * 	sExtendDecimal
+ * 	TODO: implement tests for sExtendDecimal
+
+ * 	zExtendDecimal
+ * 	TODO: implement tests for zExtendDecimal
+
+ * 	writeDecimal
+ * 	writeDecimal succeeded
+
+ * 	readDecimal
+ * 	readDecimal succeeded
 
  * 	wBinCArray
  * 	TODO: implement tests for wBinCArray

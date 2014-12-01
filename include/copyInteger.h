@@ -8,6 +8,6 @@
 #ifndef COPYINTEGER_H_
 #define COPYINTEGER_H_
 
-SI_TYPE copyInteger( SI_TYPE num );
+void copyInteger( SI_TYPE *source, SI_TYPE *dest, int flags );
 
 #endif /* COPYINTEGER_H_ */

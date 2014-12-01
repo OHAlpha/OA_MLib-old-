@@ -1,4 +1,4 @@
-	.file	"lcmtest.c"
+	.file	"lcmtest.i"
 	.section	.rodata
 .LC0:
 	.string	"/**\n * lcm\n"

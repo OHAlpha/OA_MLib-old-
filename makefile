@@ -6,9 +6,14 @@ include make/recipes.mk
 
 all: build buildtest test var.mk
 
-build: mlib.a
+build: mlib.a mlib.i
 
 mlib.a: $(Objects) $(MLibArchive)
+
+mlib.i: mlib.h process $(Header)
+	$(CC) -E $(INCLUDE) $(HeaderDir)/mlib.h -o $(TranslationDir)/mlibtmp.i
+	$(UtilExecutableDir)/process $(TranslationDir)/mlib
+	rm $(TranslationDir)/mlibtmp.i
 
 primelistprep: primelist.n
 	$(CC) -c $(INCLUDE) $(SourceDir)/prime.c -o $(ObjectDir)/prime.o
@@ -21,12 +26,12 @@ buildtest: mlibtest.a
 
 mlibtest.a: $(TestObjects) $(MLibTestArchive)
 
+test: mlib_t.h
+
 mlibtest.o: mlibtest.c mlibtest.h
 	$(CC) -E $(INCLUDE) $(TestSourceDir)/mlibtest.c -o $(TestTranslationDir)/mlibtest.i
 	$(CC) -S $(INCLUDE) $(TestTranslationDir)/mlibtest.i -o $(TestAssemblyDir)/mlibtest.s
 	$(CC) -c $(TestAssemblyDir)/mlibtest.s -o $(TestObjectDir)/mlibtest.o
-
-test: mlib_t.h
 
 mlibtest: mlibtest.o mlibtest.a
 	$(LINK.o) $(TestObjectDir)/mlibtest.o $(ArchiveDir)/mlib.a $(ArchiveDir)/mlibtest.a $(LOADLIBES) $(LDLIBS) -o $(TestExecutableDir)/mlibtest

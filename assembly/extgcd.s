@@ -1,4 +1,4 @@
-	.file	"extgcd.c"
+	.file	"extgcd.i"
 	.text
 	.globl	eulerC
 	.type	eulerC, @function

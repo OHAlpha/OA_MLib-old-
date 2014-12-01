@@ -1,4 +1,4 @@
-	.file	"ipowertest.c"
+	.file	"ipowertest.i"
 	.section	.rodata
 .LC0:
 	.string	"/**\n * gcd\n"

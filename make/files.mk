@@ -1,7 +1,8 @@
-HHeader := gcd.h lcm.h extgcd.h ipower.h
+HHeader := str.h gcd.h lcm.h extgcd.h ipower.h
 HHeader := $(HHeader) factorial.h permutation.h combination.h invfactorial.h
-HHeader := $(HHeader) prime.h sumInteger.h
-HHeader := $(HHeader) differenceInteger.h
+HHeader := $(HHeader) prime.h sumInteger.h differenceInteger.h
+HHeader := $(HHeader) productInteger.h writeInteger.h writeDecimal.h
+HHeader := $(HHeader) readInteger.h readDecimal.h
 
 NHeader := mask.n hexi.n primelist.n
 
@@ -19,6 +20,16 @@ Assembly := $(patsubst %.c,%.s,$(Source) )
 
 Objects := $(patsubst %.c,%.o,$(Source) )
 
+UtilSource := process.c
+
+UtilTranslations := $(patsubst %.c,%.i,$(UtilSource) )
+
+UtilAssembly := $(patsubst %.c,%.s,$(UtilSource) )
+
+UtilObjects := $(patsubst %.c,%.o,$(UtilSource) )
+
+UtilExecutables := $(patsubst %.c,%,$(UtilSource) )
+
 BuildSource := primelistgen.c
 
 BuildTranslations := $(patsubst %.c,%.i,$(BuildSource) )
@@ -29,10 +40,15 @@ BuildObjects := $(patsubst %.c,%.o,$(BuildSource) )
 
 BuildExecutables := $(patsubst %.c,%,$(BuildSource) )
 
+BuildResults := $(patsubst %gen.c,%_gen,$(BuildSource) )
+
 BuildOutputs := $(patsubst %gen.c,%.c,$(BuildSource) )
 
 TestHeader := gcdtest.h lcmtest.h ipowertest.h factorialtest.h
 TestHeader := $(TestHeader) sumIntegertest.h differenceIntegertest.h
+TestHeader := $(TestHeader) productIntegertest.h writeIntegertest.h
+TestHeader := $(TestHeader) writeDecimaltest.h readDecimaltest.h
+TestHeader := $(TestHeader) readIntegertest.h
 
 TestSource := $(patsubst %.h,%.c,$(TestHeader) )
 

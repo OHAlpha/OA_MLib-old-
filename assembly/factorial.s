@@ -1,4 +1,4 @@
-	.file	"factorial.c"
+	.file	"factorial.i"
 	.text
 	.globl	factC
 	.type	factC, @function

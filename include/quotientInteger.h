@@ -10,6 +10,8 @@
 
 #include "integer.d"
 
-SI_TYPE quotientInteger( SI_TYPE a, SI_TYPE b );
+void quotientInteger( SI_TYPE a, SI_TYPE b, SI_TYPE *c );
+
+void quotientEqualsInteger( SI_TYPE *a, SI_TYPE b );
 
 #endif /* QUOTIENTINTEGER_H_ */

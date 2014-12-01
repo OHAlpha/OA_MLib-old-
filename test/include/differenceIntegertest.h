@@ -16,7 +16,7 @@
 	b.integer = ( char * ) malloc( 4 * sizeof( char ) );
 #define DifferenceIntegerTestCase( a, b, C, D ) *( ( int * ) a.integer ) = C; \
 	*( ( int * ) b.integer ) = D; \
-	c = differenceInteger( a, b ); \
+	differenceInteger( a, b, &c ); \
 	fprintf( stream, " * \t%d + %d = %d ( %d )\n", C, D, *( ( int * ) c.integer ), c.size ); \
 	if( *( ( int * ) c.integer ) != C - D ) { \
 	fprintf( stream, " * \t\tFIXME: result should be %d but is %d\n", C - D, *( ( int * ) c.integer ) ); \

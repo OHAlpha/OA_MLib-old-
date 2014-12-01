@@ -1,4 +1,4 @@
-	.file	"gcd.c"
+	.file	"gcd.i"
 	.text
 	.globl	gcdC
 	.type	gcdC, @function

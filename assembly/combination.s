@@ -1,4 +1,4 @@
-	.file	"combination.c"
+	.file	"combination.i"
 	.text
 	.globl	chooseC
 	.type	chooseC, @function

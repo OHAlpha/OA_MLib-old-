@@ -9,6 +9,11 @@
 #include "lcmtest.h"
 #include "sumIntegertest.h"
 #include "differenceIntegertest.h"
+#include "productIntegertest.h"
+#include "writeIntegertest.h"
+#include "writeDecimaltest.h"
+#include "readIntegertest.h"
+#include "readDecimaltest.h"
 #include "mlibtest.h"
 #include <stdlib.h>
 #include <stdio.h>
@@ -58,7 +63,7 @@ void init() {
 	t->postDecrementIntegerTest.name = "postDecrementInteger";
 	t->postDecrementIntegerTest.test = 0;
 	t->productIntegerTest.name = "productInteger";
-	t->productIntegerTest.test = 0;
+	t->productIntegerTest.test = &testProductInteger;
 	t->negateIntegerTest.name = "negateInteger";
 	t->negateIntegerTest.test = 0;
 	t->quotientIntegerTest.name = "quotientInteger";
@@ -77,6 +82,50 @@ void init() {
 	t->sExtIntegerTest.test = 0;
 	t->zExtIntegerTest.name = "zExtendInteger";
 	t->zExtIntegerTest.test = 0;
+	t->writeIntegerTest.name = "writeInteger";
+	t->writeIntegerTest.test = &testStrInteger;
+	t->readIntegerTest.name = "readInteger";
+	t->readIntegerTest.test = &testReadInteger;
+	t->copyDecimalTest.name = "copyDecimal";
+	t->copyDecimalTest.test = 0;
+	t->moveDecimalTest.name = "moveDecimal";
+	t->moveDecimalTest.test = 0;
+	t->sumDecimalTest.name = "sumDecimal";
+	t->sumDecimalTest.test = 0;
+	t->differenceDecimalTest.name = "differenceDecimal";
+	t->differenceDecimalTest.test = 0;
+	t->preIncrementDecimalTest.name = "preIncrementDecimal";
+	t->preIncrementDecimalTest.test = 0;
+	t->postIncrementDecimalTest.name = "postIncrementDecimal";
+	t->postIncrementDecimalTest.test = 0;
+	t->preDecrementDecimalTest.name = "preDecrementDecimal";
+	t->preDecrementDecimalTest.test = 0;
+	t->postDecrementDecimalTest.name = "postDecrementDecimal";
+	t->postDecrementDecimalTest.test = 0;
+	t->productDecimalTest.name = "productDecimal";
+	t->productDecimalTest.test = 0;
+	t->negateDecimalTest.name = "negateDecimal";
+	t->negateDecimalTest.test = 0;
+	t->quotientDecimalTest.name = "quotientDecimal";
+	t->quotientDecimalTest.test = 0;
+	t->modDecimalTest.name = "modDecimal";
+	t->modDecimalTest.test = 0;
+	t->sizeDecimalTest.name = "sizeDecimal";
+	t->sizeDecimalTest.test = 0;
+	t->cmpDecimalTest.name = "cmpDecimal";
+	t->cmpDecimalTest.test = 0;
+	t->cmpLDecimalTest.name = "cmpLDecimal";
+	t->cmpLDecimalTest.test = 0;
+	t->cmpZDecimalTest.name = "cmpZDecimal";
+	t->cmpZDecimalTest.test = 0;
+	t->sExtDecimalTest.name = "sExtendDecimal";
+	t->sExtDecimalTest.test = 0;
+	t->zExtDecimalTest.name = "zExtendDecimal";
+	t->zExtDecimalTest.test = 0;
+	t->writeDecimalTest.name = "writeDecimal";
+	t->writeDecimalTest.test = &testStrDecimal;
+	t->readDecimalTest.name = "readDecimal";
+	t->readDecimalTest.test = &testReadDecimal;
 	t->wBinCArrayTest.name = "wBinCArray";
 	t->wBinCArrayTest.test = 0;
 	t->wOctCArrayTest.name = "wOctCArray";

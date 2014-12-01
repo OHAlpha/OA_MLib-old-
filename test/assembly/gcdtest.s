@@ -1,4 +1,4 @@
-	.file	"gcdtest.c"
+	.file	"gcdtest.i"
 	.section	.rodata
 .LC0:
 	.string	"/**\n * gcd\n"

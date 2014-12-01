@@ -8,7 +8,7 @@
 #ifndef MLIBTEST_H_
 #define MLIBTEST_H_
 
-#define NUM_TESTS 40
+#define NUM_TESTS 62
 
 struct Test {
 		char *name;
@@ -44,6 +44,28 @@ struct Tests {
 		struct Test cmpZIntegerTest;
 		struct Test sExtIntegerTest;
 		struct Test zExtIntegerTest;
+		struct Test writeIntegerTest;
+		struct Test readIntegerTest;
+		struct Test copyDecimalTest;
+		struct Test moveDecimalTest;
+		struct Test sumDecimalTest;
+		struct Test differenceDecimalTest;
+		struct Test preIncrementDecimalTest;
+		struct Test postIncrementDecimalTest;
+		struct Test postDecrementDecimalTest;
+		struct Test preDecrementDecimalTest;
+		struct Test productDecimalTest;
+		struct Test negateDecimalTest;
+		struct Test quotientDecimalTest;
+		struct Test modDecimalTest;
+		struct Test sizeDecimalTest;
+		struct Test cmpDecimalTest;
+		struct Test cmpLDecimalTest;
+		struct Test cmpZDecimalTest;
+		struct Test sExtDecimalTest;
+		struct Test zExtDecimalTest;
+		struct Test writeDecimalTest;
+		struct Test readDecimalTest;
 		struct Test wBinCArrayTest;
 		struct Test wOctCArrayTest;
 		struct Test wHexCArrayTest;

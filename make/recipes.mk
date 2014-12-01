@@ -7,8 +7,24 @@ mlibtest.a(%test.o): %test.o
 mlibtest.a(%.o): %.o
 	ar -cr $(ArchiveDir)/mlibtest.a $(ObjectDir)/$*.o
 
-$(BuildTranslations): %gen.i: %gen.c
-	$(CC) -E $(INCLUDE) $(BuildSourceDir)/$*gen.c -o $(BuildTranslationDir)/$*gen.i
+$(UtilTranslations): %.i: %.c
+	$(CC) -E $(INCLUDE) $(UtilSourceDir)/$*.c -o $(UtilTranslationDir)/$*.i
+
+$(UtilAssembly): %.s: %.i
+	$(CC) -S $(INCLUDE) $(UtilTranslationDir)/$*.i -o $(UtilAssemblyDir)/$*.s
+
+$(UtilObjects): %.o: %.s
+	$(CC) -c $(UtilAssemblyDir)/$*.s -o $(UtilObjectDir)/$*.o
+
+$(UtilExecutables): %: %.o
+	$(LINK.o) $(UtilObjectDir)/$*.o $(ArchiveDir)/mlib.a $(LOADLIBES) $(LDLIBS) -o $(UtilExecutableDir)/$*
+
+$(BuildTranslations): %gen.i: %gen.c process
+	$(CC) -E $(INCLUDE) $(BuildSourceDir)/$*gen.c -o $(BuildTranslationDir)/$*gentmp.i
+	$(UtilExecutableDir)/process $(BuildTranslationDir)/$*gen
+	rm $(BuildTranslationDir)/$*gentmp.i
+	indent $(BuildTranslationDir)/$*gen.i
+	rm $(BuildTranslationDir)/$*gen.i~
 
 $(BuildAssembly): %gen.s: %gen.i
 	$(CC) -S $(INCLUDE) $(BuildTranslationDir)/$*gen.i -o $(BuildAssemblyDir)/$*gen.s
@@ -22,8 +38,12 @@ $(BuildExecutables): %gen: %gen.o
 $(BuildOutputs): %.c: %gen %_param
 	$(BuildExecutableDir)/$*gen $(BuildParameterDir)/$*_param $(SourceDir)/$*.c > $(BuildResultDir)/$*_gen
 
-$(TestTranslations): %test.i: %test.c %test.h %.c %.h
-	$(CC) -E $(INCLUDE) $(TestSourceDir)/$*test.c -o $(TestTranslationDir)/$*test.i
+$(TestTranslations): %test.i: %test.c %test.h %.c %.h process
+	$(CC) -E $(INCLUDE) $(TestSourceDir)/$*test.c -o $(TestTranslationDir)/$*testtmp.i
+	$(UtilExecutableDir)/process $(TestTranslationDir)/$*test
+	rm $(TestTranslationDir)/$*testtmp.i
+	indent $(TestTranslationDir)/$*test.i
+	rm $(TestTranslationDir)/$*test.i~
 
 $(TestAssembly): %test.s: %test.i
 	$(CC) -S $(INCLUDE) $(TestTranslationDir)/$*test.i -o $(TestAssemblyDir)/$*test.s
@@ -31,8 +51,12 @@ $(TestAssembly): %test.s: %test.i
 $(TestObjects): %test.o: %test.s
 	$(CC) -c $(TestAssemblyDir)/$*test.s -o $(TestObjectDir)/$*test.o
 
-$(TestDriverTranslations): %driver.i: %driver.c
-	$(CC) -E $(INCLUDE) $(TestSourceDir)/$*driver.c -o $(TestTranslationDir)/$*driver.i
+$(TestDriverTranslations): %driver.i: %driver.c process
+	$(CC) -E $(INCLUDE) $(TestSourceDir)/$*driver.c -o $(TestTranslationDir)/$*drivertmp.i
+	$(UtilExecutableDir)/process $(TestTranslationDir)/$*driver
+	rm $(TestTranslationDir)/$*drivertmp.i
+	indent $(TestTranslationDir)/$*driver.i
+	rm $(TestTranslationDir)/$*driver.i~
 
 $(TestDriverAssembly): %driver.s: %driver.i
 	$(CC) -S $(INCLUDE) $(TestTranslationDir)/$*driver.i -o $(TestAssemblyDir)/$*driver.s
@@ -46,11 +70,19 @@ $(TestExecutables): %test: %test.o %driver.o mlib.a
 $(TestResults): %_t.h: %test
 	$(TestExecutableDir)/$*test > $(TestResultDir)/$*_t.h
 
-$(HTranslations): %.i: %.c %.h
-	$(CC) -E $(INCLUDE) $(SourceDir)/$*.c -o $(TranslationDir)/$*.i
+$(HTranslations): %.i: %.c %.h process
+	$(CC) -E $(INCLUDE) $(SourceDir)/$*.c -o $(TranslationDir)/$*tmp.i
+	$(UtilExecutableDir)/process $(TranslationDir)/$*
+	rm $(TranslationDir)/$*tmp.i
+	indent $(TranslationDir)/$*.i
+	rm $(TranslationDir)/$*.i~
 
-$(NTranslations): %.i: %.c %.n
-	$(CC) -E $(INCLUDE) $(SourceDir)/$*.c -o $(TranslationDir)/$*.i
+$(NTranslations): %.i: %.c %.n process
+	$(CC) -E $(INCLUDE) $(SourceDir)/$*.c -o $(TranslationDir)/$*tmp.i
+	$(UtilExecutableDir)/process $(TranslationDir)/$*
+	rm $(TranslationDir)/$*tmp.i
+	indent $(TranslationDir)/$*.i
+	rm $(TranslationDir)/$*.i~
 
 $(Assembly): %.s: %.i
 	$(CC) -S $(INCLUDE) $(TranslationDir)/$*.i -o $(AssemblyDir)/$*.s
